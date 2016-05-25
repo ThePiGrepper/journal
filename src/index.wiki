@@ -1,0 +1,9 @@
+= <My> Journal =
+== An infinite Journey ==
+===Summary===
+1) [[todo|ToDo Lists]] -- A hopeful attempt to improve productivity by making lists.
+2) [[howto|HowTos]] -- HowTo repository.
+.
+.
+.
+n) about?
