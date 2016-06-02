@@ -1,0 +1,5 @@
+== Touch ==
+* [ ] mpr121 library for STM32F1.
+  * [ ] compile mpr121 library for libopencm3 and test.
+* [ ] Touch mainboard simple test.
+* [ ] Do something(i dont really know) about Nucleo lib being the only option for L0.

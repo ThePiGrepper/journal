@@ -1,0 +1,10 @@
+== TCC ==
+* [ ] https://www.raspberrypi.org/forums/viewtopic.php?t=30036&p=264425
+* [ ] http://stackoverflow.com/questions/3712902/problems-compiling-tcc-on-os-x
+* [ ] https://github.com/Amorph/tcc/blob/master/configure
+* [ ] http://wiki.osdev.org/TCC
+* [ ] http://nongnu.13855.n7.nabble.com/ARM-code-generator-ARM-tiny-C-compiler-td167157.html
+* [ ] https://lists.nongnu.org/archive/html/tinycc-devel/2013-04/msg00033.html
+* [ ] http://unix.stackexchange.com/questions/101738/problem-in-cross-compiling-tinycc-with-codesourcery
+* [ ] http://repo.or.cz/w/tinycc.git
+* [ ] https://github.com/gfwilliams/tinycc

@@ -1,0 +1,9 @@
+== dow ==
+* [X] dow-clone
+* [ ] dow-fetch
+* [ ] dow-push
+* [ ] dow-checkout
+* [ ] dow-add
+* [ ] dow-rm
+* [ ] dow-reset
+* [ ] dow-commit

@@ -1,0 +1,18 @@
+== DevFlow Upgrade ==
+* [ ] Vim as IDE
+  * [ ] ctags/cscope: solve "openfile" issue.
+  * [ ] test vim plugins(check mail).
+* [ ] finish adding STM32F1 examples into Git repo.
+* [ ] test stlink.
+* [ ] study linker file syntax.
+  * [ ] add to HOWTO if needed.
+* [ ] study openocd .cfg file syntax.
+  * [ ] add to HOWTO if needed.
+* [ ] integrate flash feature into ninja file.
+* [ ] integrate debug feature into ninja file.
+* [ ] test gdb frontends and choose.
+* [ ] look for a ninja frontend(oboro?)
+* [ ] read about gcc optimizations(check mail).
+  * [ ] test switch-case opt.(asm for arm&x86).
+* [ ] organize howto lists HERE(vimwiki)
+* [ ] check diary functionality(vimwiki)

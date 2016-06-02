@@ -1,0 +1,6 @@
+== Nokia5110 ==
+* [X] Create git repo and commit original lib version.
+* [X] Port Nokia5110 library to STM32F1 StdPeriphLibV3.5.0.
+* [X] refactor library.
+* [ ] enhance library (add spi functionality,add puts() function)
+* [X] Create simple example.

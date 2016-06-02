@@ -1,3 +1,7 @@
 ==ToDo List==
-a) [[projecta|Project A]]--Project about A
-b) do some more(not necessary) random stuff.
+a) [[todonext|ToDo Next]]-- Upcoming stuff to do.
+b) [[PalmKeyboardIF]]
+c) [[Nokia5110]]
+d) [[dow]]
+e) [[devflow|development flow upgrade]]
+f) [[Touch]]
