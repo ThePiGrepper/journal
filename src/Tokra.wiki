@@ -1,0 +1,5 @@
+== Tok'ra ==
+* [ ] PLANNING document.
+* [ ] core(non cycle-accurate) section.
+  * [ ] state machine for execution unit.
+* [ ] interface(cycle-accurate) section.
