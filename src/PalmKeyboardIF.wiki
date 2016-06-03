@@ -2,15 +2,16 @@
 * [ ] Understand electrical interface.
 * [ ] simple program which communicates with keyboard.
 * [ ] keyboard interface program (USART output).
+* [ ] USB
+  * [ ] Study USB basics.
+  * [ ] Study USB on STM32.
+  * [ ] Study HID.
+  * [ ] Study HID on STM32.(STM32 USB example)
+  * [ ] Write simple USB HID keyboard example(just random output).
+  * [ ] Implement USB HID keyboard interface.
 * [ ] BLE
   * [ ] Study BLE.
   * [ ] Study BLElib(BlueNRG).
   * [ ] Port BLElib to StdPeriphLib(from fucking Cube).
   * [ ] BLE HID on GATT?.
   * [ ] Implement BLE HID keyboard interface.
-* [.] USB
-  * [X] Study USB basics.
-  * [ ] Study HID.
-  * [ ] Study USB/HID on STM32.
-  * [ ] Write simple USB HID keyboard example(just random output).
-  * [ ] Implement USB HID keyboard interface.
