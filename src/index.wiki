@@ -3,6 +3,8 @@
 ===Summary===
 1) [[todo|ToDo Lists]] -- A hopeful attempt to improve productivity by making lists.
 2) [[howto|HowTos]] -- HowTo repository.
+3) [[Wishlist|Wish List]]
+4) [[learning|Things to Learn]] -- Useful tools
 .
 .
 .

@@ -1,0 +1,20 @@
+== Stuff to be learned ==
+
+1) [ ] Make/Autotools,debuggers,toolchains,profiling tools
+2) [ ] USB
+3) [ ] BLE
+4) [ ] Linux Device Drivers
+5) [ ] Python
+6) [ ] RTOS (ContikiOS,TinyOS,ChibiOS,FreeRTOS)
+7) [ ] networking fundamentals (TCP/IP)
+8) [ ] IoT (HomeKit,Particle,CoAP,6LoWPAN)
+9) [ ] C++
+10) [ ] Java
+11) [ ] ARM ISA v7(& v8) assembly
+12) [ ] Rust
+13) [ ] I2C,CAN
+14) [ ] FLASH
+15) [ ] PCI/PCIe
+16) [ ] Tcl/Tk
+17) [ ] Yocto Project
+18) [ ] NoSQL

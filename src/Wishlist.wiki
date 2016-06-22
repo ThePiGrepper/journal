@@ -1,0 +1,4 @@
+== Wish List ==
+
+1) [ ] nrf51822 . nRF51-DK(mouser) $39 
+2) [ ] PCB for keyboard adapter
