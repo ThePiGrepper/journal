@@ -2,9 +2,9 @@
 * [X] Create git repo and commit original lib version.
 * [X] Port Nokia5110 library to STM32F1 StdPeriphLibV3.5.0.
 * [X] refactor library.
-* [ ] enhance library 
-  * [ ] add puts() function.
-    * [ ] add special character support.(\n,\t)
-  * [ ] high level function. printk() function.(maybe outside library)
-  * [ ] add spi functionality.
+* [o] enhance library
+  * [X] add puts() function.
+    * [X] add special character support.(\n,\t)
+  * [X] high level function. printk() function.(*stdlib retarget successful.)
+  * [ ] add SPI functionality.
 * [X] Create simple example.

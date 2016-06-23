@@ -1,7 +1,8 @@
 == Todo Next ==
 * [X] [[Nokia5110]]
 * [ ] [[PalmKeyboardIF]]
-* [ ] simpleBoard test program.
+* [X] simpleBoard test program.
+* [ ] simpleBoard solder and test external oscillator.
 * [ ] [[devflow|development flow upgrade]]
 * [ ] test oven soldering.
   * [ ] find/port lsm303c library for STM32F1.
@@ -11,5 +12,5 @@
 * [ ] [[Touch]]
 * [ ] edx training.
 * [ ] try to play with bison/flex(maybe Oboro kickoff?).
-* [ ] simpleBoard solder and test external oscillator.
+
 * [ ] [[tcc|compile TCC for raspberry]]
