@@ -1,0 +1,19 @@
+== Hot List ==
+* [ ] write parts shopping list.
+* [ ] clean room (40min)
+* [ ] exercise & bath (40min)
+* [ ] do groceries (40min)
+* [ ] Palm Keyboard IF (3hrs):
+  * [ ] write down PPK internal states.
+  * [ ] understand HID keyboard profile.
+  * [ ] write a working library:
+    * [ ] focus on low power.
+    * [ ] focus on modularity.
+    * [ ] compatible for future macro-expansion feature.
+* [ ] dow (3hrs):
+  * [ ] dow-checkout
+  * [ ] dow-add
+  * [ ] dow-rm
+  * [ ] dow-reset
+  * [ ] dow-commit
+

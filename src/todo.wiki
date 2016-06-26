@@ -1,5 +1,6 @@
-==ToDo List==
-a) [[todonext|ToDo Next]]-- Upcoming stuff to do.
+==ToDo List== [[HOTLIST]]
+
+a) [[todonext|Pending...]]-- Upcoming stuff to do.
 b) [[PalmKeyboardIF]]
 c) [[Nokia5110]]
 d) [[dow]]
