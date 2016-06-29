@@ -1,0 +1,6 @@
+== Simple Tests and Proofs ==
+
+* [ ] read about gcc optimizations(check mail).
+  * [ ] test switch-case opt.(asm for arm&x86).
+* [ ] test 8-bit unaligned access with arm-gcc.how many cycles?
+* [ ] test GPIO_write() and read().inlining occurs?

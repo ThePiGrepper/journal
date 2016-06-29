@@ -12,7 +12,5 @@
 * [ ] integrate debug feature into ninja file.
 * [ ] test gdb frontends and choose.
 * [ ] look for a ninja frontend(oboro?)
-* [ ] read about gcc optimizations(check mail).
-  * [ ] test switch-case opt.(asm for arm&x86).
 * [ ] organize howto lists HERE(vimwiki)
 * [ ] check diary functionality(vimwiki)

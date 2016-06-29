@@ -13,4 +13,4 @@
 * [ ] [[tcc|compile TCC for raspberry]]
 * [X] [[Nokia5110]]
 * [X] simpleBoard test program.
-
+* [ ] [[qtests|Simple tests and proofs]]
