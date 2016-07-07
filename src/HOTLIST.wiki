@@ -4,6 +4,23 @@
 * [ ] exercise & bath (40min)
 * [ ] do groceries (40min)
 -------------------------------------
+=== Preparation for this weekend ===
+* [ ] new PC preparation:
+  * [ ] lubuntu installation boot drive
+  * [ ] make a simple installation script:
+    * [ ] find about the following:
+      * [ ] create an apt repository on host server.
+      * [ ] create a deb package(use dpkg).
+      * [ ] create a simple script for installing from source.(only main apps which need latest)
+      * [ ] can you install directly from .deb and uninstall with apt-get.(proves that apt-get is just an abstraction for .deb)
+        - http://askubuntu.com/questions/9135/how-to-backup-settings-and-list-of-installed-packages
+        - http://askubuntu.com/questions/17823/how-to-list-all-installed-packages
+      * [ ] add a ppa to get latest versions.
+        - http://askubuntu.com/questions/35629/are-ppas-safe-to-add-to-my-system-and-what-are-some-red-flags-to-watch-out-fo
+        - http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them
+      * [ ] take a look into apt-get, dpkg and aptitude.
+      * [ ] Read about Comparison of major Linux package management systems.
+-------------------------------------
 * [ ] Palm Keyboard IF (3hrs):
   * [ ] write down PPK internal states.
   * [ ] understand HID keyboard profile.
