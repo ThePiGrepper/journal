@@ -1,0 +1,5 @@
+== Curiosities or Random 'nice to do' Stuff ==
+
+* [ ] Test Gentoo Linux and test Portage.
+* [ ] Test Slackware (http://slackbook.org/html/ )
+* [ ] try dpkg -l <cmd> or apt-cache show <cmd>
