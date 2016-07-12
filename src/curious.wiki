@@ -6,5 +6,8 @@
 * [ ] look up QR codes for presentation cards.
 * [ ] look up installing XMPP-base messaging servers (http://arstechnica.com/information-technology/2014/03/how-to-set-up-your-own-private-instant-messaging-server/ ):
   * [ ] lookup messaging archiving.
-* [ ] Test Arch Linux.
+* [.] Test Arch Linux:
+  * [X] test lxde.
+  * [ ] test openbox.
+  * [ ] test spectrwm,i3.
 * [ ] Test PeppermintOS
