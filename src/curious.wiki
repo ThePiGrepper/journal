@@ -11,3 +11,4 @@
   * [ ] test openbox.
   * [ ] test spectrwm,i3.
 * [ ] Test PeppermintOS
+* [ ] find a lightweight web browser.
