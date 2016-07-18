@@ -3,6 +3,7 @@
 * [ ] Test Gentoo Linux and test Portage.
 * [ ] Test Ubuntu Mate.
 * [ ] Test Mint (Mate).
+* [ ] Test Manjaro + (lightweight DE(i3,lxqt,Enlightment))
 * [ ] Test Slackware (http://slackbook.org/html/ )
 * [ ] try dpkg -l <cmd> or apt-cache show <cmd>
 * [ ] look up QR codes for presentation cards.
