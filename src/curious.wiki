@@ -32,3 +32,4 @@
   * [ ] Complete MCU toolchain and basic programs.
   * [ ] wifi support.
   * [ ] dropbox connection and basic documentation.
+* [ ] test screenshot app.
