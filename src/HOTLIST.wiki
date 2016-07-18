@@ -18,7 +18,11 @@
       * [X] Test arch in VM.
       * [ ] Install arch on HDD and configure all basics & add to HOWTOs.
         * [ ] Install lxde and i3.
-        * [ ] Install basic MCU programming tools and test flow.
+        * [ ] Install basic MCU programming tools and test flow:
+          * [ ] MCU toolchain.(test entire workflow)
+          * [ ] basic programs.
+          * [ ] search and install lightweight common apps(pdf reader, music player,etc)
+          * [ ] document everything in a HOWTo.
       * [ ] Install on SSD.
     * [X] lubuntu:
       * [X] mantain old version as-is.
