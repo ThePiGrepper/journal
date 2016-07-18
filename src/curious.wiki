@@ -25,3 +25,7 @@
       - http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them
     * [ ] take a look into apt-get, dpkg and aptitude.
     * [ ] Read about Comparison of major Linux package management systems.
+* [ ] create a Linux-pendrive with Puppy Linux.
+  * [ ] Complete MCU toolchain and basic programs.
+  * [ ] wifi support.
+  * [ ] dropbox connection and basic documentation.
