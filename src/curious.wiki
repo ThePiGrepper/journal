@@ -33,3 +33,4 @@
   * [ ] wifi support.
   * [ ] dropbox connection and basic documentation.
 * [ ] test screenshot app.
+* [ ] look it up: 'pacaur -Syu nginx php-fpm mariadb'
