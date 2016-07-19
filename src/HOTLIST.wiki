@@ -29,11 +29,11 @@
   * [ ] read about:
       * [ ] creating bootable disks on linux.
       * [ ] optimize OS configuration for SSDs.
-* [ ] Organize stuff:
+* [.] Organize stuff:
   * [ ] select everything that's going on the bag(books, clothes,etc).
     * [ ] select which components go.
-  * [ ] save everything needed on the 1TB external HDD and 64GB flashdrive:
-    * [ ] animes to watch.
+  * [.] save everything needed on the 1TB external HDD and 64GB flashdrive:
+    * [X] animes to watch.
     * [ ] documentation needed.
     * [ ] OSs ISOs.
 * [ ] get ready lubuntu and arch installation boot drives.

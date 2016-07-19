@@ -5,3 +5,4 @@
 * [ ] stuff needed for e-ink display
   * [ ] boost converter IC.
   * [ ] passives and other stuff.
+* [ ] 2mm male headers.
