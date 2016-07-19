@@ -3,14 +3,14 @@
 1) [ ] Make/Autotools,debuggers,toolchains,profiling tools
 2) [ ] USB
 3) [ ] BLE
-4) [ ] Linux Device Drivers
-5) [ ] Python
-6) [ ] RTOS (ContikiOS,TinyOS,ChibiOS,FreeRTOS)
-7) [ ] networking fundamentals (TCP/IP)
-8) [ ] IoT (HomeKit,Particle,CoAP,6LoWPAN)
-9) [ ] C++
+4) [ ] ARM ISA v7(& v8) assembly
+5) [ ] Linux Device Drivers
+6) [ ] Python
+7) [ ] RTOS (ContikiOS,TinyOS,ChibiOS,FreeRTOS)
+8) [ ] networking fundamentals (TCP/IP)
+9) [ ] IoT (HomeKit,Particle,CoAP,6LoWPAN)
 10) [ ] Java
-11) [ ] ARM ISA v7(& v8) assembly
+11) [ ] C++
 12) [ ] Rust
 13) [ ] I2C,CAN
 14) [ ] FLASH
