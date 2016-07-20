@@ -61,3 +61,31 @@
   * [ ] dow-rm
   * [ ] dow-reset
   * [ ] dow-commit
+* [.] Projects for Trip:
+  * [ ] PalmKeyboardIF for USB.
+    * [ ] Stuff needed:
+      * [ ] STM32F1 & L0 devboard.
+      * [ ] KB2DevBoard adapter.
+      * [ ] debugger(stlink)
+  * [ ] PalmKeyboardIF for BLE.
+    * [ ] Stuff needed(additional):
+      * [ ] BLE breakout board.
+  * [ ] Linux Device Drivers for embedded.
+    * [ ] Stuff needed:
+      * [ ] Raspberry Pi(anyone)
+      * [ ] cables.
+      * [ ] SD(8GB or more) or uSD w/adapter
+      * [ ] power adapter.
+  * [o] ARM ISA v7 lvlUp.
+    * [o] Stuff needed:
+      * [X] probably nothing else.
+  * [o] SHAdow
+    * [o] Stuff needed:
+      * [X] nothing else.
+  * [ ] others:
+    * [ ] bring:
+      * [ ] esp8266
+      * [ ] additional cables.
+      * [ ] soldering iron (just in case).
+      * [ ] an additional debugger.
+      * [ ] solderwick.
