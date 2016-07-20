@@ -5,8 +5,8 @@
 * [ ] do groceries (40min)
 -------------------------------------
 === Preparation for this weekend ===
-* [ ] buy everything needed:
-  * [ ] e-paper display module.
+* [.] buy everything needed:
+  * [X] e-paper display module.
   * [ ] 2 battery chargers.
   * [ ] mouser parts:
     * [ ] select parts.(consider kb adapter touch projects and overall stock)(*most needed only)
@@ -29,13 +29,14 @@
   * [ ] read about:
       * [ ] creating bootable disks on linux.
       * [ ] optimize OS configuration for SSDs.
-* [.] Organize stuff:
-  * [ ] select everything that's going on the bag(books, clothes,etc).
-    * [ ] select which components go.
-  * [.] save everything needed on the 1TB external HDD and 64GB flashdrive:
+* [O] Organize stuff:
+  * [o] select everything that's going on the bag(books, clothes,etc).
+    * [X] place clothes and books.
+    * [ ] select which project to do during trip and which components go accordingly.
+  * [X] save everything needed on the 1TB external HDD and 64GB flashdrive:
     * [X] animes to watch.
-    * [ ] documentation needed.
-    * [ ] OSs ISOs.
+    * [X] documentation needed.
+    * [X] OSs ISOs.
 * [ ] get ready lubuntu and arch installation boot drives.
 
 -------------------------------------
