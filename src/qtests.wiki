@@ -4,3 +4,4 @@
   * [ ] test switch-case opt.(asm for arm&x86).
 * [ ] test 8-bit unaligned access with arm-gcc.how many cycles?
 * [ ] test GPIO_write() and read().inlining occurs?
+* [ ] optimize rotate with gcc. http://blog.regehr.org/archives/1063 (check with https://godbolt.org/ )

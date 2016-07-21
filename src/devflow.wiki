@@ -14,3 +14,4 @@
 * [ ] look for a ninja frontend(oboro?)
 * [ ] organize howto lists HERE(vimwiki)
 * [ ] check diary functionality(vimwiki)
+* [ ] test valgrind.
