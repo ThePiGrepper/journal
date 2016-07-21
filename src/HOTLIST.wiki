@@ -5,11 +5,11 @@
 * [ ] do groceries (40min)
 -------------------------------------
 === Preparation for this weekend ===
-* [.] buy everything needed:
+* [o] buy everything needed:
   * [X] e-paper display module.
   * [ ] 2 battery chargers.
-  * [ ] mouser parts:
-    * [ ] select parts.(consider kb adapter touch projects and overall stock)(*most needed only)
+  * [X] mouser parts:
+    * [X] select parts.(consider kb adapter touch projects and overall stock)(*most needed only)
 * [.] new PC setup:
   * [ ] erase old partition(lxle).
   * [ ] create new partition layout with 3 main partitions and 1 swap. *for now dont change anything of the lubuntu partition.
@@ -29,10 +29,10 @@
   * [ ] read about:
       * [ ] creating bootable disks on linux.
       * [ ] optimize OS configuration for SSDs.
-* [O] Organize stuff:
-  * [o] select everything that's going on the bag(books, clothes,etc).
+* [X] Organize stuff:
+  * [X] select everything that's going on the bag(books, clothes,etc).
     * [X] place clothes and books.
-    * [ ] select which project to do during trip and which components go accordingly.
+    * [X] select which project to do during trip and which components go accordingly.
   * [X] save everything needed on the 1TB external HDD and 64GB flashdrive:
     * [X] animes to watch.
     * [X] documentation needed.
@@ -61,20 +61,20 @@
   * [ ] dow-rm
   * [ ] dow-reset
   * [ ] dow-commit
-* [.] Projects for Trip:
-  * [ ] PalmKeyboardIF for USB.
-    * [ ] Stuff needed:
-      * [ ] STM32F1 & L0 devboard.
-      * [ ] KB2DevBoard adapter.
-      * [ ] debugger(stlink)
-  * [ ] PalmKeyboardIF for BLE.
-    * [ ] Stuff needed(additional):
-      * [ ] BLE breakout board.
-  * [ ] Linux Device Drivers for embedded.
-    * [ ] Stuff needed:
-      * [ ] Raspberry Pi(anyone)
+* [O] Projects for Trip:
+  * [X] PalmKeyboardIF for USB.
+    * [X] Stuff needed:
+      * [X] STM32F1 & L0 devboard.
+      * [X] KB2DevBoard adapter.
+      * [X] debugger(stlink)
+  * [X] PalmKeyboardIF for BLE.
+    * [X] Stuff needed(additional):
+      * [X] BLE breakout board.
+  * [o] Linux Device Drivers for embedded.
+    * [o] Stuff needed:
+      * [X] Raspberry Pi(anyone)
       * [ ] cables.
-      * [ ] SD(8GB or more) or uSD w/adapter
+      * [X] SD(8GB or more) or uSD w/adapter
       * [ ] power adapter.
   * [o] ARM ISA v7 lvlUp.
     * [o] Stuff needed:
@@ -82,10 +82,10 @@
   * [o] SHAdow
     * [o] Stuff needed:
       * [X] nothing else.
-  * [ ] others:
-    * [ ] bring:
-      * [ ] esp8266
-      * [ ] additional cables.
-      * [ ] soldering iron (just in case).
-      * [ ] an additional debugger.
-      * [ ] solderwick.
+  * [X] others:
+    * [X] bring:
+      * [X] esp8266
+      * [X] additional cables.
+      * [X] soldering iron (just in case).
+      * [X] an additional debugger.
+      * [X] solderwick.
