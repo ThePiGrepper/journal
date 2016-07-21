@@ -7,4 +7,5 @@ d) [[dow]]
 e) [[devflow|development flow upgrade]]
 f) [[Touch]]
 g) [[Tokra]] -- A symbiotic 6502 emulator for MCUs.
-h) [[curious|Curiosities]]
+h) [[drivers|Linux and drivers]]
+j) [[curious|Curiosities]]
