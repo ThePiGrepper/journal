@@ -1,0 +1,22 @@
+== Interesting NOT organized Links ==
+
+- [ ] http://www.embedded.com/design/power-optimization/4441912/Power-optimization-for-battery-less-BLE-beacons 
+- [ ] http://www.embedded.com/design/programming-languages-and-tools/4441921/Pointers-and-addresses---a-programming-minefield
+- [ ] http://www.embedded.com/design/prototyping-and-development/4441737/Yes--you-can-develop-embedded-software-using-agile-methodology-
+- [ ] http://www.embedded.com/design/configurable-systems/4440506/Assessing-real-world-MCU-energy-efficiency
+- [ ] http://www.embedded.com/design/mcus-processors-and-socs/4440051/Sensor-Ganging---Optimizing-power-consumption
+- [ ] http://www.embedded.com/design/programming-languages-and-tools/4438698/Basics-of-the-Cortex-MCU-Software-Interface-Standard--Part-2---CMSIS-core-structure (related to current tasks)
+- [ ] http://www.embedded.com/design/programming-languages-and-tools/4438698/Basics-of-the-Cortex-MCU-Software-Interface-Standard--Part-2---CMSIS-core-structure
+- [ ] https://www.embeddedrelated.com/showarticle/690.php -- Best Firmware Architecture Attributes
+- [ ] https://www.embeddedrelated.com/showarticle/951.php -- A Better Way to Design Real-Time Embedded Software
+- [ ] https://www.embeddedrelated.com/showarticle/969.php -- A review of scheduling techniques
+- [ ] https://www.embeddedrelated.com/showarticle/629.php -- Important Programming Concepts
+- [ ] https://www.embeddedrelated.com/showarticle/936.php -- Embedded Firmware Refactoring, Optimisation and Migration
+- [ ] https://www.embeddedrelated.com/showarticle/878.php -- Cortex-M Exception Handling
+- [ ] https://www.embeddedrelated.com/showarticle/900.php -- Analyzing the Linker Map file with a little help from the ELF and the DWARF
+- [ ] https://www.embeddedrelated.com/showarticle/892.php -- Global Variables vs. Safe Software
+- [ ] https://www.embeddedrelated.com/showarticle/701.php -- Coding - Step 0: Setting Up a Development Environment
+- [ ] https://www.embeddedrelated.com/showarticle/840.php -- Developing software for a safety-related embedded system for the first time
+- [ ] https://www.embeddedrelated.com/showarticle/105.php -- Ideas to develop Embedded Devices for Smart Grid
+- [ ] https://blogs.mentor.com/colinwalls/
+- [ ] https://gist.github.com/aras-p/6224951 -- preprocessor fun

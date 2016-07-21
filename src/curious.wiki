@@ -34,3 +34,11 @@
   * [ ] dropbox connection and basic documentation.
 * [ ] test screenshot app.
 * [ ] look it up: 'pacaur -Syu nginx php-fpm mariadb'
+* [ ] open tmux in a remote location and test persistent session.
+* [ ] ssh other pc inside same LAN.
+* [ ] tmux-related: https://github.com/foobacca/dotfiles/blob/master/tmux/save-buffer-history
+* [ ] cpu-profiler: http://goog-perftools.sourceforge.net/doc/cpu_profiler.html
+                    http://ctuning.org/dissemination/grow10-03.pdf
+* [ ] usb printer drivers. http://ww1.microchip.com/downloads/cn/AppNotes/cn537372.pdf 
+* [ ] NOSQL databases. http://arstechnica.com/information-technology/2016/03/to-sql-or-nosql-thats-the-database-question/
+* [ ] [[interestinglinks| some interesting links.]]
