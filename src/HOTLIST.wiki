@@ -40,11 +40,12 @@
 * [ ] get ready lubuntu and arch installation boot drives.
 
 -------------------------------------
+* [ ] write a dos2unix+EOL_space cleanup script.
 * [ ] test QEMU for STM32.
 * [ ] practice ARMv7 ISA by writing code.
 * [ ] test/troubleshoot mems oscillator.
-* [ ] start writing/porting STM32L0 basic library(very very basic,only what is needed)
-  * [ ] find or adapt the CMSIS file for STM32L devices.
+* [o] start writing/porting STM32L0 basic library(very very basic,only what is needed)
+  * [X] find or adapt the CMSIS file for STM32L0 devices.
   * [ ] Library structure acording to Standard Peripheral Library.
 * [ ] Touch Project:
   * [ ] simple test for mpr121.
@@ -79,8 +80,8 @@
   * [o] ARM ISA v7 lvlUp.
     * [o] Stuff needed:
       * [X] probably nothing else.
-  * [o] SHAdow
-    * [o] Stuff needed:
+  * [X] SHAdow
+    * [X] Stuff needed:
       * [X] nothing else.
   * [X] others:
     * [X] bring:
