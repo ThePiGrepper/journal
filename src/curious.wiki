@@ -7,8 +7,6 @@
 * [ ] Test Slackware (http://slackbook.org/html/ )
 * [ ] try dpkg -l <cmd> or apt-cache show <cmd>
 * [ ] look up QR codes for presentation cards.
-* [ ] look up installing XMPP-base messaging servers (http://arstechnica.com/information-technology/2014/03/how-to-set-up-your-own-private-instant-messaging-server/ ):
-  * [ ] lookup messaging archiving.
 * [.] Test Arch Linux:
   * [X] test lxde.
   * [ ] test openbox.
@@ -34,8 +32,8 @@
   * [ ] dropbox connection and basic documentation.
 * [ ] test screenshot app.
 * [ ] look it up: 'pacaur -Syu nginx php-fpm mariadb'
-* [ ] open tmux in a remote location and test persistent session.
-* [ ] ssh other pc inside same LAN.
+* [X] open tmux in a remote location and test persistent session.
+* [X] ssh other pc inside same LAN.
 * [ ] tmux-related: https://github.com/foobacca/dotfiles/blob/master/tmux/save-buffer-history
 * [ ] cpu-profiler: http://goog-perftools.sourceforge.net/doc/cpu_profiler.html
                     http://ctuning.org/dissemination/grow10-03.pdf

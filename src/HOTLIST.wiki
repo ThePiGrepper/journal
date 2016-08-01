@@ -1,5 +1,4 @@
 == Hot List ==
-* [ ] write parts shopping list.
 * [ ] clean room (40min)
 * [ ] exercise & bath (40min)
 * [ ] do groceries (40min)
@@ -62,6 +61,9 @@
   * [ ] dow-rm
   * [ ] dow-reset
   * [ ] dow-commit
+* [ ] XMPP server:
+  * [ ] http://arstechnica.com/information-technology/2014/03/how-to-set-up-your-own-private-instant-messaging-server/
+  * [ ] lookup messaging archiving.
 * [O] Projects for Trip:
   * [X] PalmKeyboardIF for USB.
     * [X] Stuff needed:
