@@ -8,4 +8,5 @@ e) [[devflow|development flow upgrade]]
 f) [[Touch]]
 g) [[Tokra]] -- A symbiotic 6502 emulator for MCUs.
 h) [[drivers|Linux and drivers]]
+i) [[Pythia]]
 j) [[curious|Curiosities]]
