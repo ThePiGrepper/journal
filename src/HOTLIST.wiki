@@ -3,12 +3,43 @@
 * [ ] exercise & bath (40min)
 * [ ] do groceries (40min)
 -------------------------------------
+=== Projects during trip ===
+* [ ] PalmKeyboardIF for USB.
+  * [ ] write down PPK internal states.
+  * [ ] understand HID keyboard profile.
+  * [ ] write a working library:
+    * [ ] focus on low power.
+    * [ ] focus on modularity.
+    * [ ] compatible for future macro-expansion feature.
+* [ ] PalmKeyboardIF for BLE.
+* [ ] Linux Device Drivers for embedded.
+  * [ ] install linux in Rpi.
+  * [ ] try ssh.
+  * [ ] read linux drivers book and try simple led driver.
+* [ ] ARM ISA v7 lvlUp.
+  * [ ] test QEMU for STM32.
+  * [ ] look for programming assignments.
+  * [ ] practice ARMv7 ISA by writing code.
+* [ ] e-paper devboard dilbert daily update.
+  * [ ] test e-paper board using serial i/f.
+  * [ ] dump flash.
+  * [ ] program board directly.
+* [ ] SHAdow
+  * [ ] dow-checkout
+  * [ ] dow-add
+  * [ ] dow-rm
+  * [ ] dow-reset
+  * [ ] dow-commit
+* [ ] Touch Project:
+  * [ ] simple test for mpr121.
+* [ ] XMPP server:
+  * [ ] http://arstechnica.com/information-technology/2014/03/how-to-set-up-your-own-private-instant-messaging-server/
+  * [ ] lookup messaging archiving.
+* [o] start writing/porting STM32L0 basic library(very very basic,only what is needed)
+  * [X] find or adapt the CMSIS file for STM32L0 devices.
+  * [ ] Library structure acording to Standard Peripheral Library.
 === Preparation for this weekend ===
-* [o] buy everything needed:
-  * [X] e-paper display module.
-  * [ ] 2 battery chargers.
-  * [X] mouser parts:
-    * [X] select parts.(consider kb adapter touch projects and overall stock)(*most needed only)
+* [ ] buy components for projects(track 2mm headers.)
 * [.] new PC setup:
   * [ ] erase old partition(lxle).
   * [ ] create new partition layout with 3 main partitions and 1 swap. *for now dont change anything of the lubuntu partition.
@@ -37,58 +68,6 @@
     * [X] documentation needed.
     * [X] OSs ISOs.
 * [ ] get ready lubuntu and arch installation boot drives.
-
 -------------------------------------
 * [ ] write a dos2unix+EOL_space cleanup script.
-* [ ] test QEMU for STM32.
-* [ ] practice ARMv7 ISA by writing code.
 * [ ] test/troubleshoot mems oscillator.
-* [o] start writing/porting STM32L0 basic library(very very basic,only what is needed)
-  * [X] find or adapt the CMSIS file for STM32L0 devices.
-  * [ ] Library structure acording to Standard Peripheral Library.
-* [ ] Touch Project:
-  * [ ] simple test for mpr121.
-* [ ] Palm Keyboard IF (3hrs):
-  * [ ] write down PPK internal states.
-  * [ ] understand HID keyboard profile.
-  * [ ] write a working library:
-    * [ ] focus on low power.
-    * [ ] focus on modularity.
-    * [ ] compatible for future macro-expansion feature.
-* [ ] dow (3hrs):
-  * [ ] dow-checkout
-  * [ ] dow-add
-  * [ ] dow-rm
-  * [ ] dow-reset
-  * [ ] dow-commit
-* [ ] XMPP server:
-  * [ ] http://arstechnica.com/information-technology/2014/03/how-to-set-up-your-own-private-instant-messaging-server/
-  * [ ] lookup messaging archiving.
-* [O] Projects for Trip:
-  * [X] PalmKeyboardIF for USB.
-    * [X] Stuff needed:
-      * [X] STM32F1 & L0 devboard.
-      * [X] KB2DevBoard adapter.
-      * [X] debugger(stlink)
-  * [X] PalmKeyboardIF for BLE.
-    * [X] Stuff needed(additional):
-      * [X] BLE breakout board.
-  * [o] Linux Device Drivers for embedded.
-    * [o] Stuff needed:
-      * [X] Raspberry Pi(anyone)
-      * [ ] cables.
-      * [X] SD(8GB or more) or uSD w/adapter
-      * [ ] power adapter.
-  * [o] ARM ISA v7 lvlUp.
-    * [o] Stuff needed:
-      * [X] probably nothing else.
-  * [X] SHAdow
-    * [X] Stuff needed:
-      * [X] nothing else.
-  * [X] others:
-    * [X] bring:
-      * [X] esp8266
-      * [X] additional cables.
-      * [X] soldering iron (just in case).
-      * [X] an additional debugger.
-      * [X] solderwick.
