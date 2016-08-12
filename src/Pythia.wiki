@@ -1,3 +1,7 @@
 == Pythia ==
 
 * [ ] NOSQL databases. http://arstechnica.com/information-technology/2016/03/to-sql-or-nosql-thats-the-database-question/
+* [X] extract index data and relevant profile data.
+* [ ] create extraction scripts for stores:
+  * [ ] write store link list.
+* [ ] plan directory structure for price extraction.
