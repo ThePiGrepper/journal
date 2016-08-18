@@ -3,7 +3,6 @@
 * [ ] exercise & bath (40min)
 * [ ] do groceries (40min)
 -------------------------------------
-=== Projects during trip ===
 * [ ] PalmKeyboardIF for USB.
   * [ ] write down PPK internal states.
   * [ ] understand HID keyboard profile.
@@ -11,7 +10,6 @@
     * [ ] focus on low power.
     * [ ] focus on modularity.
     * [ ] compatible for future macro-expansion feature.
-* [ ] PalmKeyboardIF for BLE.
 * [ ] Linux Device Drivers for embedded.
   * [ ] install linux in Rpi.
   * [ ] try ssh.
@@ -38,35 +36,32 @@
 * [o] start writing/porting STM32L0 basic library(very very basic,only what is needed)
   * [X] find or adapt the CMSIS file for STM32L0 devices.
   * [ ] Library structure acording to Standard Peripheral Library.
-=== Preparation for this weekend ===
-* [ ] buy components for projects(track 2mm headers.)
 * [.] new PC setup:
-  * [ ] erase old partition(lxle).
-  * [ ] create new partition layout with 3 main partitions and 1 swap. *for now dont change anything of the lubuntu partition.
-  * [o] make 3 main partitions on SSD(lubuntu(stable/work),arch(proto/test),something else(probably fedora or peppermint))
+  * [.] make 4 main partitions on SSD(lubuntu(stable/work),arch(bleeding edge/proto),test, and backup(probably lubuntu or peppermint))
+    * [ ] Test:
+      * [ ] Peppermint
+      * [ ] Fedora
+      * [ ] Debian
+      * [ ] Gentoo
+      * [ ] Manjaro
+      * [ ] Slackware.
     * [.] Arch:
-      * [X] Test arch in VM.
-      * [ ] Install arch on HDD and configure all basics & add to HOWTOs.
-        * [ ] Install lxde and i3.
-        * [ ] Install basic MCU programming tools and test flow:
-          * [ ] MCU toolchain.(test entire workflow)
-          * [ ] basic programs.
-          * [ ] search and install lightweight common apps(pdf reader, music player,etc)
-          * [ ] document everything in a HOWTo.
-      * [ ] Install on SSD.
-    * [X] lubuntu:
-      * [X] mantain old version as-is.
+      * [X] Install lxde and i3.
+      * [ ] Solve build issues:
+        * [ ] sound disabled.!
+        * [ ] network connection issues.!
+        * [ ] look for:
+          * [ ] pacman howtos.
+          * [ ] howto create shortcuts(ie: open terminal).
+      * [ ] Install basic MCU programming tools and test flow:
+        * [ ] MCU toolchain.(test entire workflow)
+        * [ ] basic programs.
+        * [ ] search and install lightweight common apps(pdf reader, music player,etc)
+        * [ ] document everything in a HOWTo.
+      * [ ] output a list of all selected packages for later reuse.
   * [ ] read about:
       * [ ] creating bootable disks on linux.
       * [ ] optimize OS configuration for SSDs.
-* [X] Organize stuff:
-  * [X] select everything that's going on the bag(books, clothes,etc).
-    * [X] place clothes and books.
-    * [X] select which project to do during trip and which components go accordingly.
-  * [X] save everything needed on the 1TB external HDD and 64GB flashdrive:
-    * [X] animes to watch.
-    * [X] documentation needed.
-    * [X] OSs ISOs.
 * [ ] get ready lubuntu and arch installation boot drives.
 -------------------------------------
 * [ ] write a dos2unix+EOL_space cleanup script.
