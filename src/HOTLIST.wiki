@@ -3,6 +3,8 @@
 * [ ] exercise & bath (40min)
 * [ ] do groceries (40min)
 -------------------------------------
+* [ ] ! update CV
+* [ ] ! send job application
 * [ ] PalmKeyboardIF for USB.
   * [ ] write down PPK internal states.
   * [ ] understand HID keyboard profile.
@@ -48,8 +50,8 @@
     * [.] Arch:
       * [X] Install lxde and i3.
       * [ ] Solve build issues:
-        * [ ] sound disabled.!
-        * [ ] network connection issues.!
+        * [ ] ! sound disabled.
+        * [ ] ! network connection issues.
         * [ ] look for:
           * [ ] pacman howtos.
           * [ ] howto create shortcuts(ie: open terminal).
