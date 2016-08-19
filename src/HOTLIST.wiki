@@ -49,8 +49,8 @@
       * [ ] Slackware.
     * [.] Arch:
       * [X] Install lxde and i3.
-      * [ ] Solve build issues:
-        * [ ] ! sound disabled.
+      * [.] Solve build issues:
+        * [X] ! sound disabled.
         * [ ] ! network connection issues.
         * [ ] look for:
           * [ ] pacman howtos.
@@ -64,7 +64,7 @@
   * [ ] read about:
       * [ ] creating bootable disks on linux.
       * [ ] optimize OS configuration for SSDs.
-* [ ] get ready lubuntu and arch installation boot drives.
+* [X] get ready lubuntu and arch installation boot drives.
 -------------------------------------
 * [ ] write a dos2unix+EOL_space cleanup script.
 * [ ] test/troubleshoot mems oscillator.
