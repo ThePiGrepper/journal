@@ -22,3 +22,6 @@
   * [ ] test functionality of soldered boards.
 * [ ] edx training.
 * [ ] try to play with bison/flex(maybe Oboro kickoff?).
+* [ ] USB2USART adapter with STM32.
+* [ ] test ESP8266.
+* [ ] compile and test wolfssl lib with stm32.

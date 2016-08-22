@@ -10,3 +10,7 @@ HotList Guidelines:
 - If you are NOT mostly sure you are going to start doing it in the next few hours, do NOT put it here.
 - Repetitive/Periodical Tasks can be written on the top just as a gentle reminder.
 -------------------------------------
+
+* [ ] update CV
+* [ ] send job application
+* [ ] USB2USART adapter with STM32.
