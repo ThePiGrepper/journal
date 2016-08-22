@@ -28,6 +28,7 @@
       * [ ] output a list of all selected packages for later reuse.
       * [ ] create a pacman HowTo
       * [ ] look it up: 'pacaur -Syu nginx php-fpm mariadb'
+      * [ ] check octopi
     * [ ] howto create shortcuts(ie: open terminal).
     * [ ] optimize OS configuration for SSDs.
 
