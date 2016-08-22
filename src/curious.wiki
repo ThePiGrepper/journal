@@ -1,37 +1,6 @@
 == Curiosities or Random 'nice to do' Stuff ==
 
-* [ ] Test Gentoo Linux and test Portage.
-* [ ] Test Ubuntu Mate.
-* [ ] Test Mint (Mate).
-* [ ] Test Manjaro + (lightweight DE(i3,lxqt,Enlightment))
-* [ ] Test Slackware (http://slackbook.org/html/ )
-* [ ] try dpkg -l <cmd> or apt-cache show <cmd>
 * [ ] look up QR codes for presentation cards.
-* [.] Test Arch Linux:
-  * [X] test lxde.
-  * [ ] test openbox.
-  * [ ] test spectrwm,i3.
-* [ ] Test PeppermintOS
-* [ ] find a lightweight web browser.
-* [ ] make a simple installation script:
-  * [ ] find about the following:
-    * [ ] create an apt repository on host server.
-    * [ ] create a deb package(use dpkg).
-    * [ ] create a simple script for installing from source.(only main apps which need latest)
-    * [ ] can you install directly from .deb and uninstall with apt-get.(proves that apt-get is just an abstraction for .deb)
-      - http://askubuntu.com/questions/9135/how-to-backup-settings-and-list-of-installed-packages
-      - http://askubuntu.com/questions/17823/how-to-list-all-installed-packages
-    * [ ] add a ppa to get latest versions.
-      - http://askubuntu.com/questions/35629/are-ppas-safe-to-add-to-my-system-and-what-are-some-red-flags-to-watch-out-fo
-      - http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them
-    * [ ] take a look into apt-get, dpkg and aptitude.
-    * [ ] Read about Comparison of major Linux package management systems.
-* [ ] create a Linux-pendrive with Puppy Linux.
-  * [ ] Complete MCU toolchain and basic programs.
-  * [ ] wifi support.
-  * [ ] dropbox connection and basic documentation.
-* [ ] test screenshot app.
-* [ ] look it up: 'pacaur -Syu nginx php-fpm mariadb'
 * [X] open tmux in a remote location and test persistent session.
 * [X] ssh other pc inside same LAN.
 * [ ] tmux-related: https://github.com/foobacca/dotfiles/blob/master/tmux/save-buffer-history

@@ -1,0 +1,24 @@
+== Simple tasks ==
+
+* [ ] ! update CV
+* [ ] ! send job application
+* [ ] write a dos2unix+EOL_space cleanup script.
+* [ ] test/troubleshoot mems oscillator.
+* [ ] ARM ISA v7 lvlUp.
+  * [ ] install QEMU for STM32.
+  * [ ] test QEMU with simple program.
+  * [ ] look for programming assignments.
+  * [ ] practice ARMv7 ISA by writing code.
+* [ ] e-paper devboard dilbert daily update.
+  * [ ] test e-paper board using serial i/f.
+  * [ ] dump flash.
+  * [ ] program board directly.
+* [ ] XMPP server:
+  * [ ] http://arstechnica.com/information-technology/2014/03/how-to-set-up-your-own-private-instant-messaging-server/
+  * [ ] lookup messaging archiving.
+* [ ] test oven soldering.
+  * [ ] find/port lsm303c library for STM32F1.
+  * [ ] test soldering process with selected boards.
+  * [ ] test functionality of soldered boards.
+* [ ] edx training.
+* [ ] try to play with bison/flex(maybe Oboro kickoff?).

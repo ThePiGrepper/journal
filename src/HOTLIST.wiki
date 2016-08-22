@@ -3,68 +3,10 @@
 * [ ] exercise & bath (40min)
 * [ ] do groceries (40min)
 -------------------------------------
-* [ ] ! update CV
-* [ ] ! send job application
-* [ ] PalmKeyboardIF for USB.
-  * [ ] write down PPK internal states.
-  * [ ] understand HID keyboard profile.
-  * [ ] write a working library:
-    * [ ] focus on low power.
-    * [ ] focus on modularity.
-    * [ ] compatible for future macro-expansion feature.
-* [ ] Linux Device Drivers for embedded.
-  * [ ] install linux in Rpi.
-  * [ ] try ssh.
-  * [ ] read linux drivers book and try simple led driver.
-* [ ] ARM ISA v7 lvlUp.
-  * [ ] test QEMU for STM32.
-  * [ ] look for programming assignments.
-  * [ ] practice ARMv7 ISA by writing code.
-* [ ] e-paper devboard dilbert daily update.
-  * [ ] test e-paper board using serial i/f.
-  * [ ] dump flash.
-  * [ ] program board directly.
-* [ ] SHAdow
-  * [ ] dow-checkout
-  * [ ] dow-add
-  * [ ] dow-rm
-  * [ ] dow-reset
-  * [ ] dow-commit
-* [ ] Touch Project:
-  * [ ] simple test for mpr121.
-* [ ] XMPP server:
-  * [ ] http://arstechnica.com/information-technology/2014/03/how-to-set-up-your-own-private-instant-messaging-server/
-  * [ ] lookup messaging archiving.
-* [o] start writing/porting STM32L0 basic library(very very basic,only what is needed)
-  * [X] find or adapt the CMSIS file for STM32L0 devices.
-  * [ ] Library structure acording to Standard Peripheral Library.
-* [.] new PC setup:
-  * [.] make 4 main partitions on SSD(lubuntu(stable/work),arch(bleeding edge/proto),test, and backup(probably lubuntu or peppermint))
-    * [ ] Test:
-      * [ ] Peppermint
-      * [ ] Fedora
-      * [ ] Debian
-      * [ ] Gentoo
-      * [ ] Manjaro
-      * [ ] Slackware.
-    * [.] Arch:
-      * [X] Install lxde and i3.
-      * [.] Solve build issues:
-        * [X] ! sound disabled.
-        * [ ] ! network connection issues.
-        * [ ] look for:
-          * [ ] pacman howtos.
-          * [ ] howto create shortcuts(ie: open terminal).
-      * [ ] Install basic MCU programming tools and test flow:
-        * [ ] MCU toolchain.(test entire workflow)
-        * [ ] basic programs.
-        * [ ] search and install lightweight common apps(pdf reader, music player,etc)
-        * [ ] document everything in a HOWTo.
-      * [ ] output a list of all selected packages for later reuse.
-  * [ ] read about:
-      * [ ] creating bootable disks on linux.
-      * [ ] optimize OS configuration for SSDs.
-* [X] get ready lubuntu and arch installation boot drives.
+HotList Guidelines:
+- This list is for tasks that are ABOUT TO BE DONE. It is list for storage of any kind.
+- Only put here task that you're planning to do at most later today.
+- Be sensible about the number of tasks you are writing here. Try to keep it to a minimum.
+- If you are NOT mostly sure you are going to start doing it in the next few hours, do NOT put it here.
+- Repetitive/Periodical Tasks can be written on the top just as a gentle reminder.
 -------------------------------------
-* [ ] write a dos2unix+EOL_space cleanup script.
-* [ ] test/troubleshoot mems oscillator.

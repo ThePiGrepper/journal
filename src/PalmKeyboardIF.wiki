@@ -2,11 +2,16 @@
 * [X] Understand electrical interface.
 * [X] simple program which communicates with keyboard.
 * [ ] keyboard interface program (USART output).
-  * [ ] low power state machine.
+  * [ ] write down PPK internal states.
+  * [ ] write a working library:
+    * focus on low power.
+    * focus on modularity.
+    * compatible for future macro-expansion feature.
 * [.] USB
   * [X] Study USB basics.
   * [ ] Study USB on STM32.
   * [ ] Study HID.
+  * [ ] Study HID keyboard profile.
   * [ ] Study HID on STM32.(STM32 USB example)
   * [ ] Write simple USB HID keyboard example(just random output).
   * [ ] Implement USB HID keyboard interface.
@@ -16,3 +21,4 @@
   * [ ] Port BLElib to StdPeriphLib(from fucking Cube).
   * [ ] BLE HID on GATT?.
   * [ ] Implement BLE HID keyboard interface.
+  * [ ] Start porting all functions needed from the F1 SPL to L0.
