@@ -9,12 +9,25 @@
   * [ ] Gentoo
   * [ ] Manjaro
   * [ ] Slackware.
+  * [ ] Ubuntu minimal install + lxqt
+  * [ ] Rosa Linux + LXDE/LXQt.
+  * [ ] PCLinuxOS + LXDE
+  * [ ] antiX
+  * [ ] ArchBang
+  * [ ] Apricity (https://github.com/Apricity-OS/apricity-build )
+  * [ ] Bodhi
 
 * [.] Arch Setup:
-  * [X] Install lxde.
-  * [ ] test i3.
-  * [ ] test spectrwm.
-  * [ ] test openbox.
+  * [o] test DEs: (https://wiki.archlinux.org/index.php/Desktop_environment )
+    * [X] Install lxde.
+    * [ ] Install lxqt.
+  * [.] test  WMs: (https://wiki.archlinux.org/index.php/Window_manager )
+    * [ ] test i3.
+    * [ ] test spectrwm.
+    * [ ] wmii.
+    * [X] openbox.
+    * [ ] MATE.
+    * [ ] Enlightenment.
   * [.] Solve build issues:
     * [X] ! sound disabled.
     * [ ] ! network connection issues.
@@ -31,6 +44,7 @@
       * [ ] check octopi
     * [ ] howto create shortcuts(ie: open terminal).
     * [ ] optimize OS configuration for SSDs.
+    * [ ] Archinstaller (https://bitbucket.org/flexiondotorg/archinstaller )
 
 * [ ] Puppy Linux LiveUSB
   * [ ] Complete MCU toolchain and basic programs.
