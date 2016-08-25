@@ -11,9 +11,6 @@ HotList Guidelines:
 - Repetitive/Periodical Tasks can be written on the top just as a gentle reminder.
 -------------------------------------
 
-* [X] update CV
 * [ ] send job application
 * [ ] USB2USART adapter with STM32.
-* [ ] write HOWTOs for:
-  * [ ] install VirtualBox GuestAdditions(differente OSes)
-  * [ ] install lxqt from minimal ubuntu.
+* [ ] write HOWTOs for install lxqt from minimal ubuntu.
