@@ -4,13 +4,15 @@
 * [ ] do groceries (40min)
 -------------------------------------
 HotList Guidelines:
-- This list is for tasks that are ABOUT TO BE DONE. It is list for storage of any kind.
-- Only put here task that you're planning to do at most later today.
+- This list is for tasks that are ABOUT TO BE DONE.
+- Only put here tasks that you're planning to do at most later today.
 - Be sensible about the number of tasks you are writing here. Try to keep it to a minimum.
 - If you are NOT mostly sure you are going to start doing it in the next few hours, do NOT put it here.
 - Repetitive/Periodical Tasks can be written on the top just as a gentle reminder.
+- The list has an implicit priority scheme. It is not enforced but suggested.
 -------------------------------------
 
-* [ ] send job application
+* [ ] mount XMPP server.
+* [ ] send job application.
 * [ ] USB2USART adapter with STM32.
 * [ ] write HOWTOs for install lxqt from minimal ubuntu.
