@@ -1,10 +1,9 @@
 == Curiosities or Random 'nice to do' Stuff ==
 
 * [ ] look up QR codes for presentation cards.
-* [X] open tmux in a remote location and test persistent session.
-* [X] ssh other pc inside same LAN.
 * [ ] tmux-related: https://github.com/foobacca/dotfiles/blob/master/tmux/save-buffer-history
 * [ ] cpu-profiler: http://goog-perftools.sourceforge.net/doc/cpu_profiler.html
                     http://ctuning.org/dissemination/grow10-03.pdf
 * [ ] usb printer drivers. http://ww1.microchip.com/downloads/cn/AppNotes/cn537372.pdf 
 * [ ] [[interestinglinks| some interesting links.]]
+* [ ] ssh to a machine across the internet.

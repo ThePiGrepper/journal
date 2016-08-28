@@ -1,0 +1,13 @@
+
+
+
+
+
+== open tmux in a remote location and test persistent session ==
+
+- It is very possible and the obvious default use for headless devices.
+
+== ssh other pc inside same LAN ==
+
+- Done. Very simple. > ssh user@local_ip. it wil ask for password, and login.
+- Next step: ssh to another PC. adding task on simple_tasks.
