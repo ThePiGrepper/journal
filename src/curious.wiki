@@ -7,3 +7,4 @@
 * [ ] usb printer drivers. http://ww1.microchip.com/downloads/cn/AppNotes/cn537372.pdf 
 * [ ] [[interestinglinks| some interesting links.]]
 * [ ] ssh to a machine across the internet.
+* [ ] linux snap packages.
