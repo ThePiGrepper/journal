@@ -25,3 +25,14 @@
 - display SMART info: > sudo smartctl -a <disk>
 - display overall health of drive: > sudo smartctl -H <disk>
 - access conf file at /etc/smartd.conf.
+
+== testing mate on ubuntu minimal ==
+- installing on ubuntu minimal on a VBox machine.
+- steps:
+  > sudo apt-add-repository ppa:ubuntu-mate-dev/ppa
+  > sudo apt-add-repository ppa:ubuntu-mate-dev/trusty-mate
+  > sudo apt-get update && sudo apt-get upgrade
+  > sudo apt-get install --no-install-recommends ubuntu-mate-core ubuntu-mate-desktop
+- It downloaded all the packages dependencies(over 700M).
+- After reboot, it apparently works just fine.
+- Using htop, after reboot, it uses around 240M of RAM.
