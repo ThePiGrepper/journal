@@ -13,9 +13,11 @@
   * [ ] test e-paper board using serial i/f.
   * [ ] dump flash.
   * [ ] program board directly.
-* [ ] XMPP server:
-  * [ ] http://arstechnica.com/information-technology/2014/03/how-to-set-up-your-own-private-instant-messaging-server/
+* [.] XMPP server:
+  * [X] http://arstechnica.com/information-technology/2014/03/how-to-set-up-your-own-private-instant-messaging-server/
   * [ ] lookup messaging archiving.
+  * [ ] lookup extension module for audio transfer.
+  * [ ] lookup extension module for picture transfer.
 * [ ] test oven soldering.
   * [ ] find/port lsm303c library for STM32F1.
   * [ ] test soldering process with selected boards.
