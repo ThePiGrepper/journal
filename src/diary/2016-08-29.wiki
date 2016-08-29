@@ -11,3 +11,7 @@
 
 - Done. Very simple. > ssh user@local_ip. it wil ask for password, and login.
 - Next step: ssh to another PC. adding task on simple_tasks.
+
+== ssh to a machine across the internet ==
+- you probably will need to know the public IP of the target's network router:
+  - execute the following line from the target system: > wget http://ipinfo.io/ip -qO -
