@@ -4,10 +4,10 @@
 * [ ] ! send job application
 * [ ] write a dos2unix+EOL_space cleanup script.
 * [ ] test/troubleshoot mems oscillator.
-* [ ] ARM ISA v7 lvlUp.
+* [.] ARM ISA v7 lvlUp.
   * [ ] install QEMU for STM32.
   * [ ] test QEMU with simple program.
-  * [ ] look for programming assignments.
+  * [X] look for programming assignments.
   * [ ] practice ARMv7 ISA by writing code.
 * [ ] e-paper devboard dilbert daily update.
   * [ ] test e-paper board using serial i/f.

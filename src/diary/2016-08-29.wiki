@@ -36,3 +36,13 @@
 - It downloaded all the packages dependencies(over 700M).
 - After reboot, it apparently works just fine.
 - Using htop, after reboot, it uses around 240M of RAM.
+
+== ARM ISA v7 lvlUp ==
+- Look for programming assignments:
+  - sum of two decimal inputs.
+  - minimum of two decimal inputs.
+  - sum of a series of decimal inputs.
+  - print your name using UART.
+  - product of two decimal inputs.
+  - http://users.ece.gatech.edu/~linda/2030/sample-asmbly-solns.PDF
+  - Port any of the following code (http://6502.org/source/ ) to ARMv7 ISA.
