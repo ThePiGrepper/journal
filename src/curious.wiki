@@ -8,3 +8,4 @@
 * [ ] [[interestinglinks| some interesting links.]]
 * [ ] ssh to a machine across the internet.
 * [ ] linux snap packages.
+* [ ] Over the Air updates(OTA).
