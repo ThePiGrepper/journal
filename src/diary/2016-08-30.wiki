@@ -1,0 +1,16 @@
+
+
+
+
+
+== testing mate on ubuntu minimal ==
+- Tried innstalling Ubuntu Mate(same version from the one applied to the min install):
+  - RAM Usage:
+    - Idle: around the same, minInstall: 229M, DiskInstall: 248M. w/around the same load average and number of tasks.
+    - With firefox(1 youtube tab playing) + 1 terminal): around the same, min:~450,max:~500.
+  - Installation manager ask for 8.6G of disk(default disk space had 8G so oops, try again).
+  - Apparently, the space required by the install was not used. As it only used around 4.6G(after repo upgrade)+2G swap partition.
+  - Ubuntu min install + Mate used around 5.3G, using mostly the same programs.
+  - So the question is why does it takes more space using ubuntu minimal install.
+  - At first glance both contain the same apps and work the same on VBox.
+  - As a conclusion, I'd say both are pretty much the same, however due to the extra space required with the minimal install, I'd go with disk installation.
