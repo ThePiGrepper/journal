@@ -12,7 +12,6 @@ HotList Guidelines:
 - The list has an implicit priority scheme. It is not enforced but suggested.
 -------------------------------------
 
-* [ ] mount XMPP server.
 * [ ] send job application.
 * [ ] USB2USART adapter with STM32.
 * [ ] write HOWTOs for install lxqt from minimal ubuntu.

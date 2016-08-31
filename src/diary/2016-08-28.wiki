@@ -1,0 +1,26 @@
+
+
+
+
+
+== prosody ==
+
+- Installed basic setup:
+  - installed using ubuntu repo package(prosody).
+  - modified conf file:
+    - Virtualhost created: > VirtualHost "localhost"
+    - added log file to virtualhost setup: > log = "prosody.log"
+    - admin added. ie: > admins = { "user@virtualhost" }
+  - created user accounts: > prosodyctl adduser user@localhost
+- some extra stuff:
+  - /var/lib/prosody/ : dir to check user accounts per virtualhost.
+  - /var/log/prosody/prosody.log : default directory for log (added previously). can `tail` it to keep a realtime track of server status.
+- restart or other services using prosodyctl: > prosodyctl restart
+- found clients for iOS and Android:
+  - Android: Works: Xabber. Others tested but no (luck for now): CharSecure, XMPP Client, Simple XMPP Client, FrozenChat.
+  - iOS: Works: Boogie Chat. Others tested but no (luck for now): AstraChat, ChatSecure, Monal, JabMe.
+    - Some of the clients requires the virtualhost to be the same as the host. So apparently without a DNS service, they wont work.
+
+== journal ==
+
+- integrated diary functionality into the workflow.
