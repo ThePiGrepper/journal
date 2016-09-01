@@ -10,9 +10,9 @@
 8) [ ] networking fundamentals (TCP/IP)
 9) [ ] IoT (HomeKit,Particle,CoAP,6LoWPAN)
 10) [ ] Java
-11) [ ] C++
-12) [ ] Rust
-13) [ ] I2C,CAN
+11) [ ] ModBus,CAN
+12) [ ] C++
+13) [ ] Rust
 14) [ ] FLASH
 15) [ ] PCI/PCIe
 16) [ ] Tcl/Tk
