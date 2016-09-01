@@ -15,4 +15,3 @@ HotList Guidelines:
 * [ ] send job application.
 * [ ] USB2USART adapter with STM32.
 * [ ] write HOWTOs for install lxqt from minimal ubuntu.
-* [ ] write a dos2unix+EOL_space cleanup script.
