@@ -1,7 +1,5 @@
 == Simple tasks ==
 
-* [ ] ! update CV
-* [ ] ! send job application
 * [ ] test/troubleshoot mems oscillator.
 * [.] ARM ISA v7 lvlUp.
   * [ ] install QEMU for STM32.
