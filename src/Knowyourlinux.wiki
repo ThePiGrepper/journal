@@ -17,6 +17,14 @@
   * [ ] Apricity (https://github.com/Apricity-OS/apricity-build )
   * [ ] Bodhi
 
+* [ ] Test Display Managers:
+  * [ ] LXDM (standalone, not with LXDE)
+  * [ ] LightDM (standalone, not with Ubuntu(I think it breaks though)
+  * [ ] CDM
+  * [ ] Console TDM
+  * [ ] nodm
+  * [ ] SDDM
+
 * [.] Arch Setup:
   * [o] test DEs: (https://wiki.archlinux.org/index.php/Desktop_environment )
     * [X] Install lxde.
