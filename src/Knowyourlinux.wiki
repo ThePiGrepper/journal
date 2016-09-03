@@ -1,15 +1,15 @@
 == Linux Distros ==
 
-* [.] Test:
+* [.] Test distros:
   * [X] Peppermint
   * [ ] Fedora
-  * [ ] Debian
+  * [X] Debian
   * [X] Ubuntu Mate.
   * [ ] Mint (Mate).
   * [ ] Gentoo
   * [ ] Manjaro
   * [ ] Slackware.
-  * [ ] Ubuntu minimal install + lxqt
+  * [X] Ubuntu minimal install + lxqt
   * [ ] Rosa Linux + LXDE/LXQt.
   * [ ] PCLinuxOS + LXDE
   * [ ] antiX
@@ -30,7 +30,6 @@
     * [ ] Enlightenment.
   * [.] Solve build issues:
     * [X] ! sound disabled.
-    * [ ] ! network connection issues.
   * [ ] disable touchpad when typing.
   * [ ] Install basic MCU programming tools and test flow:
     * [ ] MCU toolchain.(test entire workflow)

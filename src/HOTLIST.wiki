@@ -13,4 +13,3 @@ HotList Guidelines:
 -------------------------------------
 
 * [ ] USB2USART adapter with STM32.
-* [ ] write HOWTOs for install lxqt from minimal ubuntu.

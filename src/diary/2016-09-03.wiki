@@ -1,0 +1,57 @@
+
+
+
+
+
+== testing clementine music player ==
+- tested on ubuntu (Peppermint7):
+  - > sudo apt-get install clementine
+  - it uses relatively low mem(overall usage on peppermint7+2term:324M)
+  - it can fetch music from  dropbox,google drive, spotify, and others.
+- tested on Arch (Manjaro LXQt):
+  - installed with octopi: clementine package.
+  - the graphical interface is simpler due to lxqt default config.
+  - the dropbox login button did not work because of qupzilla.
+  - installed firefox and everything ok.
+- testing with flac. works just as fine.
+- Apparently, it can synchronize to the cloud services only with firefox.
+  - It did not work with Otter browser, and apparently it doesnt work with
+    chrome either.
+
+== Setting up Audio in Ubuntu minimal Install ==
+- tested on Ubuntu 16.04:
+  - install following packages:
+    - > sudo apt-get install alsa-base alsa-utils alsa-oss
+    - > sudo apt-get install gstreamer0.10-alsa libasound2 libasound2-plugins
+  - tested audio output using : > sudo aplay <ANYfile>
+  - start alsa with:
+    - > alsactl init
+
+== Debian stable tested ==
+- I dont like it because:
+  - Probably not a good reason but I like to have access to new stuff, and not install all from source.
+  - Basically that's it. bye Debian.
+
+== Test Ubuntu minimal install + lxqt ==
+- Tested with Ubuntu 16.04.
+- After installing Ubuntu, update:
+  - > sudo apt-get update;
+- Add LXQt PPA. First install add-apt-repository
+  - > sudo apt-get install software-properties-common
+  - > sudo add-apt-repository -y ppa:lubuntu-dev/lubuntu-daily
+  - > sudo apt-get update
+- Install lxqt:
+  - > sudo apt-get install lxqt-metapackage (one could just install whats needed, but this way is faster)
+- Install window manager:
+  - > sudo apt-get install lxqt-panel openbox
+- reboot amd login with lxqt
+  - > sudo reboot
+- Audio not installed/setup yet, so:
+  - do the steps at "Setting up Audio in Ubuntu minimal Install".
+- An Internet browser is not installed(obviously) so I tried to download something lightweight.
+- I chose qupzilla because it was based on Qt as well. Once install though, it couldnt play youtube videos.
+- I installed a flashplugin to solve that, but the result still wasnt perfect (thats why I avoided the instructions).
+- I also tried Midori but the flash issue persisted. It could get solved with the plugin but it wasnt very good. So I gave up.
+- And installed firefox which is bigger but gets the job done without plugins or other stuff.
+- After startup, without applications, it is very lightweight: 136M. with firefox opened: ~400M.
+- Automatic mounting is enabled by LXQt so one less issue to worry about there.
