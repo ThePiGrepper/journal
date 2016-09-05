@@ -11,5 +11,3 @@ HotList Guidelines:
 - Repetitive/Periodical Tasks can be written on the top just as a gentle reminder.
 - The list has an implicit priority scheme. It is not enforced but suggested.
 -------------------------------------
-
-* [ ] USB2USART adapter with STM32.

@@ -1,0 +1,16 @@
+
+
+
+
+
+== USB2USART adapter with STM32 ==
+- Tested example from STM32_USB-FS-Device_Lib_V3.3.0(it works with STM32F1_SPL_V3.5).
+- Tested compiling Virtual_COM_Port for STM32F1xxRB board(pdf name:DQ_STM32_64p.pdf).
+- It already had an MDK project ready with a target ready for that MCU.
+- Some changes to the project were required:
+  - USB_pullup pin was configured to match the target board.
+- Compiled in windows/MDK and tested hex on Linux using openOCD.
+- It worked!! Without any driver nor issues.
+- Next Steps:
+  - create a git repo for the USB library and another one for the USB_examples related.
+  - create ninja build files for the VCP example.
