@@ -1,0 +1,12 @@
+
+
+
+
+
+== install cool-retro-term ==
+Using Ubuntu:
+> sudo add-apt-repository ppa:noobslab/apps
+> sudo apt-get update
+> sudo apt-get install cool-retro-term
+Using Arch:
+sudo pacman -S cool-retro-term
