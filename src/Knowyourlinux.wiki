@@ -30,8 +30,10 @@
     * [X] Install lxde.
     * [ ] Install lxqt.
   * [.] test  WMs: (https://wiki.archlinux.org/index.php/Window_manager )
-    * [ ] test i3.
-    * [ ] test spectrwm.
+    * [ ] i3.
+    * [ ] spectrwm.
+    * [ ] herbstluftwm.
+    * [ ] dwm(try using dmenu as well).
     * [ ] wmii.
     * [X] openbox.
     * [ ] MATE.
