@@ -10,3 +10,4 @@
 * [ ] linux snap packages.
 * [ ] Over the Air updates(OTA).
 * [ ] Brainfuck(programming language)
+* [ ] Test ZFS on a disk.
