@@ -11,3 +11,5 @@ HotList Guidelines:
 - Repetitive/Periodical Tasks can be written on the top just as a gentle reminder.
 - The list has an implicit priority scheme. It is not enforced but suggested.
 -------------------------------------
+- test vim-hardmode
+- test a few fuzzy finder vim plugins
