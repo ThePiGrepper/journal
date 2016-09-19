@@ -1,0 +1,18 @@
+
+
+
+
+
+== vim training ==
+- installed vim hardmode and enabled it by default.
+  - tested and it has issues. There are times where you need hjkl but the script is too scrict.
+  - installed Hardtime script. It creates a time penalties on hjkl keys besides all the other ban keys.
+  - constraints present in current config: arrow-keys banned,hjkl repetitive use, pgdwn/pgup banned.
+  - ToDo: explore Ex,
+  - Tips:
+    - Use search to get where you want.
+    - Use Ex commands to manipulate text away from the cursor.
+    - Move by word, not by character.(ie: do t/f/T/F with the desired letter and then correct with ; or ,
+    - n| : moves cursor to n column of that line.
+- installed vim-tmux-navigator. I think I'll keep it for now.
+  - Apparently it works just fine with my VM config(Peppermint7+the usual tmux/vim config). No delay.
