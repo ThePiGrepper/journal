@@ -1,0 +1,22 @@
+== SecureBox project ==
+
+* [O] select hardware:
+  * [X] cpu: stm32f4
+  * [ ] gprs
+  * [X] gps: ublox v6m
+  * [X] wifi: ESP8266
+* [ ] write down planning and milestones.
+* [O] buy needed hardware:
+  * [X] CPU
+  * [ ] GPRS
+  * [X] GPS
+  * [X] Wifi
+  * [X] Smartcard reader
+
+
+* [X] read about smardcard linux tools(opensc,pcsc-tools,libccid):
+  * [X] check if tools are available for rpi. *they are.
+  * [X] this tools are for any card reader?:
+    -libccid is a generic usb-ccid protocol driver. so it should work with all readers.
+    -opensc apparently works with several boards.
+* [X] get compatible smartcard reader.

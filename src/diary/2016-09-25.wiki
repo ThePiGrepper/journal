@@ -1,0 +1,21 @@
+
+
+
+
+
+== SecureBox Project ==
+- Overall: It is a Security System for valuables transportation. It consists of:
+  Main:
+  - Main Processor: STM32 family(probably cm4 or cm0 based).
+  - GPS subsystem: GPS module + flash memory for GPS-data storage + RTC.
+  - GPRS/GSM subsystem: GMS module.
+  - Wifi Subsystem: ESP3266 module for system setup and M2M communication.
+  Secundary:
+  - Battery management subsystem: Battery Charger.
+  - Power subsystem: Actuator driver.
+
+Hardware:
+  - CPU: STM32F4
+  - GPS: Ublox-v6m
+  - Wifi: ESP8266
+  - GPRS: TBD
