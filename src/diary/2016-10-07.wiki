@@ -1,0 +1,22 @@
+
+
+
+
+
+== programmming practice ==
+- inmutability:
+  - pending tests:
+    - modify data pointed by a const data *ptr. test with original value and with a different internally modified value:
+      - Compilers sends an error when changed directly and a warning (-Wdiscarded-qualifiers) when changed through a non-const ptr.
+  - state machine example using if statements(instead of switch_case or if_else) to show why immutability is good.
+  - the idea is to enter one state per function call, so the max number of state transitions is 1.
+  - it is suggested to use two state machine structures. one for the current state an another one for the next state.
+
+- Singletons:
+  - good ideas for creating variables:
+    - try to avoid static local variables.
+    - try to decouple data and code(functions): use functions and input parameters
+      (by reference), instead of hardcoding variables inside.
+    - When writing libraries or modules, use static global variables to avoid external
+      visibility, but create functions for modifying these(this function can be only
+      for internal use(static) or not).
