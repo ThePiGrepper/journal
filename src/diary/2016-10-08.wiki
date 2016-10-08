@@ -1,0 +1,27 @@
+
+
+
+
+
+== Arch Linux ==
+- unmute audio:
+  > amixer sset Master unmute
+- enable audio over bluetooth:
+  - use pulseaudio (ALSA does NOT support audio over bluetooth adapter):
+    > sudo pacman -S pulseaudio-alsa pulseaudio-bluetooth
+  - install a frontend for pulseaudio.
+    > sudo pacman -S pavucontrol
+  - install bluez bluetooth stack:
+    > sudo pacman -S bluez bluez-utils bluez-libs bluez-firmware
+  - install a front-end for bluetooth configuration.
+    > sudo pacman -S blueberry
+    *you can do this or work with it manually using bluetoothctl command.
+  - check service status (systemd):
+    > sudo systemctl status bluetooth
+  - start service (systemd):
+    > sudo systemctl start bluetooth
+  - set service to start at boot:
+    > sudo systemctl enable bluetooth
+- install audio codecs:
+  - install gstreamer
+    > sudo pacman -S --needed --noconfirm gstreamer0.10-{bad,good,ugly}{,-plugins} gstreamer0.10-python gst-plugins-{base{,-libs},good,ugly} gst-libav gstreamer0.10-ffmpeg ffmpeg{,-compat} phonon-qt{4,5}-gstreamer

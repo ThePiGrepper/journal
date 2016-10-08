@@ -38,7 +38,7 @@
     * [X] openbox.
     * [ ] MATE.
     * [ ] Enlightenment.
-  * [.] Solve build issues:
+  * [X] Solve build issues:
     * [X] ! sound disabled.
   * [ ] disable touchpad when typing.
   * [ ] Install basic MCU programming tools and test flow:
