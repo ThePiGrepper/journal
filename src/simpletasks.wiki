@@ -23,3 +23,4 @@
 * [ ] try to play with bison/flex(maybe Oboro kickoff?).
 * [ ] test ESP8266.
 * [ ] compile and test wolfssl lib with stm32.
+* [ ] create a software framework for embedded work(including state machines, service handlers, etc).

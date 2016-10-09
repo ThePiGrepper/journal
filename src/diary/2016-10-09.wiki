@@ -1,0 +1,23 @@
+
+
+
+
+
+== programmming practice ==
+- volatile keyword usage:
+  - interesting tests:
+    - difference between: an_struct volatile *ptr; and volatile an_struct *ptr;
+      I suspect the second is the one you want to make the struct members volatile as well.
+  - type qualifiers (const,volatile) can be placed as: volatile int foo, or int volatile foo.
+  - An alternative to:
+    #define UART0 ((USART *) 0xfefefefe)
+    can be:
+    USART *const UART0 = (USART *) 0xfefefefe.
+    is this 100% equivalent?
+== concepts ==
+- software framework:
+    - different from a normal library because:
+      - inversion of control: the flow of control is dictated by the framework, not the library.
+      - extensibility: a user can extend the framework to add specific functionality.
+      - non-modifiable framework code: the core code is not supposed to be modified.
+    - it would be nice to have create a framework for personal use to speed up development (added to simple_tasks).
