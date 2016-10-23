@@ -41,10 +41,8 @@
   * [X] Solve build issues:
     * [X] ! sound disabled.
   * [ ] disable touchpad when typing.
-  * [ ] Install basic MCU programming tools and test flow:
-    * [ ] MCU toolchain.(test entire workflow)
-    * [ ] basic programs.
-    * [ ] search and install lightweight common apps(pdf reader, music player,etc)
+  * [o] Install basic MCU programming tools and test flow:
+  * [ ] search and install lightweight common apps(pdf reader, music player,etc)
     * [ ] document everything in a HOWTo.
   * [ ] questions:
     * [ ] pacman howtos:

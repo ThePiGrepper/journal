@@ -1,0 +1,19 @@
+
+
+
+
+
+== Arch Linux ==
+- configured ARM toolchain:
+  - installed arm-none-eabi-gcc(and arm-none-eabi-newlib),openocd.
+  - installed ninja
+- added conf scripts to qsetup:
+  - openbox rc file. added basic options:
+    - open terminal with C-A-t keybind.
+    - disable touchpad.
+  - lilyterm default.conf:
+    - set trasparent background.
+    - disable keybinds not compatible with vim/tmux flow.
+- installed fonts:
+  - Some basic fonts
+  > sudo pacman -S ttf-droid ttf-liberation ttf-dejavu
