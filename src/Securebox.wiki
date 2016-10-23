@@ -1,8 +1,8 @@
 == SecureBox project ==
 
-* [O] select hardware:
+* [X] select hardware:
   * [X] cpu: stm32f4
-  * [ ] gprs
+  * [X] gprs sim900
   * [X] gps: ublox v6m
   * [X] wifi: ESP8266
 * [ ] write down planning and milestones.
@@ -20,3 +20,18 @@
     -libccid is a generic usb-ccid protocol driver. so it should work with all readers.
     -opensc apparently works with several boards.
 * [X] get compatible smartcard reader.
+* [.] main program:
+  * [X] study system requirements.
+  * [X] design a system infrastructure.
+  * [ ] implement proof of concept.
+  * [ ] implement user level FSM.
+  * [ ] implement drivers.
+    * [ ] implement wifi driver.
+    * [ ] implement GPS driver.
+    * [ ] implement GPRS driver.
+    * [ ] implement other minor drivers.
+  * [ ] Setup configuration server on ESP8266.
+  * [ ] Implement SmartCard reader driver:
+    * [ ] study CCID USB protocol.
+    * [ ] look for available implementations.
+    * [ ] implement driver.
