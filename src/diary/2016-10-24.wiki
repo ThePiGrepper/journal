@@ -1,0 +1,8 @@
+
+
+
+
+
+== Arch Linux ==
+- bash installed autocomplete package.
+bash-completion
