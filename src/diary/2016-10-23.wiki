@@ -17,3 +17,5 @@
 - installed fonts:
   - Some basic fonts
   > sudo pacman -S ttf-droid ttf-liberation ttf-dejavu
+- installed power manager:
+  - xfce4-power-manager
