@@ -1,0 +1,31 @@
+
+
+
+
+
+== Arch Linux ==
+- installed gnome-screenshot(default option with LXDE)
+  gnome-screenshot
+  - to lazy to search for other programs or configure the conf file.
+  - it turned out quite useful. probably will keep it. needs to be tested more.
+
+== raspberry pi ==
+- installed arch-linux on the raspberry pi.
+- made a script with the basic process.
+- for adding wifi and other configurations. it follows the usual arch guide.
+- installed basic tools: base-devel (many tools,ie gcc,autotools,make,etc), openssh,etc.
+- installed dev tools: gcc,ninja,openocd,binutils.
+  Issues:
+  - tried compiling an STM32 project on the Rpi and it did not work.
+  - it did not find the nano.specs or nosys.specs files.
+  - Those files were not in the system after installing binutils and gcc.
+
+== ARM Development ==
+- retarget C stdLib (nano or newlib):
+  - printf() without a '\n' character didnt show on the terminal.
+  - It was because output buffering is enabled by default.
+  - two solutions:
+    - manually flush the buffer after the printf() with: fflush(stdout).
+    - disabling buffering altogether with setvbuf(stdout,NULL,_IONBF,0).
+  - FYI: stderr is not buffered by default. so another solution could be:
+    - fprintf(stderr,...);
