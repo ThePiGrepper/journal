@@ -1,0 +1,17 @@
+
+
+
+
+
+== STM32 Development ==
+- USART Debugging Tips:(by clive1):
+  - The initialization looks reasonable.
+  - Try a lower baud rate.
+  - Try measuring the baud rate on a scope to confirm the correct/expected bit time.
+  - Try a different serial port or usb dongle.
+  - Try using 2 stop bits.
+  - Try sending a known character, in place of whatever is in your output buffers.
+  - Try a simple stand-alone application sending data to the USART.
+  - Don't enable, or keep enabled, the TXE interrupt if you have no data to send.
+  - Don't see the transmit code.
+  - HyperTerminal sucks, try something like TeraTerm or RealTerm.
