@@ -1,0 +1,40 @@
+
+
+
+
+
+== esp8266 testing ==
+- installing tools:(Arch Linux)
+  - Downloaded and compiled ESP8266_SDK (gcc compiler et al). Successful
+    * not used yet.
+  - Created a nodeMCU build online. works fine.
+  - Installing(from pip2(arch)) other tools:
+    - esptool.py : tool for flashing esp8266. tested OK
+    - nodemcu-uploader : tool for loading nodeMCU scripts.
+  - Installing other tools:
+    - ESPlorer : IDE for esp8266 development. (runs on JVM)
+      - Installed Java on Arch
+          jre8-openjdk
+      - Run program
+          >java -jar ESPlorer.jar
+      - Tried compiling/running it from git repo. Unsuccessful.(apache-ant error)
+  - Tested several commands using ESPlorer and directly through Terminal.
+  - Tested saving scripts directly using ESPlorer interface.
+  - Tested basic server examples:
+    - Tested Button with GET request(as STATION). does NOT connect to the network.
+    - Tested Button with GET request(as SOFTAP). works
+      - Tested Button with POST request. works
+      - Tested text and password type forms with POST request. works
+      - Tested charge an html file into a string and load.
+      - Tested with charging different pages(load after reset or load after reset & format).
+      - HTTP request string handling and formatting. send through usart basic string.
+
+== Arch Linux ==
+- installed and tested "downgrade" command.
+  - it is used to download older version of a package.
+  - add a repository to /etc/pacman.conf:
+    [archlinuxfr]
+    SigLevel = Never
+    Server = http://repo.archlinux.fr/$arch
+- To ignore a package and not update it:
+  - edit /etc/pacman.conf and add package name to '#IgnorePkg ='

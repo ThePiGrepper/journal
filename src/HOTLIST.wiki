@@ -11,6 +11,5 @@ HotList Guidelines:
 - Repetitive/Periodical Tasks can be written on the top just as a gentle reminder.
 - The list has an implicit priority scheme. It is not enforced but suggested.
 -------------------------------------
-- test esp8266(flash it, install useful interfaces(micropython,lua,etc)
 - test a few fuzzy finder vim plugins
 - study ARMv7 ISA by writing code.
