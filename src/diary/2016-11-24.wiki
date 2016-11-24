@@ -1,0 +1,11 @@
+
+
+
+
+
+== arch linux ==
+- install tilda
+  - tilda is a terminal emulator.
+  - it solved an issue with background imagen when other terminals were configured
+    with transparency enabled.(I dont understand how installing this solved that issue)
+  - NTD: test tilda and explore functionalities.
