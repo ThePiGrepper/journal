@@ -31,6 +31,7 @@
     * [ ] Install lxqt.
   * [.] test  WMs: (https://wiki.archlinux.org/index.php/Window_manager )
     * [ ] i3.
+    * [ ] awesome wm.
     * [ ] spectrwm.
     * [ ] herbstluftwm.
     * [ ] dwm(try using dmenu as well).
@@ -53,6 +54,7 @@
     * [ ] howto create shortcuts(ie: open terminal).
     * [ ] optimize OS configuration for SSDs.
     * [ ] Archinstaller (https://bitbucket.org/flexiondotorg/archinstaller )
+    * [ ] udev: for automount usb devices and autodetect external monitor and change config.
 
 * [ ] Puppy Linux LiveUSB
   * [ ] Complete MCU toolchain and basic programs.
