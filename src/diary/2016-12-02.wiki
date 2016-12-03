@@ -1,0 +1,26 @@
+
+
+
+
+
+== Arch Linux ==
+
+- installed cmatrix. terminal-based matrix effect generator.(just for fun)
+  pacman package: cmatrix
+
+- installed network manager and applet.
+	- install networkmanage and enable service.
+		> pacman -S --needed networkmanager
+		> systemctl enable NetworkManager.service
+	- disable (and stop) previous wifi and network controller services.
+		> systemctl disable dhcpcd.service 
+		> systemctl disable dhcpcd@.service 
+		> systemctl disable netctl-auto@wlo1.service 
+	* optional if rebooting after installation.
+		> systemctl stop dhcpcd.service 
+		> systemctl stop dhcpcd@.service 
+		> systemctl stop netctl-auto@wlo1.service 
+	- install desktop applet for network manager.
+		> pacman -S --needed network-manager-applet gnome-keyring wireless_tools 
+	- reboot machine.
+		> reboot 
