@@ -1,0 +1,13 @@
+
+
+
+
+
+== Arch Linux ==
+- customize lxdm display manager:
+  - modify /etc/lxdm/lxdm.conf file:
+    To change background img, change bg=/path/to/filename (file needs to be owned by root)
+  - modify /usr/share/lxdm/themes/<ThemeFolder>/greeter.ui:
+    - you can create(or copy) an existing theme folder to a new folder and redirect to it:
+      change theme=<theme> line at lxdm.conf to <newThemeFolder>.
+    - To change images to custom ones, change line on greeter.ui to redirect to new image or change the image itself.
