@@ -1,0 +1,8 @@
+
+
+
+
+
+== Arch linux ==
+- lxde wallpaper setup:
+  - install nitrogen to set wallpapers (for any number of monitors)
