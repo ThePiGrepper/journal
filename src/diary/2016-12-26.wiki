@@ -5,4 +5,51 @@
 
 == Arch linux ==
 - lxde wallpaper setup:
-  - install nitrogen to set wallpapers (for any number of monitors)
+  - install nitrogen to set wallpapers (for any number of monitors): nitrogen (feh is also an option)
+  - open nitrogen and select the wallpapers.
+  - disable lxde default wallpaper manager using PCmanFM:
+    - edit .config/lxsession/LXDE/autostart and remove line: @pcmanfm --desktop --profile LXDE
+    - add (if using nitrogen) the following line: @nitrogen --restore
+- install clementine:
+  - to play mp3 files and other codecs, install the following packages also:
+    gst-plugins-base gst-plugins-good gst-plugins-ugly gst-plugins-bad
+- configure display/monitor settings with lxde:
+  - install nvidia drivers and reboot: nvidia-current-updates nvidia-xconfig
+  - to check default gpu changed, do: lspci -nn | grep VGA
+  - install: nvidia-settings
+  - modify xorg.conf files by any means (using nvidia-settings is an option).
+  - remove ~/.config/autostart/lxrandr-autostart.desktop or rename it to avoid xorg.conf being overwritten.
+- install ssh server:
+  - install package: openssh
+  - enable and start daemon:
+    > systemctl enable sshd.socket
+    > systemctl start sshd.socket
+== GRUB ==
+- Modify grub: change bg image, timeout,etc.
+  - edit file: /etc/default/grub (or use grub-customizer)
+  - to change bg image:
+    - edit the following lines:
+      - GRUB_GFXMODE=1920x1080,1024x768,auto
+      - GRUB_GFXPAYLOAD_LINUX=keep
+      - GRUB_BACKGROUND="/boot/grub/image" //it accepts tga,png,jpg formats.
+                                           //image needs to be inside /boot?
+  - to change font:
+      - GRUB_FONT="/path/to/font.pf2" //font must be in pf2 format.
+  - update-grub(with ubuntu), or run : grub-mkconfig -o /boot/grub/grub.cfg
+== SSH ==
+  - copy authorized key: ssh-copy-id user@host ,or scp ~/.ssh/id_rsa.pub user@host:.ssh.authorized_keys
+  - modify greeter:
+    - edit /etc/motd // modify this file
+== Full copy to another hdd ==
+  - do: >sh -c 'cat /dev/sdb >/dev /sda'
+== Fix for Arch kernel panic  issue after another OS installation ==
+- if Arch panics after executing grub-install from that new installation and dont setting properly some boot
+  options for the Arch partition), do:
+  - open /boot/grub/grub.cfg file on arch partition and also the same file on the conflicting OS.
+  - there are two differences between the files regarding Arch menuentry. one on the following line:
+    linux /boot/vmlinuz*** root=UUID(...)
+    and another one here:
+    initrd /boot/intel-ucode.img /boot/initramfs-4.5-x86_64.img
+  - usually, you need to check that the vmlinuz is the same in both files, also you need to add the '/boot/initramfs-***.img'
+    part to the file being used, it usually only has the intel-ucode.img part.
+  - DO NOT RUN grub-install after this from the edited OS, it will overwrite the changes.
