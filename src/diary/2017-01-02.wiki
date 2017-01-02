@@ -1,0 +1,18 @@
+
+
+
+
+
+== use common folder between **nix OSes ==
+- the main problem is having users in both OSes with different uids.
+- So solve this, the easier way is to change the uids so they are the same.
+- From another user(access as root or create a temporary user account) change the uid:
+  - to know the current uid : > id -u <username>
+  - change it to the new one: > sudo usermod --uid <new_uid> <username>
+  - change your home directory ownership: > sudo chown -R 501:<usernamegroup> /home/<username>
+  - Be sure to only have <username> files inside home, otherwise chown will change other users files to new userid ownership.
+* if a temporary user was created, delete it. 
+
+== Linux - create a new user account ==
+> sudo useradd -d /home/newuser -m -s /bin/bash -G admin newuser
+> sudo passwd newuser
