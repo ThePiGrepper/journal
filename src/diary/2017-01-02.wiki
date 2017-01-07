@@ -11,7 +11,7 @@
   - change it to the new one: > sudo usermod --uid <new_uid> <username>
   - change your home directory ownership: > sudo chown -R 501:<usernamegroup> /home/<username>
   - Be sure to only have <username> files inside home, otherwise chown will change other users files to new userid ownership.
-* if a temporary user was created, delete it. 
+* if a temporary user was created, delete it.
 
 == Linux - create a new user account ==
 > sudo useradd -d /home/newuser -m -s /bin/bash -G admin newuser

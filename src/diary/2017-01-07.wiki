@@ -1,0 +1,13 @@
+
+
+
+
+
+== Arch: Setup lxde/openbox themes ==
+- install 'rave-x-colors' with yaourt.
+- install 'arc-gtk-theme' with pacman.
+- install lxappearance package and exec it to start configuring.
+- install 'xcursor-flatbed' with pacman.
+- select Arc-Dark on Widget(GTK Theme), and RAVE-X-Dark-Yellow on Icon Theme.
+- select 'Flatbed Cursors original left-handed Orange' on Mouse Cursor.
+- Leave WM Theme(openbox) with Onyx or Onyx-Citrus.
