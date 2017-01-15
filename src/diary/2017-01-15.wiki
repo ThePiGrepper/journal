@@ -1,0 +1,17 @@
+
+
+
+
+
+== Dell XPS 13 initial Setup ==
+- shrink OS partition to free some space for Linux.
+- change some settings in BIOS(F12 to boot mode(best) or F2 to only BIOS settings):
+  - disable secureboot.
+  - change SATA operation mode from RAID or IDE to AHCI:
+    - To avoid crashing your already installed W10, you need to do the following:
+      - open cmd prompt as admin, exec : > bcdedit /set {current} safeboot minimal
+      - reboot, enter BIOS Setup and change SATA operation to AHCI, save and exit. Windows will boot to safe mode.
+      - open cmd prompt as admin(in safe mode, search does not work right, so find cmd prompt in WindowsMenu>Windows System> Command Prompt).
+      - exec : > bcdedit /deletevalue {current} safeboot
+      - reboot and windows will be running with AHCI drivers enabled.
+- now boot to some Linux installer drive.
