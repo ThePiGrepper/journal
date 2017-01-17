@@ -14,4 +14,28 @@
       - open cmd prompt as admin(in safe mode, search does not work right, so find cmd prompt in WindowsMenu>Windows System> Command Prompt).
       - exec : > bcdedit /deletevalue {current} safeboot
       - reboot and windows will be running with AHCI drivers enabled.
-- now boot to some Linux installer drive.
+- now boot to some Linux installer drive. be sure to boot the drive with UEFI.
+- beginning to install Arch Linux:
+  - some differences between regular Arch installation (see HowTo file):
+    - after creating and formating the disk/partitions (you can use gdisk for this), mounting the main partition, pacstrap:
+      - mount the efi partition: [NEW]
+        > mkdir -p /mnt/boot/efi
+        > mount /dev/<efi_partition> /mnt/boot/efi
+      - generate the fstab file.
+      - arch-chroot into it.
+      - generate the initial RAM disk: > mkinitcpio -p linux [NEW]
+      - setup the bootloader(grub): some parts are the same:
+        - download grub.
+      - and other are new:
+        - download efibootmgr. [NEW]
+      - generate the grub config : > grub-mkconfig -o /boot/grub/grub.cfg
+      - and install it (same as always): > grub-install /dev/<nameofdisk>
+      - confirm that grub has installed: there should be a file /boot/efi/EFI/arch/grubx64.efi. [NEW]
+      - install os-prober.
+      - generate grub conf again(grub-mkconfig).
+      * if during installation occurs an issue of missing certificates. do the following:
+        > pacman -Sy archlinux-keyring && pacman -Syyu
+== Linux: update partition table without rebooting linux ==
+  - very useful after partition creation during installation.
+  - execute the following command:
+    > partprobe /dev/<disk>

@@ -41,7 +41,7 @@
   - modify greeter:
     - edit /etc/motd // modify this file
 == Full copy to another hdd ==
-  - do: >sh -c 'cat /dev/sdb >/dev /sda'
+  - do: >sh -c 'cat /dev/sdb >/dev/sda'
 == Fix for Arch kernel panic  issue after another OS installation ==
 - if Arch panics after executing grub-install from that new installation and dont setting properly some boot
   options for the Arch partition), do:
