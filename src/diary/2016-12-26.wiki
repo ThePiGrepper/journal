@@ -12,7 +12,8 @@
     - add (if using nitrogen) the following line: @nitrogen --restore
 - install clementine:
   - to play mp3 files and other codecs, install the following packages also:
-    gst-plugins-base gst-plugins-good gst-plugins-ugly gst-plugins-bad
+    gstreamer gst-libav gst-plugins-base gst-plugins-base-libs gst-plugins-good gst-plugins-ugly gst-plugins-bad
+  * Apparently there exists some conflict with older gstreamer libs: try NOT to install gstreamer0.10* plugins.
 - configure display/monitor settings with lxde:
   - install nvidia drivers and reboot: nvidia-current-updates nvidia-xconfig
   - to check default gpu changed, do: lspci -nn | grep VGA

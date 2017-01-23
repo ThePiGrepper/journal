@@ -1,0 +1,21 @@
+
+
+
+
+
+== Dell XPS 13 Setup ==
+- xfce is great. desktop configured: theme chosen, basic shortcuts placed, and some other tweaks. I like it so far.
+- tested xfce switch panel. > yaourt xfce-panel-switch
+- it changes between xfce desktop configurations. you can also save your own custom configs. very nice.
+
+== Mounting FAT/FAT32 drives with Linux ==
+- to mount a FAT32, add the umask option at mount time, so you can write/modify files as a regular user.
+  > sudo mount /dev/<partition> /mnt/<filetomount> -o umask=000
+* it is NOT needed to chmod mountpoint file to 777 for this to work.
+
+== testing xfce DE ==
+- to use xfce terminal as a drop-down terminal(quake style),do:
+  > xfce4-terminal --drop-down (hint: add this as a shortkey)
+== VirtualBox: resizing vdi disk(even after installing an OS) ==
+- execute this line: > VBoxManage modifyhd <yourdisk>.vdi --resize <NEW_SIZE_IN_MB>
+- boot into the machine and resize the partition. the new space will appear as not formatted.

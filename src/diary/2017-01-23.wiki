@@ -1,0 +1,24 @@
+
+
+
+
+
+== Dell XPS 13 Setup ==
+- list of things I'd like to have working:
+  - bluetooth [OK] (see the following [[2016-10-08|link]])
+    - very straight-forward installation. the bluetooth symbol(from blueberry) appeared at the item bar by itself.
+  - automount
+  - mp3 codecs for clementine [OK] (see the following [[2016-12-26|link]])
+    - added music icon to the xfce dock to launch clementine.
+  - enable special keys functionality on xfce(volume keys only) [OK]
+    - Apparently when pulseaudio packages(bluez-utils bluez-libs bluez-firmware) were installed, it got fixed.
+    - it kinda makes sense. I think.
+    - Old control panel icon disappeared,however a new 'PulseAudio plugin' became available (after installing pulseaudio, I think).
+    - extra: linked Super_L key to xfce4-popup-applicationsmenu (drop xfce start menu)
+    - added shortcut to print screen. download gnome-screenshot package and created shortcut using PrtScr key.
+  - optimize for ssd
+  - optimize power consumption
+  - enable gestures and tap-to-click touchpad functionality.
+  - setup conky manager.
+    - run during startup.
+  - setup netflix on linux.
