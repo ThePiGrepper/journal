@@ -1,7 +1,4 @@
 == Hot List ==
-* [ ] clean room (40min)
-* [ ] exercise & bath (40min)
-* [ ] do groceries (40min)
 -------------------------------------
 HotList Guidelines:
 - This list is for tasks that are ABOUT TO BE DONE.
@@ -14,9 +11,6 @@ HotList Guidelines:
 - test a few fuzzy finder vim plugins
 - study ARMv7 ISA by writing code.
 -------------------------------------
-- fix gps data stream bug.
-- complete and test wifi driver.(change profiles: disabled->setup(data receive test)->disabled. same with auth).
-- complete proto_main().
 - nrf24l01 simple comm example.
 - create a secondary build. using only gps, nrf24l01 and gprs(later).
   - it only receives commmands from nrf24l01 from a fixed channel.
