@@ -21,6 +21,11 @@
   * [ ] test functionality of soldered boards.
 * [ ] edx training.
 * [ ] try to play with bison/flex(maybe Oboro kickoff?).
-* [X] test ESP8266.
 * [ ] compile and test wolfssl lib with stm32.
 * [ ] create a software framework for embedded work(including state machines, service handlers, etc).
+* [ ] Dell XPS 13 Setup:
+  * [ ] enable hdmi/vga output support over thunderbolt 3.
+  * [ ] automount
+  * [ ] optimize for ssd
+  * [ ] optimize power consumption
+  * [ ] fix 'out of suspend' issue.
