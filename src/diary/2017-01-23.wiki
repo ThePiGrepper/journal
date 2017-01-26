@@ -16,9 +16,10 @@
     - Old control panel icon disappeared,however a new 'PulseAudio plugin' became available (after installing pulseaudio, I think).
     - extra: linked Super_L key to xfce4-popup-applicationsmenu (drop xfce start menu)
     - added shortcut to print screen. download gnome-screenshot package and created shortcut using PrtScr key.
+    - added shortcut to inc/dec display brightness (installed xorg-xbacklight package).
   - optimize for ssd
   - optimize power consumption
   - enable gestures and tap-to-click touchpad functionality.
   - setup conky manager.
     - run during startup.
-  - setup netflix on linux.
+  - setup netflix on linux [OK]
