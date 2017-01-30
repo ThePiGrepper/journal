@@ -1,0 +1,14 @@
+
+
+
+
+
+== hp mini 210-1000 arch install ==
+- there was an issue with wifi. At install, the wifi chip was not detected, so:
+  - everything had to be done using ethernet.
+  - a package had to be installed, from the AUR: b43-firmware-classic
+  - after wifi device was detected, ip link set up <device> didnt work. so:
+    - blacklist hp_wmi: > sudo echo "blacklist hp_wmi" > /etc/modprobe.d/hp.conf
+    - unblock all WiFi: > rfkill unblock all
+  - after that and a reboot (I think), it worked just fine.
+  - installed xfce on it. it had the lightdm issue as well, already documented.
