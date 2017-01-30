@@ -1,0 +1,35 @@
+
+
+
+
+
+== Dell XPS 13 Setup ==
+- Continuing with the list:
+  - optimize power consumption [OK]
+    - installed tlp package and enable services.
+      > systemctl enable tlp.service
+      > systemctl enable tlp-sleep.service
+      > systemctl mask systemd-rfkill.service
+    - to check status, use: tlp-stat
+    - using default configuration. conf file is /etc/default/tlp (http://linrunner.de/en/tlp/docs/tlp-configuration.html )
+    * ethtool: needed to disable wake on lan. not used with XPS13 but useful when an ethernet port is present.
+- xfce setup:
+== LightDM setup ==
+  - install lightdm and lightdm-settings.
+  - enable systemd service: > systemctl enable lightdm.service
+  * to make lightdm work, you need the following packages(at least): xorg-server xf86-video-intel .
+  - enabling 'lock screen' using lighDM:
+    - 'lock screen' calls a script at /usr/bin/xflock4 which depends on xscreensaver or gnome-screensaver.
+    - lightdm comes with its own command called dm-tool which does this change, So.
+    - modify this script so it calls the following line:
+      > dm-tool switch-to-greeter
+      > exit (to avoid executing anything else without deleting the original script altogether)
+    * doing this also works seamlessly with all the default lock shortcuts because they used xflock4.
+  - removing 'switch user' from the user menu:
+    - 'switch user' was disabled and instead of trying to enable it, decided to just taking it out of the menu.
+== arch setup ==
+- pkgfile is a nice program. it shows info about a package in the repo, like which package contains a command.
+  - you need to build and periodically update the metadata repository locally to retreive updated info.
+    > pkgfile <command>
+  - pacman has a built-in functionality for searching the database online, so it's slower but doesn't need to update.
+    > pacman -Fo <command>

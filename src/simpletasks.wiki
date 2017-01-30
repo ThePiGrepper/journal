@@ -29,3 +29,4 @@
   * [ ] optimize for ssd
   * [ ] optimize power consumption
   * [ ] fix 'out of suspend' issue.
+  * [ ] add Bootsplash
