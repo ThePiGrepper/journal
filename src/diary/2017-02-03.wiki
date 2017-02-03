@@ -1,0 +1,14 @@
+
+
+
+
+
+== Arch setup ==
+- installed Steam:
+  - had to install 32bit libs so, edit /etc/pacman.conf and enable multisim repo.
+  - install with pacman: ttf-liberation lib32-curl lib32-libgpg-error steam
+  - run steam and it will update itself if everything is OK.
+  - run steam(engine) to open it.
+  * there are more steps and troubleshooting on the wiki, but it worked with only this with XPS13.
+  * references: http://dominicm.com/install-steam-on-arch-linux/
+                https://bbs.archlinux.org/viewtopic.php?id=172696
