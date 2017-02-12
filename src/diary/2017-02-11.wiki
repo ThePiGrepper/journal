@@ -1,0 +1,14 @@
+
+
+
+
+
+== automount arch + thunar ==
+  - install with pacman: udiskie udisks2
+  - execute the daemon: udiskie -2 -s &
+  - install with pacman: gvfs
+  - configure thunar to disable automounting:
+    - go to Edit > Preferences > Advances > Volume Management:
+      - Enable Volume Management
+      - Configure > Storage:
+        - Removable Storage: disable everything.
