@@ -7,8 +7,20 @@
   - install with pacman: udiskie udisks2
   - execute the daemon: udiskie -2 -s &
   - install with pacman: gvfs
+  - I think it need thunar-volman as well.
   - configure thunar to disable automounting:
     - go to Edit > Preferences > Advances > Volume Management:
       - Enable Volume Management
       - Configure > Storage:
         - Removable Storage: disable everything.
+Mount to /media (udisks2)
+
+  - By default, udisks2 mounts removable drives under the ACL controlled directory /run/media/$USER/. If you wish to mount to /media instead, use this rule:
+
+  /etc/udev/rules.d/99-udisks2.rules
+
+    # UDISKS_FILESYSTEM_SHARED
+    # ==1: mount filesystem to a shared directory (/media/VolumeName)
+    # ==0: mount filesystem to a private directory (/run/media/$USER/VolumeName)
+    # See udisks(8)
+    ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"
