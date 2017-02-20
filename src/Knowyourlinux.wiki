@@ -17,18 +17,18 @@
   * [ ] Apricity (https://github.com/Apricity-OS/apricity-build )
   * [ ] Bodhi
 
-* [ ] Test Display Managers:
-  * [ ] LXDM (standalone, not with LXDE)
-  * [ ] LightDM (standalone, not with Ubuntu(I think it breaks though)
+* [.] Test Display Managers:
+  * [X] LXDM (standalone, not with LXDE)
+  * [X] LightDM (standalone, not with Ubuntu(I think it breaks though) I really like it. needs some tweaking to make it work though(see diary).
   * [ ] CDM
   * [ ] Console TDM
   * [ ] nodm
   * [ ] SDDM
 
-* [.] Arch Setup:
-  * [o] test DEs: (https://wiki.archlinux.org/index.php/Desktop_environment )
-    * [X] Install lxde.
-    * [ ] Install lxqt.
+* [o] Arch Setup:
+  * [X] test DEs: (https://wiki.archlinux.org/index.php/Desktop_environment )
+    * [X] Install lxde. tested and currently working with it.
+    * [X] Install lxqt. tested using VM. is nicer than lxde, but I like xfce more.
   * [.] test  WMs: (https://wiki.archlinux.org/index.php/Window_manager )
     * [ ] i3.
     * [ ] awesome wm.
@@ -39,10 +39,7 @@
     * [X] openbox.
     * [ ] MATE.
     * [ ] Enlightenment.
-  * [X] Solve build issues:
-    * [X] ! sound disabled.
   * [ ] disable touchpad when typing.
-  * [o] Install basic MCU programming tools and test flow:
   * [ ] search and install lightweight common apps(pdf reader, music player,etc)
     * [ ] document everything in a HOWTo.
   * [ ] questions:
