@@ -12,8 +12,8 @@ HotList Guidelines:
 - study ARMv7 ISA by writing code.
 -------------------------------------
 - nrf24l01 simple comm example.
-- create a secondary build. using only gps, nrf24l01 and gprs(later).
-  - it only receives commmands from nrf24l01 from a fixed channel.
-  - goes from disabled to working(receives data from gps and saves last 10-15 samples).
-  - it can supply any saved sample by time to the link master.
-  - if lost signal , send alert with gprs.
+- rosetta project:
+  - [ ] write and send project estimates to client.
+  - [X] buy ethernet(W5100) breakout board.
+  - [ ] run simple test with ethernet board.
+  - [ ] download and understand current source code.

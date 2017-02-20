@@ -25,8 +25,13 @@
 * [ ] create a software framework for embedded work(including state machines, service handlers, etc).
 * [ ] Dell XPS 13 Setup:
   * [ ] enable hdmi/vga output support over thunderbolt 3.
-  * [ ] automount
   * [ ] optimize for ssd
   * [ ] optimize power consumption
   * [ ] fix 'out of suspend' issue.
   * [ ] add Bootsplash
+* [ ] test RTL8710
+  * [ ] design a breakout board for RTL-00.
+  * [ ] try debugging it with openocd and st-link.
+  * [ ] try writing a simple test (blinking IO).
+* [ ] write a reddit post reviewing 2 months with XPS13.
+* [ ] make logic analizer work on Linux.(at least on windows would be nice).
