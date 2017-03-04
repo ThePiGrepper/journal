@@ -1,0 +1,39 @@
+
+
+
+
+
+== Menu for today ==
+* [o] nodemcu on esp12:
+  * [X] build nodemcu with adc/spi/http/crypto modules.
+  * [X] flash and test custom build successfully:
+    * [X] outputs boot info successfully.
+    * [X] works with ESPlorer nicely.
+  * [ ] test PoC for setting nodeMCU as client
+
+idea pool:
+- check how to show and set swapiness.
+
+Log:
+- looking how to flash esp-12 using esptool. trying with flash_mode dio and flash_size 32m (according to flash_id command output) it did NOT work.
+- tried again using default values.(with out flash_size and flash_mode options, defaults are: autodetect size, qio mode). It worked!!
+- current build from boot output:
+  Lua 5.1.4 on SDK 2.0.0(656edbf) built on 2017-03-02 20:44
+  branch: master, commit: b96e31477ca1e207aa1c0cdc334539b1f7d3a7f0
+  modules built-in: adc,crypto,file,gpio,http,node,spi,tmr,uart,wifi, SSL: false
+- tried uploading code to it using ESPlorer. using setup.lua script written for securebox project. it failed.
+- error happened because nodeMCU build didnt have net module. creating a new build with more modules.
+- new build info uses 13 modules instead of 10, including net, sntp, and websocket modules. However, it does not work. build on 2017-03-03 21:11
+- trying to found out how to make it work or where is the problem:
+	- tried building a build exactly the same as the first working one (without the net module) to use as reference. It should work fine. It DID WORKED as expected.
+	- now trying to build one with only the net module added. it WORKED. it shows boot info:
+	- current build from boot output: built on 2017-03-03 22:13
+		modules built-in: adc,crypto,file,gpio,http,net,node,spi,tmr,uart,wifi, SSL: false
+	- although the script loaded without trouble, the web server did not load.
+	- if net module is not the issue, let's try some other module now:
+    - 11 + sntp: it worked. built on 2017-03-03 23:47
+    - 11 + websocket: it did NOT broke. so, apparently websocket didnt work. lets test one more thing to be sure.
+  - testing first one basic build with only 7 modules, and compare it with a build with 7 + websocket modules.
+    - the reference build WORKED as expected. built on 2017-03-04 00:15
+    - reference + websocket build does NOT work. so apparently websocket is BROKEN or I'm just using it wrong.
+  - Testing conclusion: continuing project using the 12-modules build w/o websocket.
