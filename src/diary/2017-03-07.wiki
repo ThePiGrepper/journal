@@ -1,0 +1,28 @@
+
+
+
+
+
+== Menu for today ==
+* [o] Update all VM sytems:
+  * [X] all arch systems except non-i3 manjaros are updated.
+* [.] nodemcu on esp12:
+  * [ ] create external web server on droplet.
+  * [X] test esp-12/nodeMCU gpio. led blinky.
+  * [ ] usart test.
+  * [ ] timer test.
+  * [ ] adc test.
+  * [ ] gpio input sample test.
+  * [ ] test PoC for setting nodeMCU as wifi client and send http request to external server.
+  * [ ] write server-connected IO monitor.
+
+Idea Pool:
+
+Log:
+  - Updated firefox to 52 and enabled vimperator. it works again.
+  - Only chakra,manjaro(cinammon and lxqt),NixOS and Solus_Mate are left without upgrading.
+  - lubuntu machine was updated. later is being upgraded to lxQt. > sudo apt install lxqt -y
+  - installing openSUSE Tumbleweed on a VM.
+    - update and further testing needed.
+  - Starting nodeMCU prototyping with 12-modules build w/o websocket.
+  - gpio led setup and toggle worked.
