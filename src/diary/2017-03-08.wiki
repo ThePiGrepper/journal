@@ -1,0 +1,36 @@
+
+
+
+
+
+== Menu for today ==
+* [o] nodemcu on esp12:
+  * [ ] create external web server on droplet.
+  * [X] test esp-12/nodeMCU gpio. led blinky.
+  * [X] usart test.
+  * [X] timer test.
+  * [X] adc test.
+  * [X] gpio input sample test.
+  * [ ] test PoC for setting nodeMCU as wifi client and send http request to external server.
+  * [ ] write server-connected IO monitor.
+* [ ] design esp-12-based system board:
+  * [ ] check I/O interface circuit (current protection maybe).
+  * [ ] design draft schematic.
+  * [ ] review design decisions.
+
+Idea Pool:
+- show Y500 boot menu on external monitor.
+- fix tmux copy from buffer to clipboard shortcut.
+
+Log:
+  - Continuing testing esp8266(esp-12) w/nodeMCU.
+  - let's make a blink test with for loop.
+  - usart configuration tested successfully. print() function works fine with default serial port.
+  - dual blink enabled, using two independent timer objects.
+  - let's start reading digital input. it worked just fine with simple sampling.
+    * it would be interesting to test Interrupt mode with callback function.
+  - strange behavior using weak pullup resistor mode. maybe check later. try NOT to use it.
+  - let's try adc. it works OK. However, some ADC specs: Resolution:10bits(it returns 0-1024(yeah,I know, 1025 points, weird),max input voltage: 1V.
+  - Also, about adc, it has two possible inputs. Channel0 which comes from esp-12 pin2 (default), and internal system voltage.
+    * it would be interesting to test the internal system channel, using adc.force_init_mode(adc.INIT_VDD33) (followed by restart), adc.readvdd33().
+  - try setting nodeMCU as wifi client, and showing available networks.
