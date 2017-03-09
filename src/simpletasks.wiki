@@ -29,9 +29,11 @@
   * [ ] optimize power consumption
   * [ ] fix 'out of suspend' issue.
   * [ ] add Bootsplash
-* [ ] test RTL8710
-  * [ ] design a breakout board for RTL-00.
+* [.] test RTL8710
+  * [X] design a breakout board for RTL-00.
   * [ ] try debugging it with openocd and st-link.
   * [ ] try writing a simple test (blinking IO).
 * [ ] write a reddit post reviewing 2 months with XPS13.
 * [ ] make logic analizer work on Linux.(at least on windows would be nice).
+* [ ] show Y500 boot menu on external monitor.
+- [ ] fix tmux copy from buffer to clipboard shortcut.
