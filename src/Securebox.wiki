@@ -6,9 +6,9 @@
   * [X] gps: ublox v6m
   * [X] wifi: ESP8266
 * [ ] write down planning and milestones.
-* [O] buy needed hardware:
+* [X] buy needed hardware:
   * [X] CPU
-  * [ ] GPRS
+  * [X] GPRS
   * [X] GPS
   * [X] Wifi
   * [X] Smartcard reader
@@ -20,17 +20,17 @@
     -libccid is a generic usb-ccid protocol driver. so it should work with all readers.
     -opensc apparently works with several boards.
 * [X] get compatible smartcard reader.
-* [.] main program:
+* [O] main program:
   * [X] study system requirements.
   * [X] design a system infrastructure.
-  * [ ] implement proof of concept.
-  * [ ] implement user level FSM.
-  * [ ] implement drivers.
-    * [ ] implement wifi driver.
-    * [ ] implement GPS driver.
-    * [ ] implement GPRS driver.
-    * [ ] implement other minor drivers.
-  * [ ] Setup configuration server on ESP8266.
+  * [X] implement proof of concept.
+  * [X] implement user level FSM.
+  * [X] implement drivers.
+    * [X] implement wifi driver.
+    * [X] implement GPS driver.
+    * [X] implement GPRS driver.
+    * [X] implement other minor drivers.
+  * [X] Setup configuration server on ESP8266.
   * [ ] Implement SmartCard reader driver:
     * [ ] study CCID USB protocol.
     * [ ] look for available implementations.
