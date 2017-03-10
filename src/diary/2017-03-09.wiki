@@ -1,0 +1,28 @@
+
+
+
+
+
+== Menu for today ==
+* [o] nodemcu on esp12:
+  * [X] create external web server on droplet.
+  * [X] create GET request log page and log print page.
+  * [ ] test PoC for setting nodeMCU as wifi client and send http request to external server.
+  * [ ] write server-connected IO monitor.
+* [ ] design esp-12-based system board:
+  * [ ] check I/O interface circuit (current protection maybe).
+  * [ ] design draft schematic.
+  * [ ] review design decisions.
+
+Idea Pool:
+  - write a HowTo for disk recovery on linux (watch L1Tech video @youtube)
+  - try booting live USB of meegGoPad T2. (try formatting as GPT using rufus and booting by pressing F7)
+  - create a custom Linux build installer.
+  - disassemble WD Elements external HD and use it with SATA.
+
+Log:
+  - webserver active using apache on ubuntu droplet. php7 installed and enabled.
+  - try building 2 php pages:
+    - the first one as a general input which will save all the GET requests incoming in a file.
+    - the second one as a print of such logfile.
+  - try setting nodeMCU as wifi client, and showing available networks.
