@@ -25,6 +25,11 @@
   - enable and start daemon:
     > systemctl enable sshd.socket
     > systemctl start sshd.socket
+  - to configure ssh server open /etc/ssh/sshd_config . Important options are:
+    - AllowUsers user1 user2
+    - AllowGroups group1 group2
+    - PermitRootLogin no|yes|without-password
+    - Port 22
 == GRUB ==
 - Modify grub: change bg image, timeout,etc.
   - edit file: /etc/default/grub (or use grub-customizer)
