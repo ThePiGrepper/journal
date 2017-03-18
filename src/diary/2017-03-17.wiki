@@ -1,0 +1,19 @@
+
+
+
+
+
+== Menu for today ==
+* [X] rosetta:
+  * [X] buy components for testing:
+    * [X] buy sim800l for testing.
+* [X] plan gift for 18th:
+  * [X] write a nice phrase to mark it inside a keychain. look for places that do that.
+  * [X] write a letter/message to post it inside mom's laptop with a cron job to or startup so it appears after login.
+  * [X] buy a nice angel figurine for her.
+
+Idea Pool:
+- Migrate chrome bookmark to firefox (or to an external bookmark manager).
+
+Log:
+  - wrote program to prank mom on her bday. really nice "e-ransom' program. check ransom_joke project on gitgud.io.

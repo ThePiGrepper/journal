@@ -41,3 +41,4 @@
 - [ ] try booting live USB of meegGoPad T2. (try formatting as GPT using rufus and booting by pressing F7)
 - [ ] create a custom Linux build installer.
 - [ ] disassemble WD Elements external HD and use it with SATA.
+- [ ] Migrate chrome bookmark to firefox (or to an external bookmark manager).
