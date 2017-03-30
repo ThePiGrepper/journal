@@ -5,4 +5,5 @@
 * [ ] stuff needed for e-ink display
   * [ ] boost converter IC.
   * [ ] passives and other stuff.
-* [ ] 2mm male headers.
+* [X] 2mm male headers.
+* [ ] SEGGER J-Link EDU - JTAG/SWD Debugger.
