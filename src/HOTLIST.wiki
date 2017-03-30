@@ -17,3 +17,6 @@ HotList Guidelines:
   - [X] buy ethernet(W5100) breakout board.
   - [ ] run simple test with ethernet board.
   - [ ] download and understand current source code.
+  - [X] download and understand current board schematics/layout.
+  - [ ] design system circuit (draft schematic on eagle)
+- [ ] write a reddit post reviewing 3 months with XPS13.

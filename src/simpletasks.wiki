@@ -33,7 +33,7 @@
   * [X] design a breakout board for RTL-00.
   * [ ] try debugging it with openocd and st-link.
   * [ ] try writing a simple test (blinking IO).
-* [ ] write a reddit post reviewing 2 months with XPS13.
+* [ ] write a reddit post reviewing 3 months with XPS13.
 * [ ] make logic analizer work on Linux.(at least on windows would be nice).
 * [ ] show Y500 boot menu on external monitor.
 - [ ] fix tmux copy from buffer to clipboard shortcut.
@@ -42,3 +42,4 @@
 - [ ] create a custom Linux build installer.
 - [ ] disassemble WD Elements external HD and use it with SATA.
 - [ ] Migrate chrome bookmark to firefox (or to an external bookmark manager).
+- [ ] Look up for a linux utility which sends an alarm when it detects prolonged inactivity.
