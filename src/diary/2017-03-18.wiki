@@ -1,0 +1,52 @@
+
+
+
+
+
+== Menu for today ==
+* [O] rosetta:
+  * [O] buy components for testing:
+    * [X] buy sim800l for testing.
+    * [X] buy esp8266. esp-12,esp-3, and external antenna (i think it's esp-7)
+    * [X] 433Mhz tranceiver.
+    * [X] ethernet module(w5100).
+    * [X] rs485 adapter.
+    * [ ] CAN adapter.
+* [ ] nodemcu on esp12:
+  * [ ] test PoC for setting nodeMCU as wifi client and send http request to external server.
+  * [ ] write server-connected IO monitor.
+* [X] design esp-12-based system board:
+  * [X] check I/O interface circuit (current protection maybe).
+  * [X] check rosetta IO board cirtuit design and components for reference.
+  * [X] design draft schematic.
+  * [X] review design decisions.
+
+Idea Pool:
+- Look up for a linux utility which sends an alarm when it detects prolonged inactivity.
+
+Log:
+  - try setting nodeMCU as wifi client, and showing available networks.
+  - check Rosetta I/O interface circuit:
+    - draw draft schematics for esp8266-based board. create git repo.
+  - checking and buying parts for rosetta lite, esp12-based rosetta lite, and future projects:
+    - MBR0520LT1G Schottky diode(SOD-123) x100.
+    - DS1338Z-33 I2C RTC(SOP-8) x5.
+    - NE555D Timer (SO-8) x20.
+    - SP3485EN (SO-8) RS-485 transceiver x10.
+    - SP3485EN breakout board x4.
+    - ADM3483ARZ RS-485 transceiver x2.
+    - MAX14841EASA+ RS-485 x3.
+    - SIM800L breakout board x2.
+    - RFM69HCW 433Mhz module x4.
+    - w5100 ethernet module x2.
+    - esp8266 esp-03 (buy later, if needed after testing with the ones here).
+    - esp8266 esp-07 x4.
+    - esp8266 esp-12 x4.
+  - parts to be bought:
+    - can transceiver
+    - varistor
+    - fuse
+    - resettable fuse
+    - zener diode 3v3
+    - BSS138 is not really needed. 2n7000 is just as good(at least for testing).
+    - AC/DC converter.
