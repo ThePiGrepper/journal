@@ -1,0 +1,21 @@
+
+
+
+
+
+== Menu for today ==
+* [X] let's fix some things with my arch build on the XPS13.
+
+Idea Pool:
+
+Log:
+  - solved issue regarding Xfce in Arch with "Saved session on logout" feature:
+    - solved by removing disabling feature, and then removing files at ~/.cache/sessions/ , then chmod 500 ~/.cache/sessions.
+  - Installed GRUB customizer and made a nice new Boot Menu.
+  - solved issue regarding xfce not executing programs from Menu when root permission needed. "PolicyKit authentication agent missing":
+    - This missing part was curious because xfce4-session has polkit-gnome(a PolicyKit authentication agent!!!) as a dependency and it is
+      setup to autostart (it has a .desktop file at /etc/xdg/autostart/ with 'OnlyShowIn=XFCE' so it was put there during xfce installation (I think).
+    - finally solved in a very silly way: start menu > Settings > Session and Startup - Application Autostart: activate PolicyKit Authentication Agent:
+      - There are actually two authentication agents. one is LXPolKit which makes sense because it is the one installed with LXDE and it is disabled.
+      - After activating it, everything worked just fine. a very anticlimatic end.
+    - more info about xdg(free desktop) autostart: https://specifications.freedesktop.org/autostart-spec/0.5/ar01s02.html
