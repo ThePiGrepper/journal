@@ -1,0 +1,27 @@
+
+
+
+
+
+== Menu for today ==
+* [o] design esp-12-based system board:
+  * [X] finish layout design.
+  * [X] understand KOMM protocol.
+  * [ ] implement KOMM protocol in Lua/NodeMCU.
+  * [ ] test PoC for setting nodeMCU as wifi client and send http request to external server.
+  * [ ] write server-connected IO monitor.
+
+Idea Pool:
+  - create a snake game( using ncurses to test the lib):
+    - maybe after doing that, try to explore deep learning with it.
+    - maybe start with some simple rules(non-AI) to see what happens.
+    - maybe try to use ncurses using python or rust to test the language(are there wrappers for those languages??).
+  -  maybe write another ncurses game. it would be like hangman(is that even the name???) but with a cross with a shoot-em-all game (space invaders?).
+  - finally, after some experience, design and write a 'Day of Sagittarius III'-like game. a homage maybe.
+
+Log:
+  - finish up board layout.
+  - packaging up everything for delivery:
+    - [X] Gerber files.
+    - [X] BOM file.
+    - Parts Library.
