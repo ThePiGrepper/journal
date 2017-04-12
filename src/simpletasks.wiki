@@ -43,3 +43,9 @@
 - [ ] disassemble WD Elements external HD and use it with SATA.
 - [ ] Migrate chrome bookmark to firefox (or to an external bookmark manager).
 - [ ] Look up for a linux utility which sends an alarm when it detects prolonged inactivity.
+- [ ] create a snake game (using ncurses to test the lib):
+  - maybe after doing that, try to explore deep learning with it.
+  - maybe start with some simple rules(non-AI) to see what happens.
+  - maybe try to use ncurses using python or rust to test the language(are there wrappers for those languages??).
+- [ ] maybe write another ncurses game. it would be like hangman(is that even the name???) but with a cross with a shoot-em-all game (space invaders?).
+- [ ] finally, after some experience, design and write a 'Day of Sagittarius III'-like game. a homage maybe.
