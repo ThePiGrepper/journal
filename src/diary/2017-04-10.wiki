@@ -1,0 +1,41 @@
+
+
+
+
+
+== Menu for today ==
+* [.] understand lua language:
+  * [ ] get documentation needed (lua books, language reference manual or tutorials).
+  * [ ] make a quick project using the language. A simple game sounds like a good idea. let's do tennis for 2.
+  * [ ] once simple project is done(max 1.5days), let's learn anything needed to get nodeMCU programming model, using project's docs,etc.
+  * [.] let's do a stop here and go to the other side of the issue: protocol concepts:
+    * [X] understand about KOMM protocol.
+    * [ ] understand about http protocol and how the TCP/IP stack layers are embedded inside one another.
+    * [ ] understand about adding C-modules to nodeMCU and consider making the protocol state machine in C and embedding it into nodeMCU.
+    * [ ] implement KOMM protocol in Lua/NodeMCU.
+  * [ ] Single/Isolated tests:
+    - [ ] try setting nodeMCU as wifi client, and showing available networks.
+    * [ ] test PoC for setting nodeMCU as wifi client and send http request to external server.
+* [ ] solder Sensus board and test.
+* [ ] test nrf51822:
+  * [ ] create project folder and get all the related info.
+  * [ ] make breakout board for nrf51822.
+* [ ] test sim800l.
+* [ ] flash and test nodeMCU on esp-03. test range.
+* [ ] test papirus board on rpi Zero.
+
+Idea Pool:
+
+Log:
+== xfce icon refreshing/layout issue ==
+- problem: I want to config my desktop icons in a particular way:
+  - not use the first column ever. especially when detecting new drives, want to place them elsewhere.
+  - maybe setup as a daemon running on the bg or as a script to be run from time to time.
+- Solutions:
+  - found that the file that configures this is /home/$user/.config/.config/xfce4/desktop/icons.screen0-[resolution].rc
+  - each icon is specified there with:
+    - An identifier: UUID(in case of devices),filesystem location(in case of file,folders) or xfce name(in case of .desktop files).
+    - A 2-dimensional location.
+  - To tell xfce desktop to redraw the positions, use the following command: xfdesktop --reload
+  - Using this knowledge I think I can come up with a simple solution for this issue. let's go back to it later.
+- problem#2: It would also be nice to setup the position of a particular item(ie: a drive) and 'reserve' that position for it.
