@@ -1,0 +1,71 @@
+
+
+
+
+
+== Menu for today ==
+* [.] understand lua language:
+  * [ ] get documentation needed (lua books, language reference manual or tutorials).
+  * [ ] make a quick project using the language. A simple game sounds like a good idea. let's do tennis for 2.
+  * [ ] once simple project is done(max 1.5days), let's learn anything needed to get nodeMCU programming model, using project's docs,etc.
+  * [.] let's do a stop here and go to the other side of the issue: protocol concepts:
+    * [X] understand about KOMM protocol.
+    * [ ] understand about http protocol and how the TCP/IP stack layers are embedded inside one another.
+    * [ ] understand about adding C-modules to nodeMCU and consider making the protocol state machine in C and embedding it into nodeMCU.
+    * [ ] implement KOMM protocol in Lua/NodeMCU.
+  * [ ] Single/Isolated tests:
+    - [ ] try setting nodeMCU as wifi client, and showing available networks.
+    * [ ] test PoC for setting nodeMCU as wifi client and send http request to external server.
+* [ ] solder Sensus board and test.
+* [ ] test nrf51822:
+  * [ ] create project folder and get all the related info.
+  * [ ] make breakout board for nrf51822.
+* [ ] test sim800l.
+* [ ] flash and test nodeMCU on esp-03. test range.
+* [o] test papirus board on rpi Zero:
+  * [X] prepare raspberry pi for papirus testing.
+  * [ ] install papirus on raspbian and test.
+
+
+Idea Pool:
+
+Log:
+- prepare raspberry pi for papirus testing:
+  - Apparently papirus source repository and examples are made for debian/raspbian, so using Arch with it might need some work(maybe later).
+  - Nevertheless, created arch image and installed the basic stuff for later(ssh,qsetup) and configured user accounts and wifi drivers.
+  - When trying to do the same with Debian though, the wifi dongle didn't work as expected, so:
+    == TP Link wifi dongle TL-WN725N V2 ==
+    - Even after getting the 'right' driver by using an installation script, it detects networks(aka it works) but it can't connect.
+    - Tried using wicd as front-end for wpa_supplicant, but it only worked fine once and then it couldn't connect anymore.
+    - the problem happens on raspbian jessie lite(2017-04-10 build) only. On arch after going through the normal installation process.
+    - Apparently, it works just fine on raspbian jessie (same build), after installing driver(not sure if this is needed at all):
+      - first it loaded the downloaded image w/o mods, connected by ethernet, downloaded and installed driver.
+      - second and last, selected the wifi SSID and password on the GUI menu. and it just worked.
+      * after inspection of file /etc/wpa_supplicant/wpa_supplicant.conf, the connected network was added using the following lines:
+        network={
+          ssid="SSID"
+          psk="pass"
+          key_mgmt=WPA-PSK
+        }
+      * this has ONE extra field which wasn't manually input when testing with the lite(non-gui) version. key-mgmt field.
+      * none of the guides tell said to do that, this might be the key.
+    - let's test which parts are necessary here:
+      - tried with a clean image of raspbian jessie lite(same build) and add the network info at /etc/wpa_supplicant/wpa_supplicant.conf and it worked.
+      - it was NOT NEEDED a new drivers installed, neither a GUi interface or additional software.
+      - the key apparently was on the 'key_mgmt' field. (the key was on the 'key', lol #badjoke).
+  - installed and setup ssh server.
+  - ssh is installed on raspbian by default but it has been disabled in the latest releases. To enable it you need to create a file: /boot/ssh and reboot.
+  - After reboot, the file named 'ssh' is removed by the system and ssh is enabled. (don't know how to disable it again, but who cares lol).
+  - tried to connect to the raspberry and a warning prevent it from happening. the reason was that there was a key mismatch on the guest system(laptop).
+    - it happened because I connected to the same raspberry but using Arch, and now that the OS is different it thinks it might be something dangerous.
+    - it is solved by deleting the line with the mismatched key at ~/.ssh/known_hosts .
+    - when tried to connect again, it was as the first time and connected just fine.
+  - Now let's test the image using the RPi zero: it worked with both raspberry pi zeros, with the dongle and the W's built-in wifi.
+  - To improve ease of use, created output of wlan0 IP at bootup.(after mutd).
+    == Run scripts at boot time ==
+    - tested with debian-based distros.
+    - create a script as root at /etc/init.d/scriptname.sh (or move one and change user to root).
+    - Give execution privileges to it.
+    -  use 'update-rc.d scriptname.sh defaults 100' to add a symlink to the 'autorun' folder. only the name of the script is needed(scriptname.sh).
+    - for more info about update-rc.d, read!.
+    - everything is ready for some raspberry development via ssh. XD
