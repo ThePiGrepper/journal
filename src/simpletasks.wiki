@@ -51,3 +51,11 @@
 - [ ] finally, after some experience, design and write a 'Day of Sagittarius III'-like game. a homage maybe.
 - [ ] xfce icon refreshing/layout issue. [ref: [[diary/2017-04-10]]
 - [ ] test Visual studio Code.
+* [ ] test nrf51822:
+  * [ ] create project folder and get all the related info.
+  * [ ] make breakout board for nrf51822.
+* [ ] test sim800l.
+* [ ] flash and test nodeMCU on esp-03. test range.
+* [o] test papirus board on rpi Zero:
+  * [X] prepare raspberry pi for papirus testing.
+  * [ ] install papirus on raspbian and test.
