@@ -1,0 +1,59 @@
+
+
+
+
+
+== Menu for today ==
+* [.] understand lua language:
+  * [ ] get documentation needed (lua books, language reference manual or tutorials).
+  * [ ] make a quick project using the language. A simple game sounds like a good idea. let's do tennis for 2.
+  * [ ] once simple project is done(max 1.5days), let's learn anything needed to get nodeMCU programming model, using project's docs,etc.
+  * [.] let's do a stop here and go to the other side of the issue: protocol concepts:
+    * [X] understand about KOMM protocol.
+    * [ ] understand about http protocol and how the TCP/IP stack layers are embedded inside one another.
+    * [ ] understand about adding C-modules to nodeMCU and consider making the protocol state machine in C and embedding it into nodeMCU.
+    * [ ] implement KOMM protocol in Lua/NodeMCU.
+  * [ ] Single/Isolated tests:
+    - [ ] try setting nodeMCU as wifi client, and showing available networks.
+    * [ ] test PoC for setting nodeMCU as wifi client and send http request to external server.
+* [ ] solder Sensus board and test.
+
+Idea Pool:
+
+Log:
+- solder sensus board and test:
+  - first issue regarding short circuit and leakage current apparently fixed after removing solderflux and cleaning board.
+  - working esp8266 with nodemcu does not boot-up after soldering on board. possible causes are:
+    - it overheated during airflow extraction from previous board. does not short but led doesn't lit up.
+    - pin configuration on board is wrong and it does not boot in the expected mode.
+  - let's do some tests to findout which is it:
+    - test trying to connect to esptool in either boot mode. test voltage level with meter(soldering issue?).
+    - remove the plate cover to inspect component misplacement by heat.
+      - didn't end up doing it, because ... I don't know.
+    - test voltage levels on all relevant pins:
+      - reset(pull up) - <0.6V and decreasing after power on. this is very strange behaviour.
+        - this reminds me of the stm32 lockup when the right capacitors are not mounted in between VCC and GND.
+        - tested with external 3v3 source (connected to 3v3 line with inboard regulator soldered but with input opened). same results.
+        - tested with different resistor values and no change detected.
+        - tested removing coupling cap(0.1uF), then removing bypass cap(4.7uF tantalium), same results. maybe even worst.
+        - tested removing in-board 3v3 regulator w/input bypass cap(4.7uF tantalium) altogether. same results.
+      - chpd(directly to vdd in sensus) - vdd as expected.
+      - cs2/boot(pull up) - vdd as expected.
+      - IO15(pull down) - 0.7v. this is kinda strange. let's compare this result with another, functioning board(the crappy one) later.
+      - IO2(pull up) - vdd as expected.
+    - Could NOT solve this issue at the moment. It might have to do with the esp12 module itself, maybe it got bad after it got soldered out.
+    - To test this, it would be needed to:
+      - solder it out of the board (very difficult, especially if we're trying to isolate the thing that caused the issue) and test it in another board.
+      - also, test a NEW esp12 module on the sensus board. (I'd like to test this option first, just to check out that possibility).
+    - Later, soldered new esp12 to old board(the crappy one). it worked just fine:
+      - first of all, THIS is VERY frustrating. why is this happening. I really hope it's just this particular module that went bad after desoldering.
+    - tested it and it worked just fine. everything worked just fine.
+    - loaded nodeMCU(same build as on the bad one on sensus, the one with 12 modules w/o websockets which didnt worked at the moment). it worked fine.
+    - tested voltages and some differences with the bad one:
+      - reset(pull up) - vdd  !!!. This is expected behavior. Obviously.
+      - chpd (pull up) - vdd as expected. no surprises there.
+      - cs2/boot(pull up) - vdd as expected.
+      - IO15(pull down) - GND. !!!. Again, this is expected behavior. the question then is, why are these two pins forcing different voltages internally??
+      - IO2(directly to vdd) - vdd as expected.
+    - let's shelve this for now, and get back to it when there's more time.
+    - let's go back to software tasks and use the crappy board to test everything needed for now.
