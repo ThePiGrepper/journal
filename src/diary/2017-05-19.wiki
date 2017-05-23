@@ -1,0 +1,35 @@
+
+
+
+
+
+== Menu for today ==
+  * [O] let's do a stop here and go to the other side of the issue: protocol concepts:
+    * [X] understand about KOMM protocol.
+    * [X] understand about http protocol and how the TCP/IP stack layers are embedded inside one another.
+    * [X] understand about adding C-modules to nodeMCU and consider making the protocol state machine in C and embedding it into nodeMCU.
+  * [ ] Single/Isolated tests:
+    - [ ] try setting nodeMCU as wifi client, and showing available networks.
+    * [ ] test PoC for setting nodeMCU as wifi client and send http request to external server.
+  * [X] write KOMM main module:
+    - Just write the main interpreter/parser function. It receives data and does something accordingly.
+    - the output can be an action(function, and/or a return value(TBD).
+  * [X] test a simple nodeMCU module, compile and test:
+    - it will test the entire development toolchain(VM,ESP8266 SDK,nodeMCU) and the fact itself that it's doable.
+    - maybe a simple print function, or something like that. very simple.
+
+Idea Pool:
+
+Log:
+- let's start with writing this damn nodeMCU module(KOMM server):
+  - Did tests with lua scripts and functions running from C programs. They did worked just fine:
+    - just loading and executing a script using luaL_dofile() worked.
+    - also, only loading a script, but no executing using luaL_loadfile() worked as well.
+    - also, using luaL_dostring() to parse a string with an ad-hoc function to be executed later worked as well.
+  - Some initial questions I need to answer regarding lua C API:
+    - How does a NodeMCU C module handles an argument of table type? solved.
+    - How does a NodeMCU C module is compiled with the rest of the nodeMCU build? solved.
+    - Is it possible to call lua functions from other C modules(native?) from inside one C module?
+  - Let's try to answer some of these questions:
+    - Let's try to compile a very simple Lua(@x86 machine) C module:
+  - KOMM protocol was implemented entirely in C, and integrated as a module in nodeMCU. It works just fine. project available in https://gitgud.io/thepigrepper/komm_server.git
