@@ -59,3 +59,6 @@
 * [o] test papirus board on rpi Zero:
   * [X] prepare raspberry pi for papirus testing.
   * [ ] install papirus on raspbian and test.
+* [.] understand lua language:
+  * [X] get documentation needed (lua books, language reference manual or tutorials).
+  * [ ] make a quick project using the language. A simple game sounds like a good idea. let's do tennis for 2.
