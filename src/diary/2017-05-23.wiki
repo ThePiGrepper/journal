@@ -1,0 +1,37 @@
+
+
+
+
+
+== xfce mods ==
+  == pomodoro xfce app ==
+  - got rid of previous pomodoro program (gnomato). It sucked. Didn't even send notice when time was up.
+  - So went back to search for a new pomodoro linux utility. Found one project in github. https://github.com/parantapa/pomodoro
+  - The interesting part was that it worked as plugin for xfce4 panel using a xfce4 utility called xfce4-genmon-plugin.
+  - xfce4-genmon-plugin is a panel applet that runs a shell script that you write. The script must cause up to four lines to be echoed (printed). The lines are in this format:
+    <txt>Text</txt>
+    <tool>Tooltip</tool>
+    <img>image.png</img>
+    <click>program</click>
+	- tool is a message displayed when hovering over icon. img is the route to the icon image. program is the script to be run.
+  - A new plugin created by Genmon can be added to the panel by clicking right on the panel and selecting 'Panel > Add New Items" and adding 'Generic Monitor' to the panel.
+  - Then configure the plugin by right-clicking over the newly created plugin and selecting 'Properties':
+  - Fill the data as needed: the script/command location, the label(if needed), the script refresh period, and the font type/size for the label.
+  - Well, I downloaded the project and install the packages needed to run it(pacman): libnotify xfce4-genmon-notify
+  - then created a new generic monitor and added the script to it with a 5s refresh time. It worked just fine:
+    - I had to do some changes though. to play the default alarm, the script used aplay which is a ALSA tool, which I dont currently have in my system.
+    - I changed it to cvlc (command line VLC) which I did have and can play any kind of music file, however takes a couple of seconds more to run.
+  - After that was fixed, the script run as intended by the original developer. However, it was kinda simple:
+    - It only had one state, "Working". And you can disable or enable it with a click on the icon.
+    - But I wanted it to behave like a full pomodoro system, and that means that it has to time Pomodoro cycles, as well as Break time in between.
+    - So I changed the script to allow for that. It was a quick mod after understanding the general idea.
+    - Now, after starting the clock, it runs forever and changes from 'Working' to 'Break' and viceversa, each state has independent time periods so it's easy to set it up.
+  - My experience using xfce4-genmon-plugin was a very fun one. Probably will go back to it in the future.
+  - Reference: https://davespagnol.wordpress.com/2016/07/23/xfce4-using-the-general-monitor-genmon/
+== KOMM server on nodeMCU ==
+- adding no-volatile data feature:
+  - There apparently are not many ways to do this directly(memory map based). (maybe check this again later)
+  - Another way is using the platforms filesystem. Let's try this:
+
+- Just found an interesing module: enduser-setup.
+- This module apparently enables wifi configuration(instead of having to write a script to do that).
