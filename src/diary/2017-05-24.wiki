@@ -1,0 +1,13 @@
+
+
+
+
+
+== xfce mods ==
+  == Modify Qt programs Theme ==
+  - By default is not possible(since Qt 5.5 apparently) so it was needed to download: qt5ct
+  - set environment variables: add them to .config/xfce4/xinitrc (if it isn't there, copy it from /etc/xdg/xfce4/xinitrc)
+    export QT_QPA_PLATFORMTHEME='qt5ct'
+    export QT_PLATFORM_PLUGIN='qt5ct'
+  - copy a color scheme you like(still finding arc-dark..) to ~/.config/qt5ct/colors/ .
+  - run qt5ct or open Settings>'Qt Settings' and add the color scheme.
