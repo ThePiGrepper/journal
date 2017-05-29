@@ -1,0 +1,20 @@
+
+
+
+
+
+== KOMM server on nodeMCU ==
+- Implementing non-volatile configuration:
+  - Testing executing lua functions from Lua C modules: testing with 'dofile()': it worked!
+  - With that option available, the new plan will be:
+    - implement Lua functions for save_state() and load_state().
+    - load_state() will be called during initialization. This will set the non-volatile flag and, if the savedata file exists, load state.
+    - save_state() will be called from inside KOMM module functions, depending on non-volatile flag being set.
+      - This was changed afterwards. To avoid calling lua functions from C modules, and using the nodeMCU filesystem from inside KOMM(ugly):
+        - Now, internally there're two module functions: getState() and setState() to change and retrieve the current module state.
+        - This functions will be wrapped into the load_state() and save_state() lua functions.
+        - To call save_state() at the right time, komm_digest() will output a new value to notify if internal state was modified during last request.
+    - save_state() will save data according to a format:
+      - binary stream of the following arrays: <io_configuration_status>..<digital_output_values>..[<any_other_that_might_be_added>]
+    - internal changes were made to adjunt to this format and speed up efficiency.
+- Digital outputs might need a default value after IO configuration. ask about it.
