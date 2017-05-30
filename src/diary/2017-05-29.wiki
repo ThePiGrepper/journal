@@ -1,0 +1,17 @@
+
+
+
+
+
+== KOMM server on nodeMCU ==
+- Implementing Analog functions:
+  - It was quite straight forward.
+  - Many functions who are design to address several potential analog inputs were hardcoded to work with only one pin.
+  - Analog thresholds are set as independent bytes instead of 16 or 32 bits numbers to reduce portability issues(endianness).
+  - Due to a signed char issue(probably, I have to check it out), I had to fix one part with a not portable, little-endian only, code.(changing that later).
+  - there's an issue with one function: komm_get_ain_thresholds(). it returns garbage data (AFAIK).
+  - everything else is working just fine.
+  - things to be done:
+    - solve the komm_get_ain_thresholds() issue.
+    - add non-volatility to analog functions.
+    - understand and fix the signed char issue (not a priority right now).
