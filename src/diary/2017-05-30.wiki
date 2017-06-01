@@ -1,0 +1,27 @@
+
+
+
+
+
+Idea Pool:
+- it would be interesting to test how different operations are compiled depending on the different type casting(size and sign).
+- read about yaml(yet another markup language), maybe good idea for configuration files.
+
+== KOMM server on nodeMCU ==
+  - things to get done:
+    - solve the komm_get_ain_thresholds() issue. (not a priority now).
+    - add non-volatility to analog functions. [ok]
+    - understand and fix the signed char issue (not a priority right now).
+    - add crc8 implementation.
+    - add default dout values(0 for now).
+    - modify set_ain_threshold[_common]() functions: if threshold value is higher than 333, it's set to max.
+    - add wifi menu configuration
+    - add init connection(aka. invite function through NAT)
+- Implementing Analog functions:
+  - added non-volatility to analog functions. thresholds added to komm_state variable.
+- Expanding Serial field:
+  - Serial field size in get_device_config() function increased from 2 bytes to 10 bytes and set as MAC(less significant bytes).
+  - It was an easy mod. there's a esp8266 sdk compiled function called wifi_get_macaddr() which do just that. It requires a 'mode' parameter.
+  - This is a little odd, first because you would think the mac wouldnt change based on just the mode the device is in.
+  - And second, because you would think that the internal program would know that mode in the first if it were that important to the setup.
+  - Maybe it just means that there're two available MACs, or that one is configurable. Maybe going to test this later.
