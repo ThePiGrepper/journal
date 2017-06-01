@@ -18,3 +18,17 @@
 16) [ ] Tcl/Tk
 17) [ ] Yocto Project
 18) [ ] NoSQL
+
+Extras:
+
+ARM - OS developer requirements:
+- Significant experience with embedded software development, with multiple platforms and toolchains
+- Thumb Assembly, C, C++, Python, compiler optimizations and code generation
+- Deep understanding of fundamental operating system concepts and RTOS for ARM Cortex M
+- Experience of testing with Jenkins for CI/CD
+
+What will give my candidacy an edge?
+
+- Experience working on open source projects and with open communities
+- Experience of micro-controller platforms
+- Experience developing complex software stacks such as BLE, WiFi, USB, Filesystems, Bootloaders, 6LoWPAN, IP-based networking
