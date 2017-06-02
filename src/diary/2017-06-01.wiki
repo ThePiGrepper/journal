@@ -1,0 +1,34 @@
+
+
+
+
+
+Idea Pool:
+
+== KOMM server on nodeMCU ==
+  - things to get done:
+    - solve the komm_get_ain_thresholds() issue. (not a priority now).
+    - add non-volatility to analog functions. [ok]
+    - understand and fix the signed char issue (not a priority right now).
+    - add crc8 implementation. [ok, but some need to be clarified before actually adding it into the codebase]
+    - add default dout values(0 for now). [ok]
+    - modify set_ain_threshold[_common]() functions: if threshold value is higher than 333, it's set to max. [ok]
+    - add wifi menu configuration [ok]
+    - add init connection(aka. invite function through NAT)
+- adding default dout values:
+  - no problem here.
+  - noticed that DIN and NULL mode hardware setup on setState() is commented out. uncommenting and testing. It crashed.
+  - After a lot of time debugging, I found out that I'm an idiot(actually I already knew that so.. I dont know anything new):
+    - what happened is NOT that the ESP8266 crashed, it just disabled its default UART when I SET IT AS DIN.
+    - That's why it looked like it didn't accept any input. I confirmed my idea sending a new 'debug' TCP message to re-enable UART.
+    - And it worked. So I will leave the debug mode there to re-enable UART in the future if needed.
+    - maybe some refactoring is in order, especially for those scripts. maybe later.
+  - Everything else worked fine. default dout values done.
+- modify set_ain_threshold[_common]() functions: if threshold value is higher than 333, it's set to max:
+  - changed both functions. no issues presented.
+- add crc8 implementation:
+  - no problem, however the received implementation looks weird.
+- add wifi menu configuration:
+  - some issues presented. creating a simple web server like with securebox did NOT work. dont know why. with either card.
+  - used enduser_setup module to launch a setup website on the esp8266.
+  - it works mostly fine. maybe some fixes are in order. but it's stable after some minimal testing.
