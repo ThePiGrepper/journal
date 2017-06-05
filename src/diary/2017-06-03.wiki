@@ -1,0 +1,25 @@
+
+
+
+
+
+Idea Pool:
+
+== KOMM server on nodeMCU ==
+  - things to get done:
+    - solve the komm_get_ain_thresholds() issue. (not a priority now).
+    - understand and fix the signed char issue (not a priority right now).
+    - add crc8 implementation. [ok, but some need to be clarified before actually adding it into the codebase]
+    - add init connection(aka. invite function through NAT)
+- add crc8 implementation:
+  - no problem, however the received implementation looks weird.
+- add wifi menu configuration:
+
+== DSlogic logic analizer setup and test ==
+  - This hardware didn't work after installing the software from AUR a couple of months ago(March I think).
+  - I downloaded the git repo and compiled/installed it directly from source. it apparently worked. both the software and the drivers.
+  - It detected the device, which didn't happen before on Linux(status led stayed red, now it changes to green(OK?)).
+  - There are detailed instructions for Arch on the repo.
+  - To test it, I will create a test signal. An esp8266 is at hand, I'll create a square signal and see what it happens.
+  - It works!!! I still need to understand the many options available in the program, but I tried saving 2M samples at 50khz successfully.
+  - I changed the frequency during the test as well, and it saved everything. next time, I'll test it's protocol decoding features.
