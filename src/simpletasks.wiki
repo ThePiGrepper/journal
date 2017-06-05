@@ -33,7 +33,7 @@
   * [X] design a breakout board for RTL-00.
   * [ ] try debugging it with openocd and st-link.
   * [ ] try writing a simple test (blinking IO).
-* [ ] write a reddit post reviewing 3 months with XPS13.
+* [ ] write a reddit post reviewing 6 months with XPS13.
 * [ ] show Y500 boot menu on external monitor.
 - [ ] fix tmux copy from buffer to clipboard shortcut.
 - [ ] write a HowTo for disk recovery on linux (watch L1Tech video @youtube)
@@ -55,9 +55,7 @@
   * [ ] make breakout board for nrf51822.
 * [ ] test sim800l.
 * [ ] flash and test nodeMCU on esp-03. test range.
-* [o] test papirus board on rpi Zero:
-  * [X] prepare raspberry pi for papirus testing.
-  * [ ] install papirus on raspbian and test.
+* [ ] test Papirus on Arch.
 * [.] understand lua language:
   * [X] get documentation needed (lua books, language reference manual or tutorials).
   * [ ] make a quick project using the language. A simple game sounds like a good idea. let's do tennis for 2.
