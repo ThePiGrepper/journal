@@ -11,3 +11,13 @@ Idea Pool:
   - it creates a TCP socket and you can subscribe to events as with the server socket inside net.server:listen().
   - don't know yet exactly what does the listen() function do different. I thought that it had to do with the events, but you only need the socket object to subscribe.
   - changing that and adding a disconnect and connect event to handle the disconection situation, and the first 'invite' packet to the HOME server, respectively.
+
+== add static ip(only during current session) ==
+  - this was needed when trying to connect via ssh to a raspberry without an available network.
+  - first, changed manually the raspberry pi's ip address to a static one with the correct subnet.
+  - then we did the following on the arch system:
+    - set ip address/subnet-mask and broadcast ip for <device>
+      > sudo ip addr add 192.168.1.119/24 broadcast 192.168.1.255 dev eno1
+    - set default gateway
+      > sudo ip route add default via 192.168.1.1
+  - connect the laptop to the Rpi with an ethernet cable, and it's done.
