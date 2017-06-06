@@ -59,3 +59,8 @@
 * [.] understand lua language:
   * [X] get documentation needed (lua books, language reference manual or tutorials).
   * [ ] make a quick project using the language. A simple game sounds like a good idea. let's do tennis for 2.
+* [.] KOMM server
+  * [ ] solve the komm_get_ain_thresholds() issue.
+  * [ ] understand and fix the signed char issue.
+  * [ ] add crc8 implementation. clarify the implementation issue first.
+  * [X] add init connection(aka. invite function through NAT)

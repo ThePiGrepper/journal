@@ -1,0 +1,13 @@
+
+
+
+
+
+Idea Pool:
+
+== KOMM server on nodeMCU ==
+  - add init connection(aka. invite function through NAT)
+  - done. It was easier than expected. instead of creating a 'server' with createServer(), createConnection() function was used.
+  - it creates a TCP socket and you can subscribe to events as with the server socket inside net.server:listen().
+  - don't know yet exactly what does the listen() function do different. I thought that it had to do with the events, but you only need the socket object to subscribe.
+  - changing that and adding a disconnect and connect event to handle the disconection situation, and the first 'invite' packet to the HOME server, respectively.
