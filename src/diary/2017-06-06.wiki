@@ -1,0 +1,30 @@
+
+
+
+
+
+Idea Pool:
+
+== KOMM server on nodeMCU ==
+- implemented event notifications:
+  - for get_ain_status and for get_din.
+  - it was apparently easy. It's needed to test it, which brings a new issue.
+  - there's no way to test this using simple 'echo' commands, because now as a mere client, nodeMCU needs to stay connected to a listening port.
+  - which means that there has to be a 'host' server for the testing to be meaningful.
+  - creating a listening socket using ncat is relatively easy. but sending hexadecimal data or reading the incoming hex data is NOT.
+  - I'll try to do something about this, but no ideas yet.
+
+== setup gmail with a custom domain ==
+- reference(w/digital ocean): [[https://www.digitalocean.com/community/tutorials/how-to-set-up-gmail-with-your-domain-on-digitalocean|link]]
+
+== playing with ncat(or nc or netcat, I think) ==
+- opening a TCP socket and listen to it(server-like).
+> ncat -k -l -p <port>
+- -k:keeps listening,-p <port>,-l:listen to connections, rather than connecting to a remote machine.
+- it stays opened until the connection gets dropped by the other part, then it exits.
+- to avoid sending <linefeed>, instead of sending a message using <Enter>, use eof <ctrl+D>.
+- to log all communications:
+> ncat -k -l -p <port> | tee <logfile>
+- another ingenious use would be:
+  > ncat (...) | bash
+  - this makes a remote machine able to run commands on the host machine(a la ssh).
