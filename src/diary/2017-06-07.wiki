@@ -1,0 +1,32 @@
+
+
+
+
+
+Idea Pool:
+- I am more certain than ever before. A good,extensible(lua scripting!!!),simple terminal emulation program.add advanced filtering,hexa translation,etc.
+
+== KOMM server on nodeMCU ==
+- Coming back to the hexadecimal data translation and server connection issue:
+  - I thought initially about creating a simple translator application, which will receive ascii representation of hex data(ie: "ffeeaeae").
+  - and output it as real hex data to ncat, the stout from ncat would be handle by tee, which will create a log file and xxd which will translate it.
+  - However, it did not work. Creating the application was easy, but there are some issues regarding tty and buffers that I dont understand quite well.
+  - I'll try to look into it later, but for now I need an alternative. A way to send hex data and understand the incoming hex data from a listening socket.
+  - So, the solution I've found is socat. An amazing program which I must admit didnt know it existed.
+  - Socat basically is an extended version of ncat(I dont know everything that ncat can do, so take this as a very crude simplification).
+  - Socat can open listen to a tcp port,as well as connecting to another one(the same as with ncat). However it can do much more.
+  - It can connect any two bytestreams. things like terminal(ie: ttyS0) and/or network ports.
+  - It can also creates pseudo terminals(pty) and use its master side(the physical side, to connect it with other available interface).
+  - This pty creation is equivalent to using an actual serial port to receive any kind of bytestream. very impressive.
+  - Well, now having this possibility I created a pty and connect it with a listening socket on an available port.
+    > socat -d -d PTY,waitslave,echo=0,raw TCP-LISTEN:11313,reuseaddr,fork
+  - it keeps listening to port 11313 and connects it to a new pty named at execution time.
+  - With that available port, I just need to connect with a terminal like minicom, or picocom and everything will work.
+  - ... but the fact remains that apparently picocom does not have enough features to handle hexadecimal data translation(either for sending or receiving).
+  - I found an alternative in gtkterm, the ubuntu default terminal, I dont like it at all(especially because I had to install several packages to run it).
+  - It worked just fine. Now I'm ready to test the data sent by nodeMCU and even send some requests back at it.
+  - Test and everything WORKS just fine. And the socat solution worked fine as well. However, there was one issue regarding that.
+  - Data sent inwards(from remote machine(nodeMCU) to the port and (by socat) to the terminal connected to gtkterm work perfectly.
+  - But data going outwards to the remote machine from gtkterm worked in a weird way. I had to send twice the same package because first try always failed.
+  - I dont know if that's a networking issue, maybe the first message/packet was packaged in a different way and it never got sent out.
+  - Wireshark confirms it. the first package was NOT sent out at all, only the second one. I dont know what's happening, I'll fix this later(I think).
