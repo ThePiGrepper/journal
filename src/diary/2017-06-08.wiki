@@ -1,0 +1,13 @@
+
+
+
+
+
+Idea Pool:
+
+== Firefox Japanese Fonts ==
+- Install the following packages:
+> noto-fonts-cjk noto-fonts-emoji noto-fonts
+
+== KOMM server on nodeMCU ==
+- added 'clean-wifi' function to komm_server. picked the next available function number and implemented similar to reset function.
