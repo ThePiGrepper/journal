@@ -1,0 +1,36 @@
+
+
+
+
+
+Idea Pool:
+
+== rsync to/from another machine(VM) (ssh) ==
+- example:
+> rsync -aP -e 'ssh -p 2223' --delete user@localhost:/path/to/file ./
+- This was used to download the images compiled inside a VM.
+> rsync -aP -e 'ssh -p 2223' --delete nagato@localhost:/home/nagato/nodemcu_tools/nodemcu-firmware/bin ./
+- That particular port was selected on the VirtualBox settings->Network->Port Forwarding. This will forward the Guest default IP(10.0.2.15) to localhost port.
+- Forwarding Info: Protocol:TCP, 'Host IP':127.0.0.1, 'Host Port':(any available port is OK),'Guest IP':10.0.2.15(default),'Guest Port':22(TCP port).
+
+== arch(antergos) signature issue ==
+- Following error during update:
+  'error: antergos-keyring: signature from "Antergos Build Server (Automated Package Build System) <admin@antergos.org>" is unknown trust'
+- This solved the issue:
+  This were also used, but I dont know if they were part of the solution:
+  > rm -r /etc/pacman.d/gnupg
+  > sudo pacman-key --refresh-keys  (this was after pacman-key --populate)
+  > sudo pacman-key –init
+  > sudo pacman-key –populate archlinux antergos
+  > sudo pacman -Sy antergos-keyring
+  > sudo pacman -Syyu
+- probably only the last 4 commands were useful.
+
+== change swappiness linux ==
+- Check current swappiness level at /proc/sys/vm/swappiness.
+- Change swappiness (with systemd): sysctl vm.swappiness=10
+- Other important factor is cache pressure. To change it use: sysctl vm.vfs_cache_pressure=100
+- Reference: https://askubuntu.com/questions/103915/how-do-i-configure-swappiness
+             https://unix.stackexchange.com/questions/88693/why-is-swappiness-set-to-60-by-default
+             https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that
+             https://www.kernel.org/doc/Documentation/sysctl/vm.txt
