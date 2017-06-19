@@ -1,0 +1,16 @@
+
+
+
+
+
+Ideal Pool:
+- find wallpaper-engine alternatives on Linux:
+  - install livewallpaper (first try failed on arch)
+  - another alternative is xwinwrap.
+
+== Testing xwinwrap ==
+- the following command start mplayer with nosound, looping forever and starting at second 30:
+  > xwinwrap -ni -o 0.9 -fs -s -st -sp -b -nf -- mplayer -ss 30 -nosound -loop 0 -saturation 100 -brightness -20 -contrast 50 -wid WID /path/to/videofile
+  - This actually works. it displays the video as-is in all virtual desktops. However it has issues interacting with Conky.
+  - Conky background seems to keep the original (static?) background.
+  - reference: http://hotplugdicas.blogspot.pe/2012/02/linux-xwinwrap-utilizando-um-video-como.html
