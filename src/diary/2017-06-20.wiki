@@ -1,0 +1,11 @@
+
+
+
+
+
+== Void linux Setup ==
+  == cmus setup ==
+    - to add shortcuts. there's a command available called cmus-remote.
+      ie: cmus-remote -p //go to previous track
+          cmus-remote -n //go to next track
+          cmus-remote -u //pause/play track
