@@ -8,6 +8,7 @@
   - install with pacman: udiskie udisks2
   - execute the daemon: udiskie -2 -s &
   - install with pacman: gvfs (not really sure why this is downloaded. it is NOT needed(tested with pacman+lxde) to automount successfully.
+    *Edit: gvfs is actually needed to enable automount.(tested on arch/xfce)
 
   [xfce/thunar only section]
   - I think it needs thunar-volman as well.
