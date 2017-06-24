@@ -43,6 +43,7 @@
       - GRUB_FONT="/path/to/font.pf2" //font must be in pf2 format.
   - update-grub(with ubuntu), or run : grub-mkconfig -o /boot/grub/grub.cfg
 == SSH ==
+  - create id_rsa.pub (your machine's public key) with: ssh-keygen -t rsa
   - copy authorized key: ssh-copy-id user@host ,or scp ~/.ssh/id_rsa.pub user@host:.ssh.authorized_keys
   - modify greeter:
     - edit /etc/motd // modify this file
