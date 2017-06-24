@@ -10,3 +10,7 @@
 == add lxdm lock function ==
   - lxdm itself can go back to login screen using: /usr/bin/lxdm -c USER_SWITCH
   - use this command inside xflock or any other locker script or keyboard shortcut.
+  * This solutions creates a problem after logining back:
+    * the networkManager does NOT detect networks.
+    * when rebooted or shut down, it behaves strangely.
+  * I wont fix it, I'll just remove it from xflock and maybe change to lightdm or another display manager later.
