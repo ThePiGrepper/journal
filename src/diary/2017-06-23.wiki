@@ -1,0 +1,12 @@
+
+
+
+
+
+== Install Teamviewer ==
+- nice software. Specially because it worked out of the box in Arch using AUR.
+  - look it up in the AUR: yaourt teamviewer
+  - enable the daemon: sudo systemctl start teamviewerd
+== add lxdm lock function ==
+  - lxdm itself can go back to login screen using: /usr/bin/lxdm -c USER_SWITCH
+  - use this command inside xflock or any other locker script or keyboard shortcut.
