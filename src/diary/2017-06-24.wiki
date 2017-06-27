@@ -1,0 +1,23 @@
+
+
+
+
+
+== komm server ==
+  - things to do:
+    - [X] add reconnection internal retry.
+    - [X] add delay after reset()/wifi_reset().
+    - [X] add uart_mode for IO 9,10 when set_io sets these as NULL.
+    - [X] change ADC max value and threshold from 333 to 1024.
+    - [X] append adc_value notification to adc_status change event.
+  - uart_mode added without any issues. added exception on set_state function.
+  - ADC scaled back to 1024 from 333 w/o issues.
+  - adc_value was appended without any issue.
+  - delay after reset/wifi_reset was added at lua level, by adding a packet_sent event handler in between receiving the request packet, and send the reply.
+  - restart occurs during sent event, so the TCP request is sent w/o issues before restarting the system.
+  - Internal reconnection to server routine added to the main procedure. It works by having an additional timeout(max number of tries) to handle reconnection.
+  - this procedure is handled by the disconnection event of the socket. It worked without problems.
+== nodemcu + pn532 NFC module ==
+  - I dont know much about the NFC module so I'll try to interface to it using i2c in lua.
+  - I connected the pn532 module to the computer and try sending packages on a terminal emulator. After some issues it worked.
+  - It came out of LowVbat state (default state after Reset) and replied back a random command which I found. let's analize it further.
