@@ -1,0 +1,16 @@
+
+
+
+
+
+== xfce/arch on lenovo Y500 ==
+- installed xfce(and then removed lxde,finally).
+- solved all known issues(networking applet, session cache file,automounting,etc).
+- found an issue regarding dual monitor desktop.
+  - After setting the configuration as dual monitor, it worked but it 'forgot' the setup after logout.
+  - after a _LOT_ of time, found a solution that worked:
+    - A file, .config/xfce4/xfconf/xfce-perchannel-xml/displays.xml, was created at somepoint(maybe by the nvidia drivers,idk).
+    - This file was preempting the correct setup(I think). after removing it, everything was OK.
+  == add Single wallpaper for dual display ==
+  - open 'Settings Editor', select xfce4-desktop: add new property "/backdrop/screen0/xinerama-stretch", Type:Boolean,Value:True.
+  - Save it. and that's it . When trying to change wallpaper, on Style: there will be a new option called 'Spanning screens'.
