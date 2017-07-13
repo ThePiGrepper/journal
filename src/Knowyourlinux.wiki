@@ -1,20 +1,18 @@
 == Linux Distros ==
 
-* [.] Test distros:
+* [o] Test distros:
   * [X] Peppermint
   * [ ] Fedora
   * [X] Debian
   * [X] Ubuntu Mate.
   * [ ] Mint (Mate).
   * [ ] Gentoo
-  * [ ] Manjaro
-  * [ ] Slackware.
+  * [X] Manjaro
+  * [X] Slackware.
   * [X] Ubuntu minimal install + lxqt
   * [ ] Rosa Linux + LXDE/LXQt.
   * [ ] PCLinuxOS + LXDE
   * [ ] antiX
-  * [ ] ArchBang
-  * [ ] Apricity (https://github.com/Apricity-OS/apricity-build )
   * [ ] Bodhi
 
 * [.] Test Display Managers:
@@ -25,12 +23,13 @@
   * [ ] nodm
   * [ ] SDDM
 
-* [o] Arch Setup:
+* [.] Arch Setup:
   * [X] test DEs: (https://wiki.archlinux.org/index.php/Desktop_environment )
     * [X] Install lxde. tested and currently working with it.
     * [X] Install lxqt. tested using VM. is nicer than lxde, but I like xfce more.
+    * [X] Install kde. tested using VM(Chakra and Manjaro). Nice(animations and effect not tried yet).
   * [.] test  WMs: (https://wiki.archlinux.org/index.php/Window_manager )
-    * [ ] i3.
+    * [X] i3.
     * [ ] awesome wm.
     * [ ] spectrwm.
     * [ ] herbstluftwm.
@@ -42,13 +41,7 @@
   * [ ] disable touchpad when typing.
   * [ ] search and install lightweight common apps(pdf reader, music player,etc)
     * [ ] document everything in a HOWTo.
-  * [ ] questions:
-    * [ ] pacman howtos:
-      * [ ] output a list of all selected packages for later reuse.
-      * [ ] create a pacman HowTo
-      * [ ] look it up: 'pacaur -Syu nginx php-fpm mariadb'
-      * [ ] check octopi
-    * [ ] howto create shortcuts(ie: open terminal).
+  * [.] questions:
     * [ ] optimize OS configuration for SSDs.
     * [ ] Archinstaller (https://bitbucket.org/flexiondotorg/archinstaller )
     * [ ] udev: for automount usb devices and autodetect external monitor and change config.
@@ -59,8 +52,8 @@
   * [ ] dropbox connection and basic documentation.
 
 * [ ] try dpkg -l <cmd> or apt-cache show <cmd>
-* [ ] test screenshot app.
 * [ ] find a lightweight web browser.
+  * [ ] test a text-based web browser.
 * [ ] creating bootable disks on linux.
 
 * [ ] make a simple installation script:
@@ -68,7 +61,6 @@
     * [ ] create an apt repository on host server.
     * [ ] create a deb package(use dpkg).
     * [ ] create a simple script for installing from source.(only main apps which need latest)
-    * [ ] can you install directly from .deb and uninstall with apt-get.(proves that apt-get is just an abstraction for .deb)
       - http://askubuntu.com/questions/9135/how-to-backup-settings-and-list-of-installed-packages
       - http://askubuntu.com/questions/17823/how-to-list-all-installed-packages
     * [ ] add a ppa to get latest versions.

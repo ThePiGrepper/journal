@@ -27,7 +27,6 @@
   * [ ] enable hdmi/vga output support over thunderbolt 3.
   * [ ] optimize for ssd
   * [ ] optimize power consumption
-  * [ ] fix 'out of suspend' issue.
   * [ ] add Bootsplash
 * [.] test RTL8710
   * [X] design a breakout board for RTL-00.
@@ -35,11 +34,9 @@
   * [ ] try writing a simple test (blinking IO).
 * [ ] write a reddit post reviewing 6 months with XPS13.
 * [ ] show Y500 boot menu on external monitor.
-- [ ] fix tmux copy from buffer to clipboard shortcut.
 - [ ] write a HowTo for disk recovery on linux (watch L1Tech video @youtube)
 - [ ] try booting live USB of meegGoPad T2. (try formatting as GPT using rufus and booting by pressing F7)
 - [ ] create a custom Linux build installer.
-- [ ] disassemble WD Elements external HD and use it with SATA.
 - [ ] Migrate chrome bookmark to firefox (or to an external bookmark manager).
 - [ ] Look up for a linux utility which sends an alarm when it detects prolonged inactivity.
 - [ ] create a snake game (using ncurses to test the lib):
@@ -48,7 +45,7 @@
   - maybe try to use ncurses using python or rust to test the language(are there wrappers for those languages??).
 - [ ] maybe write another ncurses game. it would be like hangman(is that even the name???) but with a cross with a shoot-em-all game (space invaders?).
 - [ ] finally, after some experience, design and write a 'Day of Sagittarius III'-like game. a homage maybe.
-- [ ] xfce icon refreshing/layout issue. [ref: [[diary/2017-04-10]]
+- [ ] xfce icon refreshing/layout issue. (ref: [[diary/2017-04-10]])
 - [ ] test Visual studio Code.
 * [ ] test nrf51822:
   * [ ] create project folder and get all the related info.
@@ -59,8 +56,7 @@
 * [.] understand lua language:
   * [X] get documentation needed (lua books, language reference manual or tutorials).
   * [ ] make a quick project using the language. A simple game sounds like a good idea. let's do tennis for 2.
-* [.] KOMM server
+* [ ] KOMM server
   * [ ] solve the komm_get_ain_thresholds() issue.
   * [ ] understand and fix the signed char issue.
-  * [ ] add crc8 implementation. clarify the implementation issue first.
-  * [X] add init connection(aka. invite function through NAT)
+* [ ] use dual display with lightdm-webkit2-greeter. (ref: [[diary/2017-07-12]])

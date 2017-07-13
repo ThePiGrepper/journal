@@ -1,6 +1,6 @@
 == Curiosities or Random 'nice to do' Stuff ==
 
-* [ ] look up QR codes for presentation cards.
+* [X] look up QR codes for presentation cards.
 * [ ] tmux-related: https://github.com/foobacca/dotfiles/blob/master/tmux/save-buffer-history
 * [ ] cpu-profiler: http://goog-perftools.sourceforge.net/doc/cpu_profiler.html
                     http://ctuning.org/dissemination/grow10-03.pdf

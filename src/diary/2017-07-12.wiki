@@ -1,0 +1,44 @@
+
+
+
+
+
+TODO:
+- documenting lightdm themes and greeters. [done]
+- testing light-locker. [done]
+- start designing relay board.
+- finish ldd chapter 3.
+- write a reddit post reviewing 6 months with XPS13.
+- write a blog post about the esp8266(building the toolchain, compiling nodemcu, creating modules, etc).
+
+== fix tmux copy from buffer to clipboard shortcut. ==
+  - solved this and added the fix to qsetup repo. More info at: qsetup commit: b5d6eb2.
+== lightdm greeters and themes ==
+- tried a new greeter(old one was the 'lightdm-gtk-greeter', which offers basic functionality).
+- the new one was 'lightdm-webkit2-greeter', apparently creating themes for it is as simple as creating an html.
+- installed the package from AUR.
+- To use the new greeter, edit /etc/lightdm/lightdm.conf:
+  - add/edit the line:
+    greeter-session=lightdm-webkit2-greeter (this change will happen after system reboot)
+  - To check the currently available greeters on the system:
+    - check at /usr/share/xgreeters (each available greeter has an associated .desktop file).
+- because I was experimenting all this on my dual display system, displaying the greeter using both monitors first.
+- Apparently, there isn't a simple way to do this on webkit2-greeter (the gtk greeter had 'lightdm-gtk-greeter-settings').
+- If there's a way to actually do this I havent seen it, but I'll put this on the list.
+- After trying 2 displays, I started with themes. Changing themes on lightdm-webkit2 is easy:
+  - Check available themes at /usr/share/lightdm-webkit/themes.
+  - Edit /etc/lightdm/lightdm-webkit2-greeter.conf, and add/change the following line with the new theme name:
+    webkit_theme = <theme_name> (changing themes can happen live, so a reboot is not needed to check changes).
+  - To add new themes, there are probably many ways. I think all the themes relevant content is at the 'themes' folder:
+    - download the theme and copy directly to the 'themes' folder.
+    - download a package with the theme from AUR.(it will basically do the same as (1), but at least pacman will track it.
+      - At the AUR there are many themes based on webkit2.
+== testing light-locker ==
+- I just encountered a security bug with dm-tool (lightDM command line tool for communicating to it):
+  - If you lock screen using dm-tool (I used 'dm-tool lock', but maybe using other variations cause the same issue), it
+    sends you to the greeter. If you change tty(alt+ctrl+F[1-6]), and then go back(no need to login or anything) to the
+    lightDM tty, you will see yourself on the desktop, the greeter will be gone. Obviously this should NOT happen.
+  - Actually, after googling it, I've found several reports so the issue is real.
+  - They recommend to change lockers to one called: light-locker, so let's try this now.
+  - After installing and testing it, I got bored. it's slow and I dont like it, neither feeling like trying to make it work.
+  - uninstalling it and keep using dmtool. broken or not, I dont really see it as a big issue for now.
