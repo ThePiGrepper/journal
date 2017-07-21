@@ -1,0 +1,38 @@
+
+
+
+
+
+TODO:
+- start designing relay board. [done]
+- finish ldd chapter 3.
+- write a reddit post reviewing 6 months with XPS13.
+- write a blog post about the esp8266(building the toolchain, compiling nodemcu, creating modules, etc).
+- test sonoff flashing/programming [done]
+
+== relay board design ==
+- A first version of the board(sch,brd and gerber files) was made available.
+- further changes are expected after a review is made.
+
+== test sonoff flashing/programming ==
+- I tried one of the 2 sonoff that arrived last week. First, I tried downloading the android app.
+- It apparently worked as expected (I say 'apparently' because I did not connect it to the electric grid. It was directly powered by a 3V3DC source.
+- The app was responsive and it also sent a proper warning after the device was powered down.
+- I got bored of the app very quicky and installed nodeMCU(my custom version with KOMM capabilities).
+- At first it presented some issues during powercycling of the device. this board doesnt have a proper way to do hardware reset so it had to be power-cycle.
+- Fortunately, it DOES have a button connected to the BOOT input. After trying to power cycle it using the button to enter boot/system mode, it did not work.
+- the serial port adapter behaved strangely. I suspected it was due to power requirements of the sonoff. I tested my theory changing VSource to an external one.
+- It worked fine like this. So apparently it was related to power.
+- After that I overwrite the original firmware with nodeMCU(I dumped the memory just in case, but apparently it's more sophisticated than that so it wont work.
+- I read that after trying this some data is changed on the image, so they might be using some kind of counter-measures against firmware cloning.
+- Well, nodeMCU worked like expected. I uploaded the komm_server files and it run perfectly fine. I could config the led as output and toggle it.
+- Some issues, though.
+  - After reset(I tested with power-cycling, not sure if software reset or hardware reset cause this as well, the network info isn't loaded.
+  - It's like the sonoff forgets about the network info it saved previously. It's strange, because it's the same software that worked up to now.
+  - It might be something related to hardware but, AFAIK, there shouldnt be any difference between this an a regular esp-12.
+  - actually, I dont have much info at the moment, as I dont know how the current wifi-login module works.
+- After this short introduction to the sonoff device, I got more aware of its potential as a business idea. I'll explore this further.
+- Also, a new mini-project has come to my hands.
+  - A couple of device will be installed and setup to turn-on/off at specific times(hardcoded at first).
+  - This will be set as a security measure. Precision timning is not a priority, as long as it is relatively close(<20min).
+  - tests are needed to ensure the device's timing does not go off too much after a couple days.
