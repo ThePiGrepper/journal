@@ -1,0 +1,54 @@
+
+
+
+
+
+Idea Pool:
+- add clementine support on tmuxMusicBar.
+  - to send actions to clementine on the CLI, just use clementine command.
+  - to get status data(track playing,etc) use the following: qdbus-qt4
+    qdbus-qt4 org.mpris.clementine /Player org.freedesktop.MediaPlayer.GetMetadata | grep title: |cut -d' ' -f2- //get current track title
+  - Reference: [[https://github.com/clementine-player/Clementine/wiki/Controlling-Clementine-from-the-commandline-with-DBus-and-MPRIS|link]]
+
+TODO:
+- finish ldd chapter 3.
+- write a reddit post reviewing 6 months with XPS13.
+- write a blog post about the esp8266(building the toolchain, compiling nodemcu, creating modules, etc).
+- nodemcu automation mini-project
+- nodemcu + pn532 NFC module
+
+== nodemcu + pn532 NFC module ==
+  - Just finished understanding protocol.
+  - after reading an arduino library ([[https://github.com/elechouse/PN532.git|link]]).
+
+== tlp testing ==
+- everything started because a uart-usb adapter (using driver cp210x, included with the kernel) wasn't detected by the system(dmesg) after being conected.
+- no drived was enabled or anything else. It was weird because the same system with the same distro (Arch x86 on HP Mini210) worked just fine before.
+- I thought it was some issue regarding the driver and maybe it was a package installed lately that changed the usual behavior.
+- After testing it with another distro on the same system(Void Linux), the problem continued. this was even stranger.
+- To answer this I tested with a brand new system. I used a 'live USB' version of Xubuntu. It worked just fine. it detected the device normally.
+- After this I tried with a fresh installation of Arch on that machine(yeah I know, I installed it again on another partition, it used to be swap, Now I'm using swapfile!).
+- It worked just fine. using both, the installation version of Arch, and the final version installed on disk as well. both worked, no issues.
+- I continued installing packages on the new Arch system, until it stopped working. It had to be xorg or tlp.(yeah, I know, I'm stupid).
+- It was tlp. After installing tlp, and rebooting, it detected that it was running on Bat power and changed to 'Bat mode'. In Bat mode, it disables several things apparently.
+- One of those is USB detection. I'm still not sure how this works, but apparently it disables all USB devices, except Storage media(flash drives,external Drives) and HID devices.
+- Maybe only 'special' drivers apply. There's a config file for TLP at:
+    /etc/default/tlp
+- well, after I solved that mistery, I found some interesting things regarding tlp:
+  - tlp-stat ... === tlp stat ... (apparently)
+  - this default conf file does other things as well, you can select several features and tlp will enable those when it detects 'bat mode' or 'ac mode', either by command or event.
+  - by command, I mean 'tlp bat|ac', which changes the mode forcefully. or by event, by removing the AC power source.
+  - there are other options like 'CPU_SCALING_GOVERNOR_ON_AC|BAT' which change the performance/power-saving settings on each mode. to see the available governor modes:
+    > tlp-stat -p //this shows all those modes and frequencies that can be modified using TLP config file.
+  - Reference: [[https://elementaryos.stackexchange.com/questions/9302/tlp-power-management-disables-usb-devices-in-my-asus-ux305-ultrabook-needs-rest/9313|Link]]
+
+== relay board design ==
+- The first version was reviewed and the following changes were ordered:
+  - change resistors to 0603 [done]
+  - add leds (through-hole) [done]
+  - add 2 holes [done]
+  - add cut-offs (4-5mm). [done]
+  - change jumpers to connector type(instead of resistor). [done]
+  - add 3mm vertical line. [done]
+  - add 4mm horizontal line down. [done]
+  - add mass(probably 2, one per relay). [done]
