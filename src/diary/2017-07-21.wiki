@@ -1,0 +1,24 @@
+
+
+
+
+
+TODO:
+- finish ldd chapter 3. [done]
+- write a reddit post reviewing 6 months with XPS13.
+- write a blog post about the esp8266(building the toolchain, compiling nodemcu, creating modules, etc).
+- nodemcu automation mini-project [done]
+- nodemcu + pn532 NFC module
+
+== nodemcu automation mini-project ==
+- after successfully programming a sonoff module, loading nodeMCU custom build + scripts. I started with this mini-project.
+- It consisted on: programming a stand-alone module to connect to a lamp and turn it on/off at specific times of the day.
+- By stand alone it means that it doesnt have internet connection, or even a local network, so basically a normal processor could do.
+- .. except for the fact that I wanted to configure it over the air, w/o having to unplug it, disassembly it and flash it.
+- I'm using wifi connection for the module to create it's own network, connect to it with a laptop and send simple 'cmd=val' pair commands.
+- It accepts (for now) commands to set output values, to reset the module, and to set the internal timer.
+- the timer uses Unix timestamp and then an additional module to translate to 'human time' and compare to setup times.
+- everything was implemented without an issue, and two test modules are already working.
+- Some issues that probably will occur:
+  - timing delay(I dont remember the actual name for this right now, but the solution is an NTP server(if it had internet access or an RTC).
+  - a command to set this on/off times easily would be VERY nice. it'd be even __NICER__ if the command syntax be __simple__ but complete.
