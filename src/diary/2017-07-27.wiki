@@ -1,0 +1,80 @@
+
+
+
+
+
+TODO:
+- write a reddit post reviewing 6 months with XPS13.
+- write a blog post about the esp8266(building the toolchain, compiling nodemcu, creating modules, etc).
+- nodemcu + pn532 NFC module
+- change gitgud repos to github(for public ones) and to remote server(for private ones).
+- try installing gitlabs on remote server?
+
+== ESP8266 Overview ==
+I will explain here an overall view of my experience with the esp8266, using the nodeMCU platform. It might be useful as reference.
+
+== Getting the environment ready: ==
+There are several way to obtain your nodeMCU build for ESP8266:
+  - you can get it compiled using the online service and selecting the modules your want at: [[https://nodemcu-build.com/|link]]
+  - Or you can compile it by hand on your machine(or on a virtual machine if you don't want to risk messing up your system or adding extra packages).
+The first option is very easy, you just type your mail, select your desired configuration and wait for your download link to arrive by mail.
+We are going to explore the second option:
+  == Building ESP8266 Toolchain ==
+  - We will be using Ubuntu 16.04 LTS, mainly because it's the one used by the nodeMCU developers(actually I think they use Ubuntu 14.04 LTS, oh well..).
+    *I actually wanted to test this on Arch as well, first time I tried it I got to compile the xtensa toolchain. If I do so, I will edit this post.
+  - Install the following packages:
+      $ sudo apt-get install make unrar-free autoconf automake libtool gcc g++ gperf \
+      flex bison texinfo gawk ncurses-dev libexpat-dev python-dev python python-serial \
+      sed git unzip bash help2man wget bzip2
+    Also, when using this version of Ubuntu or newer ones, install the following:
+      $ sudo apt-get install libtool-bin
+    *If you don't it will not detect libtool during the configuration process of the build.
+  - After downloading the packages needed, clone/download the esp8266 SDK from the git repository:
+    $ git clone --recursive https://github.com/pfalcon/esp-open-sdk
+    This will download all the needed repos:
+    1) The Xtensa lx106 architecture toolchain is based on the following projects:
+      * https://github.com/jcmvbkbc/crosstool-NG
+      * https://github.com/jcmvbkbc/gcc-xtensa
+      * https://github.com/jcmvbkbc/newlib-xtensa
+      * https://github.com/tommie/lx106-hal
+      All this is entirely open-source, however they are not necessarily under the same license.
+    2) and the ESP8266 IoT SDK from Espressif Systems, which is only partially open-source(some libraries are binary blobs).
+  - Because of these two main components, the make process can be one of the following:
+    - The toolchain and the ESP8266 IoT SDK are kept separate. This might be useful if licensing is a concern (to separate the binary blobs from OSS stuff).
+    - A standalone ESP8266 SDK where everything is merged into the toolchain. This mode is recommended for building software and it's also the default option.
+  - To build the self-contained, standalone toolchain+SDK:
+    $ make STANDALONE=y //this is also the default, so just 'make' would be OK as well.
+    Or, to build the Xtensa toolchain and leave the ESP8266 SDK separate:
+    $ make STANDALONE=n
+  - The build process will download all the required repositories and compile the toolchain accordingly. Some important paths are:
+    - xtensa-lx106-elf/ : here is where the toolchain (and the Xtensa HAL library) is located.
+    - xtensa-lx106-elf/bin/ : this is where all the GNU toolchain for the device is. It's important to add this directory to $PATH.
+      Add the following to .bashrc if you want to have it defined by default.
+      $ export PATH=/path/to/xtensa-lx106-elf/bin:$PATH
+  * I will use the STANDALONE build here. Info regarding the other build method is at esp-open-sdk/README.
+  - Compilation shouldn't be an issue. It will take a few minutes though.
+  
+  == Installing NodeMCU ==
+  - Download the project from the official repository:
+    $ git clone https://github.com/nodemcu/nodemcu-firmware.git
+  - A simple 'make' will suffice to compile the default, unmodified version and test if everything is OK with the toolchain:
+
+  == Using NodeMCU ==
+  In this section I won't explain all the options that can be modified on the nodeMCU source code, mainly for two reasons:
+  1) It's a lot of information and most of it has documentation available. and most importantly...
+  2) I dont know most of it.
+  Because of this I will try to approach it in a different, more practical way. I will explain how I wrote one particular project on nodeMCU.
+  I will talk about what that project was about and how I implemented it using lua and basic C for the Lua Module section.
+  This section will be on the next post.
+
+  == References: ==
+  - http://www.esp8266.com/wiki/doku.php?id=toolchain#how_to_setup_a_vm_to_host_your_toolchain
+  - https://primalcortex.wordpress.com/2015/01/09/esp8266-setting-up-native-sdks-on-linux-and-exploring-some-applications/
+  - https://github.com/esp8266/esp8266-wiki/wiki/Toolchain
+  
+- /////////////
+- Some ideas for the next section:
+  - add download and simple usage instructions for:
+    - esptool
+    - nodemcu-uploader
+    - maybe the whole VM thing and rsync-ing data.
