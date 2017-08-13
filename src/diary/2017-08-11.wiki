@@ -1,0 +1,50 @@
+
+
+
+
+
+TODO:
+- write a reddit post reviewing 6 months with XPS13.
+- nodemcu + pn532 NFC module.
+- Read LDD chapter 6,8,9 + Videos.
+- test RTC(DS1338) module with STM32 and ESP8266(using nodeMCU).
+- change gitgud repos to github(for public ones) and to remote server(for private ones).
+- try installing gitlabs on remote server?
+
+== Android tips on Arch ==
+== To transfer files using MTP ==
+  - Install packages: gvfs-mtp (this requires libmtp and gvfs)
+  - reboot system for the device to be detected.
+== root device (tested on MotoG4) ==
+- unlock the bootloader:
+  - enable developer option on the phone (click 7 times on 'Build Number', at 'about the phone').
+  - Inside developer options, enable "OEM Unlocking" and "USB Debugging".
+  - install android SDK(only adb and fastboot utilities), following pacman packages: android-tools android-udev.
+  - add user to group 'adbusers'.
+    > gpasswd -a username adbusers
+  - reboot the phone into the bootloader:
+    > adb reboot bootloader
+  - check if the device is visible: > fastboot devices
+  - obtain the unlock key:
+    > fastboot oem get_unlock_data
+  - join the key into one single string and go to:(for motorola phones: [[https://motorola.com/unlockbootloader|link]])
+  - use the reply key to unlock the device:
+    > fastboot oem unlock UNIQUE_KEY
+  - there's a confirmation message, after which you can reboot by command line.
+    > adb reboot
+
+- flash TWRP:
+  - Download twrp image. [[https://twrp.me|link]]
+  - reboot into bootloader.
+    > adb reboot bootloader
+  - flash twrp. apparently there are different images depending on the device model. check this.
+    > fastboot flash recovery twrp.img(or the specific filename of the image)
+
+- install superSu (actually root the device):
+  - download on the cellphone the superSU zip file. [[https://download.chainfire.eu/supersu/|link]]
+  - reboot into the bootloader:
+    > adb reboot bootloader
+  - enter into recovery mode. In TWRP, go to advanced and open the terminal.
+    > echo SYSTEMLESS=true>>/data/.supersu
+  - Press home button to return to main menu and go to INSTALL. Search for the supersu zip file and install it.
+  - Boot back into the system, and superSu should be installed as an app.
