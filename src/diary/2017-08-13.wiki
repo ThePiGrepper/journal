@@ -1,0 +1,132 @@
+
+
+
+
+
+== chroot into raspberry pi image ==
+  == Getting qemu tools ready: ==
+  - Install the following packages: qemu-user-static binfmt-support
+  - The qemu-user-static package will install emulators for several different architectures.
+    The ones used with the rpis are: qemu-arm-static and qemu-aarch64-static.
+  - Enable the binfmt-support service:
+    > sudo systemctl start binfmt-support.service
+    > sudo systemctl enable binfmt-support.service
+  - Make sure that the ARM executable support is active:
+    > update-binfmt --display qemu-arm
+    or
+    > update-binfmt --display qemu-aarch64
+  - If it's not active, enable it:
+    > update-binfmt --enable qemu-arm
+    or
+    > update-binfmt --enable qemu-aarch64
+  == Setting up the 'guest' environment: ==
+  - First, a raspberry pi image is needed. they usually are zipped or compressed in another way.
+    And, they also tend to have the entire device image, alas multiple partitions.
+    For doing this only root partition is needed, however mounting boot partition might be useful as well on a different use-case.
+  - Uncompress an image:
+    > gunzip -c <compressed_image.img> | dd of=/path/to/expanded/image.img status=progress
+  - mount the expanded image:
+    Because this images contain more than one partition, it's important to know exactly where the right partition begins.
+    fdisk will show the first and last sector for each partition in the image (usually 512-byte sectors).
+      > fdisk -l /path/to/expanded/image.img
+      > mount -o loop,offset=$((512*<start_sector>)) /path/to/expanded/image.img /mount/path
+  - Put the emulator into the mounted directory:
+    > cp /usr/bin/qemu-arm-static </mount/path>/usr/bin/
+    or
+    > cp $(which qemu-arm-static) </mount/path>/$(which qemu-arm-static) //this one is better probably
+  - Mount some HOST system directories onto the mounted GUEST system:
+    > mount --bind /proc </mount/path>/proc
+    > mount --bind /tmp </mount/path>/tmp
+    > mount --bind /sys </mount/path>/sys
+    > mount --bind /dev </mount/path>/dev
+    > mount --bind /dev/pts </mount/path>/dev/pts
+  - You can also mount the host system /home directory and work from there. However, it is NOT needed.
+  - If network connection is needed inside the chroot:
+    > mount --bind /etc/resolv.conf </mount/path>/etc/resolv.conf
+  * The reference guide actually tells you to copy the file into the chroot, this way is better IMO.
+  - After these steps, now let's chroot in:
+    > chroot /mount/path [/bin/bash]
+  * Once inside the chrooted system, the $PATH seems without '/bin', so commands like 'ls' and 'su' are not found.
+    To solve this, you can either change $PATH, or do:
+    > /bin/su [username]
+    doing this will bring a _fuller_ $PATH.
+  Reference:
+  - [[https://wiki.archlinux.org/index.php/Raspberry_Pi#QEMU_chroot|link]]
+  - [[http://populationinversion.com/posts/raspberrypi-install-and-configure-archlinux-arm/|link]]
+  - [[https://community.arm.com/iot/embedded/b/embedded-blog/posts/cross-compilation-for-arm|link]]
+  - [[https://en.wikipedia.org/wiki/Binfmt_misc|wikipedia]]
+
+  == Testing the environment(upgrade raspbian to 'stretch'): ==
+  - Once inside the chrooted raspberry test environment. Let's test how it works by doing a non-trivial process.
+  - Let's upgrade Raspbian 'Jessie' to the newer 'Stretch' version:
+    - first let's update && upgrade jessie:
+      > apt update & apt upgrade
+      > apt dist-upgrade
+    - Check the system for inconsistencies: check for partially installed, missing and obsolete packages:
+      > dpkg -C
+    - Also check if any package is being held back:
+      > apt-mark showhold
+    - Fix any package issue provided by the previous commands:
+    - Now, let's change repos:
+      > sed -i 's/jessie/stretch/g' /etc/apt/sources.list
+    - Let's update the local package index:
+      > apt-get update
+    - If you need to see the changes to-be implemented beforehand, run:
+      > apt-get --simulate upgrade
+    - When you're ready:
+      > apt-get upgrade
+      > apt-get dist-upgrade
+    - reboot your system to see the changes.
+  Reference: [[https://linuxconfig.org/raspbian-gnu-linux-upgrade-from-jessie-to-raspbian-stretch-9|link]]
+
+  == Increase Image size ==
+  - After trying to update the image, everything worked perfectly. Except one thing. The image was too small!!
+  - So the upgrade process couldn't finish. Back to step one:
+    - It was needed to resize the image and extend the root partition with its filesystem.
+    - First, let's give the image more raw size(in this case, +1G):
+      > dd if=/dev/zero bs=1M count=1000 >> /path/to/expanded/image.img
+    - Now, we need to 'expand' the root partition to fill the new raw space in the image.
+    - Apparently, 'parted' (first option to resize it), has removed the 'resize' feature a while ago, and
+      'gparted' gives errors when trying to resize a partition inside an image. So, let's try fdisk:
+      > fdisk /path/to/expanded/image.img
+    - The trick with this was to first 'delete' the root partition using fdisk, using the 'd' option.
+    - Then, create a new partition starting in the same place/block but extend it to the _new_ last sector(end of image).
+    - fdisk will show a similar message to the following: reply 'No'.
+        #Created a new partition 2 of type 'Linux' and of size 3.1 GiB.
+        #Partition #2 contains a ext4 signature.
+        #Do you want to remove the signature? [Y]es/[N]o: N
+    - Now, check the new partition list with 'p' and confirm the new partition size.
+    - Finally, the filesystem needs to be expanded as well to _see_ the new partition size.
+    * making a backup copy of the partition/image would be recommended before this.
+    - Use resize2fs to modify the filesystem size(works with ext2/3/4):
+      * For this the image needs to be mounted, so to be accesed using a loop device.
+      * resize2fs has a field called _size_, if empty it will resize the fs so that it fills the partition.
+      > resize2fs /dev/loopx
+
+  == Shrink/Decrease image size ==
+  - This is possible to do, following most of the same steps previously state:
+    - Instead of mounting the image using the loop option, try associating it with a loop device without mounting it.
+    - This is possible with 'losetup':
+      - To associate with one loop device
+      > losetup -o $((512*<start_sector>)) /dev/loop0 /path/to/image
+      - To undo association
+      > losetup -d /dev/loop0
+    - Thanks to this, it's possible to run 'e2fsck' on the partition:
+      > e2fsck -f /dev/loop0
+    - And later, resize it with:
+      > resize2fs /dev/loop0 900M
+    * Actually shrinking the device HAS NOT BEEN UNSUCCESSFUL until now.
+    - lastly, to cut the extra space in the image, use 'truncate':
+      //size is in bytes, so just get the last sector number +1 and by 512(sector size in bytes)
+      > truncate --size=$[(9181183+1)*512] myimage.img
+  Reference:
+  [[https://raspberrypi.stackexchange.com/questions/4943/resize-image-file-before-writing-to-sd-card|link]]
+  [[https://softwarebakery.com/shrinking-images-on-linux|link]]
+  [[http://varghese85-cs.blogspot.pe/2008/11/mouting-partitions-with-losetup.html|link]]
+
+== raspbian 'stretch' raspberry pi zero W built-in wireless issue ==
+- After upgrading raspbian from 'jessie' to 'stretch', the wifi driver got upgraded and the device 'wlan0' disappeared.
+- To fix this, downgrade firmware package:
+  > sudo apt-get install firmware-brcm80211=0.43+rpi5
+- And to avoid future updates for this package:
+  > sudo apt-mark hold firmware-brcm80211
