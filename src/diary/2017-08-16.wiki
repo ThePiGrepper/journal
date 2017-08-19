@@ -1,0 +1,34 @@
+
+
+
+
+
+== Ideas for a new netbook ==
+  - Budget: $400
+  - Expected Specs:
+    a) 10.1" display
+    b) USB 3.0 Port(s)
+    c) HDMI out
+    d) GPU with Linux Support
+    e) x64 architecture
+    f) At least 4GB RAM
+  - Not really necessary, would be nice though:
+    g) 2.5" drive (or at least 64GB eMMC)
+    h) SD card
+    i) Ethernet Port
+    j) external battery
+    k) upgradeable RAM
+
+  - Candidates:
+    * Lenovo Flex 10: <$350(depends on the model, seems difficult to find)
+      + : a,b(1),c,d(Celeron n2807,n2840),e,f*
+      + : g
+      * It comes with soldered RAM, so you need to pick the right model.
+      - : no sd card, no ethernet port, internal battery and soldered RAM.
+    * Lenovo E10-30:
+      + : a,b,c,d,e,f*
+      + : g,i
+      - : NO HDMI, no sd card, internal battery and solderen RAM.
+    * lenovo ideapad Miix 300: atom z3735f 64G,2GB RAM
+      reference:
+      [[http://www.ebay.com/itm/Lenovo-IdeaPad-Miix-300-10-1-1-33-GHz-Atom-Z3735F-64GB-Black-Tablet-w-Keyboard-/112338177332?var=&hash=item1a27e08d34:m:mC3xLmbCsgWq-qoQdxKWGIw]]
