@@ -5,6 +5,7 @@
 2) [[howto|HowTos]] -- HowTo repository.
 3) [[Wishlist|Wish List]]
 4) [[learning|Things to Learn]] -- Useful tools
+5) [[money|Deposits and money]]
 .
 .
 .

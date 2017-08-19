@@ -1,0 +1,42 @@
+Kubernesys:
+
+    Proyecto "Rosetta Lite"
+
+Details
+
+Projects:
+ID: #001
+Name: Rosetta Lite
+Total Cost: $1800
+
+ID: #002
+Name: Sensus
+Total Cost: $1200
+
+ID: #003
+Name: Relay_Board
+Total Cost: $280 ($270?)
+
+Payments:
+
+03/05:
+Description: #001.0
+Quantity: $150.00
+Paypal fee: - $8.40
+Total: $141.60
+
+04/11:
+Description: #002.0-2
+Quantity: $380.00
+Paypal fee: - $20.82
+Total: $359.18
+
+06/06:
+Description: #002.3* (incomplete)
+Quantity: $500.00
+Paypal fee: - $27.30
+Total: $472.70
+
+#Draft:
+From project #002: $340 remaining
+From project #003: $280 remaining
