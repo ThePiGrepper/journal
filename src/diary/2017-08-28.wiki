@@ -1,0 +1,11 @@
+
+
+
+
+
+== automount (w/udisks) from terminal ==
+- this is useful to mount device without needing to open a file manager just for that.
+- execute the following command as regular user(the same as usual, by using file manager).
+  > udisksctl mount -b <device_name>
+- to unmount, do the same:
+  > udisksctl unmount -b <device_name>
