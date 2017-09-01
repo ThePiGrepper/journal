@@ -3,9 +3,30 @@
 
 
 
+TODO:(Weekly)
+- nodemcu + SD example (due: tuesday)
+- "Linux workflow for MCU development" presentation (due: thursday)
+- LDD chapter 10 + 13 (due: tuesday)
+- LDD weekly assignment(USB) (due: wednesday)
+- LDD extra assignment (due: friday)
+- define the zener diode value for the relay issue. (due: tuesday)
+- SecureBox: Fix issues with gprs+gps drivers (due: tuesday)
+- nodemcu + pn532 NFC module
+- write a reddit post reviewing 6 months with XPS13.
+- write quote for linux-based embedded product.
+- select and prepare all PCB design for manufacturing.
+
 == automount (w/udisks) from terminal ==
 - this is useful to mount device without needing to open a file manager just for that.
 - execute the following command as regular user(the same as usual, by using file manager).
   > udisksctl mount -b <device_name>
 - to unmount, do the same:
   > udisksctl unmount -b <device_name>
+
+== reverse SSH ==
+- When it's needed to connect to a device behind a NAT, you can open an ssh connection this way:
+  > ssh -f -N -T -R22222:localhost:22 root@159.203.97.143
+- It basically says: open an ssh tunnel and keep it opened at port 22222
+- The remote side (159.203.97.143) would only need to access the opened tunnel using:
+  > ssh -p 22222 nagato@localhost
+- This is a normal ssh command line, only that with a port different than the default one(22).
