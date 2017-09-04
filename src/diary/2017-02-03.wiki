@@ -12,3 +12,6 @@
   * there are more steps and troubleshooting on the wiki, but it worked with only this with XPS13.
   * references: http://dominicm.com/install-steam-on-arch-linux/
                 https://bbs.archlinux.org/viewtopic.php?id=172696
+  *Edit:
+  - When tested on lenovo Y500 (which has a nvidia GT650M card), it didnt run with only this.
+  - It was fixed after installing: lib32-nvidia-utils

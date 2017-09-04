@@ -32,3 +32,9 @@
     * lenovo ideapad Miix 300: atom z3735f 64G,2GB RAM
       reference:
       [[http://www.ebay.com/itm/Lenovo-IdeaPad-Miix-300-10-1-1-33-GHz-Atom-Z3735F-64GB-Black-Tablet-w-Keyboard-/112338177332?var=&hash=item1a27e08d34:m:mC3xLmbCsgWq-qoQdxKWGIw]]
+    * lenovo ideapad Miix 320: $350. atom z8350 64G,4GB RAM
+      + a,b,c,d,e,f,h
+      * it's a 2-in-1, but still. I think this is a good option.
+      - g,i,j,k
+    * reference:
+      https://www.amazon.com/Lenovo-10-1-Inch-X5-Z8350-Platinum-80XF00DRUS/dp/B073WBP1QT/ref=sr_1_4?ie=UTF8&qid=1504485920&sr=8-4&keywords=10.1+atom
