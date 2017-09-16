@@ -1,0 +1,17 @@
+
+
+
+
+
+== Set Time from ntp server after network connection ==
+This issue occurred because the MeegoPad T2 running Arch now, has problems with the RTC configuration.
+- Install following packages: networkmanager openntpd networkmanager-dispatcher-openntpd
+- openntpd can work as a client or server. In this case it's going to act as client.
+- networkmanager has a folder to launch hooks/scripts at /etc/NetworkManager/dispatcher.d/
+- All scripts here need to be own by root(and be of group root, optionally) and be only writable by owner:
+  > chmod 755 <script-name>
+- the script has 2 parameters: the first is the network_device name(ie: wlan0), the second is the status.
+- The status parameter can be: up,down,vpn-up,vpn-down,(and probably others as well, like pre-up and pre-down).
+- The idea is to use this to execute somethings after a connection is established. For example, start the npc service.
+- Instead of doing this by hand (which is entirely possible and trivial), the networkmanager-dispatcher-openntpd contains such script.
+- The script calls systemctl start/stop on openntpd.service.
