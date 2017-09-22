@@ -1,0 +1,30 @@
+
+
+
+
+
+== openvpn client setup ==
+- install required packages: openvpn networkmanager-openvpn(maybe this one is optional as well)
+  * optional packages: easy-rsa
+- usually, the host/server sends all the required info:
+  - ca.crt
+  - <file>.crt  : certificate
+  - <file>.key  : public key
+  - <file>.ovpn : openvpn settings. the file which gets loaded by openvpn command.
+- edit <file>.ovpn so that the path to the other files is right.
+- Enable 'tun' module (as admin):
+  > modprobe tun
+- test if module is enabled:
+  > test ! -c /dev/net/tun //this file should exist
+- Execute openvpn,load config file (as admin):
+  > openvpn /path/to/<file>.ovpn
+
+== change static ip/subnet/default gateway on raspberry/raspbian ==
+- editing /etc/network/interfaces is no good, it does NOT work on raspbian.
+- instead go edit /etc/dhcpcd.conf.
+- add the static info below the device name:
+
+interface eth0
+static ip_address=192.168.1.114/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1 8.8.8.8 8.8.4.4
