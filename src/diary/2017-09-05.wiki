@@ -1,0 +1,56 @@
+
+
+
+
+
+== Install Arch Linux on Atom Bay trail system ==
+- The device was an computer stick, a MeegoPad T02.
+- The main issue was that it was a 64-bit system with 32-bit EFI, instead of 64bits, which is the usual.
+- The Arch installer does NOT have 32-bit EFI support (neither do most of the other distros).
+- So, I had to basically find one which did or create a custom Arch installer which did.
+- I chose the second, because ... Arch:
+  - First, I needed to know how to adapt the available installer to add 32bit EFI support.
+  == Modifying and Arch live ISO for 32-bit EFI support ==
+  - Follow the instructions on this project: https://github.com/emerinohdz/arch64-efi32
+  - Other potentially useful links:
+    - [[https://askubuntu.com/questions/392719/32-bit-uefi-boot-support|link]]
+    - [[https://tekwiki.beylix.co.uk/index.php/Install_Archlinux_on_Baytrail_devices|link]]
+  - After modifying the stock archiso with the 32-bit EFI, archiso booted just fine, but 'ip link' detected no wifi device.
+  - Apparently, the driver needed for the MeegoPad wifi is the 'rtl8723bs' which is not included in the kernel by default.
+  * The truth actually was that it wasn't included in the kernel version of the stock archiso. It is now, in linux 4.12+.
+  * I tried compiling the kernel from source, but the repos I found available gave errors and thankfully I didnt have to solve it.
+  - Second, because of the wifi driver issues, I needed to make a custom Arch iso with current kernel.
+  == Custom Arch live ISO ==
+  - Install the dependencies for the 'archiso' package
+    > pacman -S make squashfs-tools libisoburn dosfstools patch lynx devtools git
+  - Install the 'archiso' package:
+    - It's available in the repo, but apparently, at the time of writing the original tutorial, it did NOT work so,
+    - Download the project from the repo:
+      >git clone git://projects.archlinux.org/archiso.git && cd archiso
+    - Install it:
+      > sudo make install
+      * After successfully installing, this folder is no longer needed, so it's OK to just remove it.
+    - Create a new folder to build this new Arch ISO, copy the relevant info into it:
+      > mkdir <archisofolder> && cp -r /usr/share/archiso/configs/releng/* <archisofolder> && cd <archisofolder>
+    - Run the build.sh script to build an Arch Linux Image, with default configuration(like the regular ones).
+      > ./build.sh -v (if it's not executable, make it so).
+    - Then dd it to the device:
+      > dd bs=4M if=arch-efi32.iso of=<DEV> status=progress && sync
+    - Reference:
+      [[https://gist.github.com/satreix/c01fd1cb5168e539404b|link]]
+      [[https://www.linuxsecrets.com/archlinux-wiki/wiki.archlinux.org/index.php/Remastering_the_Install_ISO.html|link]]
+      [[https://www.linuxsecrets.com/archlinux-wiki/wiki.archlinux.org/index.php/Archiso.html|link]]
+
+- Once I had a usable archiso image loaded on a USB device, I started installing Arch on the MeegoPad:
+  - First, set up the BIOS(turning Off Quiet Boot and Fast Boot).
+  - After that, I identified the windows partition and shrink the partition size using: > ntfsresize (read the man for further info)
+  - Then, I used fdisk (or cfdisk), to reduce the partition size accordingly. (ref: [[2017-08-13]] )
+  - Create the new partition as ext4 and start with installation. For EFI installation, check [[2017-01-15]].
+- Current Issues with MeegoPad after installing Linux + Xorg + xfce:
+  - After changing to current kernel, no further issues with the wifi.
+  - SD card is acting strangely, it gives out errors when trying to read a card, not working. Maybe a driver issue.
+  - Bluetooth: untested for now.
+  - HDMI output: apparently no issues here.
+  - RTC: during Arch installation, 'hwclock --systohc --utc' did NOT work. Further testing needed.
+  - USB devices working fine.
+  - Suspend mode, power saving mode: untested.
