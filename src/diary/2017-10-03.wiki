@@ -10,6 +10,7 @@ TODO:
 - securebox: add new scheduler features
 - wsensor: add rtc support
 - write quote for embedded project development on rpi
+- rpi: test usb-otg serial & ether modes
 
 == nodemcu + pn532 NFC module ==
 - test pn532(w/i2c) successfully on __ANY__ platform:
@@ -39,3 +40,40 @@ TODO:
 == write quote for embedded project development on rpi ==
 - create a 'semi-generic' quote for hardware development on such a board.
 - create one for memory requirement of 256M and 512M, respectively.
+
+== rpi: test usb-otg serial & ether modes ==
+- this modes are useful to access the rpi without 'real' serial nor a wifi network.
+- apparently all otg modes are enabled using the same main kernel module: dwc2
+- dwc2 module is the linux driver for the 'DesignWare HS OTG Controller'.
+- Let's start:
+  - The following method was tested on a rpi0 and rpi0w.
+  - There're several modes, the 2 tested succesfully here are: g_serial and g_ether:
+    - g_serial: virtual serial port.
+    - g_ether: network interface.
+  - g_serial:
+    - add an device tree overlay to the config file at /boot/config.txt:
+      dtoverlay=dwc2
+    - add to /boot/cmdline.txt the following line, adding kernel modules:
+      - (after rootwait) modules-load=dwc2,g_serial
+      - to connect the console to this, enable getty service for the new node:
+        > sudo systemctl enable getty@ttyGS0.service
+        * if not, you can use this serial port for any other purpose.
+    * Just to clarify, the functionality of this module DOES NOT have anything to do
+      with uart module. So the uart driver can be disabled and this would work just fine.
+  - g_ether:
+    - add an device tree overlay to the config file at /boot/config.txt:
+      dtoverlay=dwc2
+    - add to /boot/cmdline.txt the following line, adding kernel modules:
+      - (after rootwait) modules-load=dwc2,g_ether
+      - by default, this will create the device 'usb0'.
+    - Configure the network for the new device, add static addr for <device>. [[2017-09-22|link]]
+    - when connecting to the raspberry through ssh, first identify the interface name.
+    - then, you should set temporarily your ip on that interface:
+      > sudo ip addr add 192.168.7.10/24 broadcast 192.168.7.1 dev <device>
+    - and access it through ssh normally:
+      > ssh <user>@<raspberrypi_ip>
+  - Other modules to be tested(let's hope):
+    - g_mass_storage
+  
+  - Some additional points:
+    - Another way to add modules besides /boot/cmdline.txt, is on /etc/modules.
