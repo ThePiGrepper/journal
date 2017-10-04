@@ -1,0 +1,41 @@
+
+
+
+
+
+TODO:
+- nodemcu + pn532 NFC module
+- securebox: fix gps coordinate parsing bug
+- securebox: add gprs 'smart' message parsing
+- securebox: add new scheduler features
+- wsensor: add rtc support
+- write quote for embedded project development on rpi
+
+== nodemcu + pn532 NFC module ==
+- test pn532(w/i2c) successfully on __ANY__ platform:
+  - try Rpi, STM32,arduino(let's hope it does NOT come to this).
+- If success == true, use logic analizer to inspect the i2c frame.
+- If needed, try to reimplement i2c module on nodemcu.
+
+== relay board ==
+- ask for help on choosing zener diode.
+
+== securebox: fix gps coordinate parsing bug ==
+- create standalone test. maybe get a real gps log(already got one).
+
+== securebox: add gprs 'smart' message parsing ==
+- let's think about this. some 'nice to have's:
+  - Improve gprs on-time.
+
+== securebox: add new scheduler features ==
+- Change 'ghost' extra buffer space: currently is 'BUFIN_SZ',
+  recommended: 'MAX_SIZE', driver-dependent.
+- dynamic throughput: when input buffer is over X% full, change
+  output granularity(1/1 to 1/2, for example), this means
+  basically, __downsampling__ the output. This, until buffer
+  'fullness' is down again below threshold.
+- Change position to integer interpretation.(what's this??)
+
+== write quote for embedded project development on rpi ==
+- create a 'semi-generic' quote for hardware development on such a board.
+- create one for memory requirement of 256M and 512M, respectively.
