@@ -22,3 +22,8 @@
 Suggested Total: ~$1572 (Max)
                  ~$1272 (w/o HDDs)
                  ~$972  (w/o HDDs and 16GB RAM)
+
+== Single Board Computers ==
+* [ ] [[http://www.friendlyarm.com/index.php?route=product/product&product_id=197|NanopiDuo]]
+* [ ] [[http://www.friendlyarm.com/index.php?route=product/product&product_id=132|NanopiNeo]]
+* [ ] [[http://beagleboard.org/pocket|beaglePocket]]

@@ -12,3 +12,13 @@
 * [ ] Brainfuck(programming language)
 * [ ] Test ZFS on a disk.
 * [ ] check how to show and set swapiness.
+
+== Interesting tools ==
+* [ ] [[http://npyscreen.readthedocs.io/introduction.html|npyscreen]]
+* [ ] [[https://taihen.org/managing-dotfiles-with-gnu-stow/|stow]]
+
+== Interesting Topics ==
+* [ ] [[https://github.com/gurugio/book_linuxkernel_blockdrv|linux blockdrv]]
+* [ ] [[https://postmarketos.org/blog/2017/09/03/100-days-of-postmarketos/|postmarketOS]]
+* [ ] [[https://seasonofcode.com/posts/how-x-window-managers-work-and-how-to-write-one-part-i.html|WM]]
+* [ ] [[https://stackoverflow.com/questions/3472540/creating-a-window-manager-for-linux/3479109#3479109|WM2]]
