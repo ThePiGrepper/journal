@@ -2,21 +2,12 @@
 -------------------------------------
 HotList Guidelines:
 - This list is for tasks that are ABOUT TO BE DONE.
-- Only put here tasks that you're planning to do at most later today.
+- Only put here tasks that you're planning to do later today(or in the immediate future)
+- All the tasks here should be written as links to the actual task located in one of the other directories accordingly.
 - Be sensible about the number of tasks you are writing here. Try to keep it to a minimum.
-- If you are NOT mostly sure you are going to start doing it in the next few hours, do NOT put it here.
 - Repetitive/Periodical Tasks can be written on the top just as a gentle reminder.
 - The list has an implicit priority scheme. It is not enforced but suggested.
 -------------------------------------
 - test a few fuzzy finder vim plugins
 - study ARMv7 ISA by writing code.
 -------------------------------------
-- nrf24l01 simple comm example.
-- rosetta project:
-  - [ ] write and send project estimates to client.
-  - [X] buy ethernet(W5100) breakout board.
-  - [ ] run simple test with ethernet board.
-  - [ ] download and understand current source code.
-  - [X] download and understand current board schematics/layout.
-  - [ ] design system circuit (draft schematic on eagle)
-- [ ] write a reddit post reviewing 6 months with XPS13.

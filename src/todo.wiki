@@ -1,14 +1,15 @@
-== ToDo List == [[HOTLIST]]
+== ToDo Directory ==
 
-a) [[simpletasks|Simple Tasks]]
-b) [[PalmKeyboardIF]]
-c) [[Nokia5110]]
-d) [[dow]]
-e) [[devflow|development flow upgrade]]
-f) [[Touch]]
-g) [[Tokra]] -- A symbiotic 6502 emulator for MCUs.
-h) [[drivers|Linux and drivers]]
-i) [[Knowyourlinux|Linux Distributions]]
-j) [[Pythia]]
-k) [[curious|Curiosities]]
-l) [[Securebox]]
+a) [[HOTLIST]] -- Only for references to other directories
+b) [[simpletasks|Simple Tasks]]
+c) [[PalmKeyboardIF]]
+d) [[Nokia5110]]
+e) [[dow]]
+f) [[devflow|development flow upgrade]]
+g) [[Touch]]
+h) [[Tokra]] -- A symbiotic 6502 emulator for MCUs.
+i) [[drivers|Linux and drivers]]
+j) [[Knowyourlinux|Linux Distributions]]
+k) [[Pythia]]
+l) [[curious|Curiosities]]
+m) [[Securebox]]
