@@ -23,8 +23,10 @@
 * [ ] try to play with bison/flex(maybe Oboro kickoff?).
 * [ ] compile and test wolfssl lib with stm32.
 * [ ] create a software framework for embedded work(including state machines, service handlers, etc).
-* [ ] Dell XPS 13 Setup:
-  * [ ] enable hdmi/vga output support over thunderbolt 3.
+* [.] Dell XPS 13 Setup:
+  * [o] enable hdmi/vga output support over thunderbolt 3.
+    * [X] HDMI started working since 4.12.
+    * [ ] VGA still not working.
   * [ ] optimize for ssd
   * [ ] optimize power consumption
   * [ ] add Bootsplash
@@ -35,7 +37,7 @@
 * [ ] write a reddit post reviewing 6 months with XPS13.
 * [ ] show Y500 boot menu on external monitor.
 - [ ] write a HowTo for disk recovery on linux (watch L1Tech video @youtube)
-- [ ] try booting live USB of meegGoPad T2. (try formatting as GPT using rufus and booting by pressing F7)
+- [X] try booting live USB of meegGoPad T2. (try formatting as GPT using rufus and booting by pressing F7) (ref: [[diary/2017-09-05]])
 - [ ] create a custom Linux build installer.
 - [ ] Migrate chrome bookmark to firefox (or to an external bookmark manager).
 - [ ] Look up for a linux utility which sends an alarm when it detects prolonged inactivity.
@@ -50,7 +52,7 @@
 * [ ] test nrf51822:
   * [ ] create project folder and get all the related info.
   * [ ] make breakout board for nrf51822.
-* [ ] test sim800l.
+* [X] test sim800l. It works basically the same as sim900.
 * [ ] flash and test nodeMCU on esp-03. test range.
 * [ ] test Papirus on Arch.
 * [.] understand lua language:
@@ -60,3 +62,5 @@
   * [ ] solve the komm_get_ain_thresholds() issue.
   * [ ] understand and fix the signed char issue.
 * [ ] use dual display with lightdm-webkit2-greeter. (ref: [[diary/2017-07-12]])
+* [ ] Learn Unity framework:
+  * [ ] write simple game with Unity2D (ie: snake)

@@ -1,0 +1,8 @@
+== nodeMCU on ESP8266 Development ==
+
+== PN532 NFC support ==
+- test pn532(w/i2c) successfully on __ANY__ platform:
+  - try Rpi, STM32,arduino(let's hope it does NOT come to this).
+- If success == true, use logic analizer to inspect the i2c frame.
+- If needed, try to reimplement i2c module on nodemcu.
+

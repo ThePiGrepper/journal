@@ -13,7 +13,6 @@
   * [X] Wifi
   * [X] Smartcard reader
 
-
 * [X] read about smardcard linux tools(opensc,pcsc-tools,libccid):
   * [X] check if tools are available for rpi. *they are.
   * [X] this tools are for any card reader?:
@@ -35,3 +34,13 @@
     * [ ] study CCID USB protocol.
     * [ ] look for available implementations.
     * [ ] implement driver.
+
+* [ ] Fix current issue:
+  * [ ] fix gps coordinate parsing bug:
+    * [ ] create standalone test. maybe get a real gps log(already got one).
+  * [ ] add gprs 'smart' message parsing:
+    * [ ] let's think about this. some 'nice to have's:
+      * [ ] Improve gprs on-time.
+
+* [ ] Add new features:
+  * [ ] add new scheduler features.

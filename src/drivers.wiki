@@ -1,6 +1,3 @@
 == Linux & drivers ==
 
-* [ ] main source: http://static.lwn.net/images/pdf/LDD3/ch01.pdf
-* [X] install linux in Rpi.
-* [X] try ssh.
-* [ ] read linux drivers book and try simple led driver.
+* [ ] try simple driver w/rpi.
