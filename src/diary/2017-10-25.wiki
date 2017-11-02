@@ -1,0 +1,11 @@
+
+
+
+
+
+TODO:
+- Update diary with latest tasks
+
+== relay board ==
+- Experiment was done using a 12V relay, and a 3v3 zener.
+- Results were inconclusive: reaction time was instant, however original issue (slow off time) could not be reproduced.
