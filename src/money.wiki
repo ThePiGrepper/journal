@@ -17,9 +17,9 @@ Total Cost: $1200
 Name: Relay_Board
 Total Cost: $260
 
-ID: #004
+== ID: #004 -- COMPLETED ==
 Name: wsense
-Total Cost: $270
+Total Cost: $270 ( adjusted to $260)
 
 ID: #005
 Name: PN532 for Sensus
@@ -51,5 +51,11 @@ Quantity: $260.00
 Paypal fee: - $14.34
 Total: $245.66
 
+10/31:
+Description: #004
+Quantity: $300.00 ($260 + $40(Paypal Fees to date))
+Paypal fee: 0? (apparently)
+Total: $300.00
+
 #Draft:
-From project #002: $340 remaining
+From project #002: $320 remaining
