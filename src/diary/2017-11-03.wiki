@@ -1,0 +1,13 @@
+
+
+
+
+
+== Linux Development ==
+- Trying to clean the pi433 staging driver source code.
+- Solving convention errors id by: > scripts/checkpatch.pl --file --terse <file>
+- The next part of the plan is find who do I send this patch to, send it and see what happens.
+== PN532 Firmware Development ==
+- Making this work on the STM32 with hardware I2C is top priority.
+== SecureBox old bugs and pending optimizations ==
+- Compile a list of points to be solved and __start__ doing it.
