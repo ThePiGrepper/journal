@@ -1,0 +1,13 @@
+
+
+
+
+
+== git-archive: create new folder and copy snapshot directly ==
+> git archive --format=tar --prefix=test/ HEAD | tar -xf -
+- Here --format is being used but --output is NOT, so STDOUT is used,
+  WITH THE TAR FORMAT, so piping it to tar is perfectly OK.
+- using --prefix is great here, to avoid creating the destination folder separately.
+- And a little modification to deal with zip file, but useless because it's a 'closed' solution.
+- However, it is IMPORTANT because unzip does NOT work with pipe input, and funzip is being weird too.
+> git archive --format=zip --prefix=test/ HEAD | bsdtar -xvf -
