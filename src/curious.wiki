@@ -16,6 +16,7 @@
 == Interesting tools ==
 * [ ] [[http://npyscreen.readthedocs.io/introduction.html|npyscreen]]
 * [ ] [[https://taihen.org/managing-dotfiles-with-gnu-stow/|stow]]
+* [ ] [[https://github.com/jgm/pandoc|pandoc+vimwiki]]
 
 == Interesting Topics ==
 * [ ] [[https://github.com/gurugio/book_linuxkernel_blockdrv|linux blockdrv]]
