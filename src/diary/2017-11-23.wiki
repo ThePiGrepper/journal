@@ -1,0 +1,60 @@
+
+
+
+
+
+TODO:
+- nodemcu + pn532 NFC module
+- securebox: fix gps coordinate parsing bug
+- securebox: add gprs 'smart' message parsing
+- securebox: add new scheduler features
+- wsensor: test build on wemos mini [OK]
+- wsensor: add rtc setup from website
+- ledalot: modify website [OK]
+- rosetta_stm: write & send quote
+- rosetta_stm: port sensus komm protocol to stm.
+- pressure_mon: build prototype
+
+== ledalot: modify website ==
+- awful control panel. hard to do easy stuff, but already done.
+
+== nodemcu + pn532 NFC module ==
+- test pn532(w/i2c) successfully on __ANY__ platform:
+  - try Rpi, STM32,arduino(let's hope it does NOT come to this).
+- If success == true, use logic analizer to inspect the i2c frame.
+- If needed, try to reimplement i2c module on nodemcu.
+
+== relay board ==
+- ask for help on choosing zener diode.
+
+== securebox: fix gps coordinate parsing bug ==
+- create standalone test. maybe get a real gps log(already got one).
+
+== securebox: add gprs 'smart' message parsing ==
+- let's think about this. some 'nice to have's:
+  - Improve gprs on-time.
+
+== securebox: add new scheduler features ==
+- Change 'ghost' extra buffer space: currently is 'BUFIN_SZ',
+  recommended: 'MAX_SIZE', driver-dependent.
+- dynamic throughput: when input buffer is over X% full, change
+  output granularity(1/1 to 1/2, for example), this means
+  basically, __downsampling__ the output. This, until buffer
+  'fullness' is down again below threshold.
+- Change position to integer interpretation.(what's this??)
+
+== wsensor: test build on wemos mini ==
+- Flashing wemos D1 mini with nodeMCU custom build for wsensor was tricky.
+- It completed flashing process, but after resetting, it just threw garbage to the uart.
+- Fixed by choosing a lower frequency with the -ff flag.
+  > esptool --port /dev/ttyUSB0  write_flash -ff 20m 0x00000 bin/0x00000.bin 0x10000 bin/0x10000.bin
+- now loading wsensor lua scripts and testing using 'new'/better quality SD card.
+- New issue with SPI setup not working and resetting the CPU.
+- spi_setup() failed. Tried many things:
+  - unplugging everything and test only the spi_setup() line.
+  - changing most of the parameters, including: id(SPI or HDPI, I thought it was mixed up on the new(to me) ESP12S), freq_div, byte size).
+  - building a new DEBUG-enabled nodemcu firmware and tested with it to know where it failed. Apparently around the frequency divider section of SPI driver.
+  - desoldering ESP12S and soldering a more known(again, to me) ESP12F.
+- After everything was tried and failed, I reflashed it with esptool again, this time WITHOUT the -ff 'useful' function from before. THIS WORKED.
+- I dont know why this worked, but it's useful nonetheless because next time garbage is being thrown out of serial, maybe this 2-step reflash might work.
+- After solving this last issue, I connected the weight cell ADC and the RTC+SD module to the Wemos mini and everything worked just as with the test unit.
