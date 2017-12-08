@@ -7,6 +7,7 @@
   * [ ] passives and other stuff.
 * [X] 2mm male headers.
 * [ ] SEGGER J-Link EDU - JTAG/SWD Debugger.
+* [ ] Freedon E310 - RISC-V SoC: https://www.sifive.com/products/freedom-e310/
 
 == New Desktop ==
 * [X] Ryzen 1700 + CPU fan : $270
