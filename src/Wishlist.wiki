@@ -9,8 +9,9 @@
 * [ ] SEGGER J-Link EDU - JTAG/SWD Debugger.
 
 == New Desktop ==
-* [ ] Ryzen 1700 + CPU fan : $300 [[https://www.amazon.com/dp/B06WP5YCX6/ref=psdc_229189_t2_B06XNRQHG4|link]]
-* [ ] AM4 mini-ITX MotherBoard : $150 [[https://www.amazon.com/ASRock-Mini-ITX-Motherboard-AB350-GAMING-ITX/dp/B073BFTJQK/ref=sr_1_1?ie=UTF8&qid=1506697190&sr=8-1&keywords=mini+itx+asrock+am4|link]]
+* [X] Ryzen 1700 + CPU fan : $270
+* [X] AM4 mini-ITX MotherBoard : $110
+* [X] 2x8GB DDR4 RAM (2666MHz): $79
 * [ ] 2x8GB DDR4 RAM (>=3000MHz) : $155 [[https://www.amazon.com/Corsair-Vengeance-3000MHz-Desktop-Memory/dp/B0134EW7G8/ref=pd_bxgy_147_2?_encoding=UTF8&psc=1&refRID=Z132RTGXYTB5MEVHY97V|link]] OR
 * [ ] 2x16GB DDR4 RAM (>=3000MHz) : $300 [[https://www.amazon.com/Corsair-Vengeance-3000MHz-Desktop-Memory/dp/B014UYPEXE/ref=pd_bxgy_147_2?_encoding=UTF8&refRID=Z132RTGXYTB5MEVHY97V&th=1|link]]
 * [ ] 2x Seagate(or similar) 4TB Barracuda 2.5" HDD : 2x$150=$300 [[https://www.amazon.com/Seagate-Barracuda-2-5-Inch-Internal-ST4000LM024/dp/B01LZMUNGR/ref=dp_ob_title_ce|link]]
@@ -18,10 +19,12 @@
 * [ ] Power Supply SFX ~600W : $130 [[https://www.amazon.com/SilverStone-Technology-Modular-Lengthened-SX500-LG/dp/B00MO675S8/ref=sr_1_1|link]]
 * [ ] 2x 80mm fan : 2x$16=$32 [[https://www.amazon.com/Noctua-NF-A8-PWM-Premium-Computer/dp/B00NEMG62M/ref=sr_1_2|link]] OR
 * [ ] 1080p graphic card (low profile if possible) : $350
+* [X] ASUS ROG Strix Radeon RX 570 4G : $225
 * [ ] Thermal Compound Paste : $10 [[https://www.amazon.com/ARCTIC-Compound-Performance-Heatsink-Interface/dp/B0045JCFLY/ref=sr_1_3|link]]
 Suggested Total: ~$1572 (Max)
                  ~$1272 (w/o HDDs)
                  ~$972  (w/o HDDs and 16GB RAM)
+Actual Total (Up to now): $744 (expected : ~$850)
 
 == Single Board Computers ==
 * [ ] [[http://www.friendlyarm.com/index.php?route=product/product&product_id=197|NanopiDuo]]
