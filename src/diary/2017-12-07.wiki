@@ -1,0 +1,25 @@
+
+
+
+
+
+== compile vim with xterm_clipboard enabled (using PKGBUILD) ==
+- download vim PKGBUILD:
+> asp checkout vim
+- edit PKGBUILD:
+  - add the following lines to the configuration options:
+    - '--with-features=normal' //apparently,this is the default, so it might not be needed.
+    - '--enable-gui'
+    - '--with-x'
+    *right now it doesnt have i686 architecture support, so just change that line from to i686.
+    - it wont compile because tcl and ruby support are enabled and they required those packages.
+    - assuming you dont have them installed, delete those lines from the PKGBUILD.
+    - compile:
+    > makepkg
+    * there's a regression test section:
+    * i686 fails some test with an error stating: "test1 FAILED - terminal size must be 80x24 or larger"
+    * don't know nor care what it means, so delete the test portion altogether and rebuild.
+- install the packages with pacman.
+> sudo pacman -U <vim_package> <vim-runtime_package> //you can also install the gvim package if desired.
+== copy/paste from clipboard in vim ==
+- use the "+ and "* buffers. *'xterm_clipboard' needs to be enabled.
