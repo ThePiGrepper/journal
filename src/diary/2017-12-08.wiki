@@ -1,0 +1,52 @@
+
+
+
+
+
+TODO:
+- nodemcu + pn532 NFC module
+- securebox: fix gps coordinate parsing bug
+- securebox: add gprs 'smart' message parsing
+- securebox: add new scheduler features
+- securebox: compile component shopping list [NEW]
+- wsensor: add rtc setup from website
+- rosetta_stm: write & send quote
+- rosetta_stm: port sensus komm protocol to stm.
+- pressure_mon: build prototype
+- pressure_mon: create pressure sensor eagle part & breakout board. [NEW]
+- pressure_mon: test differential ADC example on NucleoF3. [NEW]
+- pressure_mon: test Virtual_COM_Port_Loopback example on NucleoF3. [NEW]
+- pressure_mon: find/write and test python/c# app to receive serial data and plot it realtime. [NEW]
+
+Previous in Thread: [[2017-11-23]]
+
+== pressure_mon: build prototype ==
+  == pressure_mon: create pressure sensor eagle part & breakout board. ==
+  - the eagle part for one of the sensor's footprint was designed and the breakout board for it is already being manufactured.
+  - When the breakouts(3) arrive, the next step will be to measure the sensor output using the differential ADC and see if everything is OK.
+
+  == pressure_mon: test Virtual_COM_Port_Loopback example on NucleoF3. ==
+  - Trying to 'port' Virtual_COM_Port_Loopback example to NucleoF3 board. *the code already supports the board, but it does not work out of the box apparently.
+  - It appears that on the NucleoF3 board the USB port doesn't work out of the box, unless you use an external HighSpeed External Source(crystal, or input signal).
+  - A 8Mhz crystal was installed on the board, along with the resistor and capacitors needed for it to work according to the manual.
+  - The USB example still didn't work,(at least that appeared to be the case, because it wasn't detected by Linux at all.(nothing was tested using Wireshark)).
+  - One possible reason for this is that the system clock source being used is still the HSI one, and that might be because of software or hardware.
+  - If it's software that means that something is being setup so that the HSI is being selected explicitly or no source is being selected and the hardware chooses HSI after restart.
+  - If it's hardware, it means that the code is trying to select HSE as clock source, but the MCU is not recognizing the installed crystal.
+  - To find out which one is it, first the code needs to be studied and checked to confirm if a clock source is getting selected and which one is it.
+
+  == pressure_mon: test differential ADC example on NucleoF3. ==
+  - Found differential ADC example for STMF30x. It uses an LCD display as output. That part was modified to output date using retargetting to UART.
+    - About this, new repository added to MCU vault for debugging examples. It's purpose it to contain builds straight forward builds useful for debugging.
+    - ie: retargetting, displaying CPU clock setup. Also some external utilities, like scripts, or x86 utilities, might make it into the repo.
+  - A ninja build file was customized for the example and currently it's working correctly. However, there's something wrong with the virtual Port on the Nucleo's integrated debugger.
+    - When outputting data through the virtual port available on the adapter, it starts generating errors in the SW debug communication, and ALSO the serial data doesn't come across.
+    - I haven't tested this behaviour in detail yet, but it appears to happen only when the throughput is over a certain threshold. It'd be useful to specify this issue.
+  - The exact behavior of the example and the way it works needs to be studied a little further to be useful for the matter at hand. next step is to understand the code and test the
+    real sensor using 3v3 voltage source and the differential voltage to see what happens.
+
+  == pressure_mon: find/write and test python/c# app to receive serial data and plot it realtime. ==
+  - A program is needed to receive the data sent through serial by the device, an to represent it graphically.
+  - This program needs to be written in a language which is supported without hassle on Linux(for testing) and windows(for deployment) platforms.
+  - Also, it needs to be easy to program/modify and also straigth forward for regular usage.
+  - The language which seems the most promising for this is Python. The matplotlib module will be tested to see if it's easy to enough to use for this.
