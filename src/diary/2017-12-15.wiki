@@ -1,0 +1,27 @@
+
+
+
+
+
+== RESTful web services with python + django ==
+- install python(2 or 3), pip and virtualenv(respectively).
+- create a folder for the project.
+- create a virtual environment to install django et al.
+  > virtualenv <env_folder>
+- install django and djangorestframework.
+  > pip install django djangorestframework , or
+  > pip install -r requirements.txt , in which the packages are listed.
+* If using python2, django only supports it up to django==1.11, put that line into requirements.
+- after installing successfully, create the project:
+- create the project/config directory.
+  > django-admin startproject <foldername> .
+- create the app directory
+  > django-admin startapp <foldername>
+//edit settings.py and add catalog  to INSTALLED_APPS
+- the following apparently update some system directory and datab
+  > python manage.py makemigrations
+- if database is not detected, although it exists, do: *ater makemigrations
+  > python manage.py migrate --run-syncdb
+  > python manage.py migrate
+- to run the server, do:
+  > python manage.py runserver
