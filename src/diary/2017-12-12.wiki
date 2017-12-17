@@ -1,0 +1,29 @@
+
+
+
+
+
+TODO:
+- nodemcu + pn532 NFC module
+- securebox: fix gps coordinate parsing bug
+- securebox: add gprs 'smart' message parsing
+- securebox: add new scheduler features
+- securebox: compile component shopping list
+- wsensor: add rtc setup from website
+- rosetta_stm: write & send quote
+- rosetta_stm: port sensus komm protocol to stm.
+- pressure_mon: build prototype
+- pressure_mon: create pressure sensor eagle part & breakout board.
+- pressure_mon: test differential ADC example on NucleoF3.
+- pressure_mon: test Virtual_COM_Port_Loopback example on NucleoF3.
+- pressure_mon: find/write and test python/c# app to receive serial data and plot it realtime.
+
+Previous in Thread: [[2017-12-08]]
+
+== pressure_mon: build prototype ==
+== pressure_mon: find/write and test python/c# app to receive serial data and plot it realtime. ==
+- let's try using a python script using matplotlib module.
+- After trying several different examples, all of them break. probably because of package dependency.
+- As an alternative, tried using VS C# on windows 7. Installation did something weird to the OS, and now some dll is missing apparently.
+- For now, I'll refocus attention into the python alternative for Linux, at least for the incoming prototype demo.
+- One python script with matplotlib worked fine, and it will be modified to fit the usecase needed.
