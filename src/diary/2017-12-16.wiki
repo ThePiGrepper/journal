@@ -1,0 +1,93 @@
+
+
+
+
+
+TODO:
+- nodemcu + pn532 NFC module
+- securebox: fix gps coordinate parsing bug
+- securebox: add gprs 'smart' message parsing
+- securebox: add new scheduler features
+- securebox: compile component shopping list
+- wsensor: add rtc setup from website
+- rosetta_stm: write & send quote
+- rosetta_stm: port sensus komm protocol to stm.
+- rosetta_stm: port old rosetta-stm code to 'ninja' format. [NEW][OK]
+- rosetta_stm: test upgrade to latest stm32f1 spl version(for future I2C-IAP). [NEW][OK]
+- rosetta_stm: test with rosetta-rpi build. [NEW]
+- pressure_mon: build prototype
+- pressure_mon: create pressure sensor eagle part & breakout board. [OK]
+- pressure_mon: sensor eagle part inverted. fixup needed. [NEW]
+- pressure_mon: test differential ADC example on NucleoF3.
+- pressure_mon: test Virtual_COM_Port_Loopback example on NucleoF3.
+- pressure_mon: find/write and test python/c# app to receive serial data and plot it realtime.
+
+Previous in Thread: [[2017-12-12]]
+
+== pressure_mon: create pressure sensor eagle part & breakout board ==
+- eagle part created for pressure sensor.
+- breakout board designed and manufactured. Apparently the part is inverted, fixup needed.
+== rosetta_stm: port old rosetta-stm code to 'ninja' format ==
+- Created new project folder for rosetta_stm project, named from now as 'komm4stm32'.
+- copied all application files to komm4stm32 project folder and setup git repo.
+- created new 'legacy' branch to accommodate the old source code.
+- Build worked with STM32F1 SPL version 3.0.0. CMSIS version was newer though(startup .c, instead of .s).
+- So, to fix that, tried building with the closest possible version, V3.1.0, it worked without issues.
+- After that, formatted to unix style, and delete EOL spaces.
+== rosetta_stm: test upgrade to latest stm32f1 spl version(for future I2C-IAP) ==
+- Tried upgrading to latest stm32f1 SPL version(3.6.1) and it worked without issues.
+- Apparently the only things that changed considerably are the additions for new MCU family members,
+  CAN, and to a lesser degree, a couple things to DAC,DMA,FSMC, and others.
+- A disclaimer seems in order here. I havent actually tested the code yet, either with the V3.1.0 nor the
+  V3.6.1 version of the library, so anything can happen I guess.
+- Nevertheless, this appears to prepare the source code to be used as reference for the new code and future
+  compatibility with I2C-IAP source code.
+
+== cmus basics ==
+- track control:
+  - c: play/pause
+  - z: previous
+  - b: next
+  - x: play/restart
+  - v: stop
+  - l,right: seek +5s
+  - h,left: seek -5s
+  - ,:seek -1m
+  - .:seek +1m
+- volume control:
+  - + or =: vol +10%
+  - -: vol -10%
+  - [{: left vol +-1%
+  - ]}: right vol +-1%
+- playmode toggles:
+  - C: toggle continous (if off, stops playing at the end of now-playing track)
+  - f: follow (if on, now-playing track is followed)
+  - r: repeat (whole list, either playlist or library)
+  - R: togle repeat now-playing track
+  - s: toggle shuffle
+  - o: toggle play from sorted library (effect UNKNOWN)
+- views:
+  - M: toggle active playing list, between Library and Playlist (ie: next track will be from active list)
+  - m: changes between Library selection: artist|albums|all from Library (changes to Library mode too)
+- playlist:
+  - y: add to playlist
+  - D: delete from playlist (this also works in other views, effect unknown)
+  - p,P: move track up/down in playlist
+- Queue: /*It works like playlist, but once played, the track gets removed.
+          *if there is a track on queue, it gets the playing priority for 'next track'
+          *tracks can be add more than once. */
+  - e: append track to queue
+  - E: prepend track to queue
+- vim-like commands:
+  - g,G: go to start,end of view list
+  - q: quit with confirmation msg
+  - /: search words. use 'n' to go to next match.
+- other:
+  - i: go to now-playing track.
+
+- ':' commands:
+  - filter : filter from Library using the chosen criteria (artist,duration,date,etc) or custom filter name
+  - fset : creates custom filter (:fset <filter_name>=[criteria])
+  - clear : clear current view
+  - save <playlist> : save playlist file
+  - load <playlist> : load selected playlist file
