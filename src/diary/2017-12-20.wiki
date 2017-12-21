@@ -1,0 +1,16 @@
+
+
+
+
+
+== vim spell-checker & dictionary ==
+- to enable it: ':set spell!'
+- it will highlight all mistyped words.
+- to move to the next mistyped word: [s and ]s, previous and next, respectively.
+- to move between 'bigger' errors only: [S and ]S.
+- to show a list of possible correct words: 'z='
+- to add a word to the dictionary: 'zg'. it will be saved at ~/.vim/spell/en.utf-8.add
+- to remove the word from the dictionary: 'zug'
+- to blacklist a work(the opposite of the previous action): 'zw', and to undo it: 'zuw'.
+- to change to another language(ie: Spanish): ':set spelllang=es'.
+- if the language is not installed, it will prompt you to do it.
