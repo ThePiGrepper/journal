@@ -1,0 +1,52 @@
+
+
+
+
+
+TODO:
+- nodemcu + pn532 NFC module
+- securebox: fix gps coordinate parsing bug
+- securebox: add gprs 'smart' message parsing
+- securebox: add new scheduler features
+- securebox: compile component shopping list
+- wsensor: add rtc setup from website
+- rosetta_stm: write & send quote
+- rosetta_stm: port sensus komm protocol to stm.
+- rosetta_stm: test with rosetta-rpi build.
+- pressure_mon: build prototype
+- pressure_mon: sensor eagle part inverted. fixup needed.
+- pressure_mon: test differential ADC example on NucleoF3. [OK]
+- pressure_mon: understand differential ADC feature. expands [[2017-12-17#1|here]] [NEW]
+- pressure_mon: test regular ADC for both inputs and compare to differential. [NEW]
+- pressure_mon: test Virtual_COM_Port_Loopback example on NucleoF3.
+- pressure_mon: create System clock setup monitor test. expands [[2017-12-17#2|here]] [NEW]
+- pressure_mon: find/write and test python/c# app to receive serial data and plot it realtime.
+
+Previous in Thread: [[2017-12-16]]
+
+== pressure_mon: test differential ADC example on NucleoF3 ==
+- Differential ADC example was picked from latest STM32F3 version(V1.2.3).
+- A ninja build was created for it. it compiled with no issues.
+- the original source used a Discovery board with an LCD display to show the results in realtime.
+- this was modified with a retarget stdio library through the USART.
+- some issues were encountered during this. Apparently, the debugger adapter doesn't handle well when
+  constant data goes through the Virtual COM connected by default to USART2 of the Nucleo board.
+- To get past that, one of the boards was modified to disconnect the USART2 from the adapter. now is OK.
+- Second issue ocurred with the ADC. apparently it presents more than marginal non-linearity. *1*
+- Also, the values when both lines are connected to the same point(Vdiff==0), is different from 0.
+- Actually, it's a very high value, around half the entire range (~2000).
+- This needs to be fixed or at least understood ASAP. adding task point.
+
+== pressure_mon: test Virtual_COM_Port_Loopback example on NucleoF3 ==
+- example was already ported to ninja build, tested and working on STM32F1 family using an inboard USB port.
+- the same example was tested using the STM32F30x SPL V1.2.3 on the Nucleo Board.
+- Because the Nucleo board does NOT have an inboard USB port, an alternative was deviced.
+- An auxiliar board, a USB battery charger with USB capabilities was used as an externel USB port.
+- it was first tested with the already working stm32f1 board and the external board WORKED just fine.
+- the board's USB pull-up was hardwired disabled to avoid conflict with the boards pull-up resistor.
+- After this, it was connected to the STM32F3 Nucleo board, and it didnt work at all. *2*
+- One suspect is the clock source. apparently an external clock source is needed to use the USB correctly.
+- An 8Mhz crystal was soldered into the board. When tested, the result didnt change.
+- There's a possibility that the MCU isn't getting the new clock right and jumping to the fallback HSI.
+- A quick test is needed to display the current clock setup. task point added.
+- A new 'debug_utils' project was created to add this, along with other debug usecases.
