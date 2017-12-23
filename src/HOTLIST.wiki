@@ -11,3 +11,14 @@ HotList Guidelines:
 - test a few fuzzy finder vim plugins
 - study ARMv7 ISA by writing code.
 -------------------------------------
+- pressure_mon: design and build breakout board for opamp filter/amplifier. - 2hrs
+- pressure_mon: sensor eagle part inverted. fixup needed. also join split pads. - 1hrs
+- pressure_mon: adapt eagle part to second model. - 1hrs
+- pressure_mon: design and build amplification stage board. - 3hrs
+- pressure_mon: create System clock setup monitor test. - 1hrs
+- securebox: compile component shopping list - 1hrs
+- rosetta_stm: understand I2C slave example. - 1hrs
+- rosetta_stm: write/modify quick I2C slave. - 1hrs
+- rosetta_stm: test I2C slave example with nodeMCU as I2C master. - 1hrs
+- wsensor: add rtc setup from website - 2hrs
+- securebox: fix gps coordinate parsing bug - 2hrs

@@ -1,0 +1,36 @@
+
+
+
+
+
+TODO:
+- nodemcu + pn532 NFC module
+- securebox: fix gps coordinate parsing bug
+- securebox: add gprs 'smart' message parsing
+- securebox: add new scheduler features
+- securebox: compile component shopping list
+- wsensor: add rtc setup from website
+- rosetta_stm: write & send quote
+- rosetta_stm: port sensus komm protocol to stm.
+  - rosetta_stm: understand I2C slave example. [NEW]
+  - rosetta_stm: write/modify quick I2C slave. [NEW]
+  - rosetta_stm: test I2C slave example with nodeMCU as I2C master. [NEW]
+- rosetta_stm: test with rosetta-rpi build.
+- pressure_mon: build prototype
+- pressure_mon: sensor eagle part inverted. fixup needed. also join split pads.
+- pressure_mon: adapt eagle part to second model. [NEW]
+- pressure_mon: design and build amplification stage board. [NEW]
+- pressure_mon: understand differential ADC feature. expands [[2017-12-17#1|here]] [OK]
+- pressure_mon: test regular ADC for both inputs and compare to differential.
+- pressure_mon: test Virtual_COM_Port_Loopback example on NucleoF3.
+- pressure_mon: create System clock setup monitor test. expands [[2017-12-17#2|here]]
+- pressure_mon: find/write and test python/c# app to receive serial data and plot it realtime.
+- pressure_mon: design and build breakout board for opamp filter/amplifier. [NEW]
+
+Previous in Thread: [[2017-12-17]]
+
+== pressure_mon: understand differential ADC feature ==
+- The total range (4096 values) is divided by 2: 2048 positives levels, and 2048 negative ones.
+- 0 is the lowest value (-Vref), and 4095 is the highest value (+Vref).
+- the mid value (around 2048) is 0V.
+- there appears to be some lack of linearity close to 0V, but it's still unconfirmed.
