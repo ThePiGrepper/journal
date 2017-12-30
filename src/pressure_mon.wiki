@@ -1,0 +1,7 @@
+== pressure_mon ==
+
+* [ ] sensor eagle part inverted. fixup needed. also join split pads.
+* [ ] adapt eagle part to second model.
+* [ ] create System clock setup monitor test.
+* [ ] design and build breakout board for opamp filter/amplifier.
+* [ ] design and build amplification stage board.

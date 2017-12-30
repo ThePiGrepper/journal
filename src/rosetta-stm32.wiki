@@ -1,0 +1,10 @@
+== rosetta_stm ==
+
+* [ ] KOMM server on nodeMCU.
+  * [ ] solve the komm_get_ain_thresholds() issue.
+  * [ ] understand and fix the signed char issue.
+* [ ] Port KOMM server on nodeMCU to STM32.
+  * [ ] understand I2C slave example.
+  * [ ] write/modify quick I2C slave.
+  * [ ] test I2C slave example with nodeMCU as I2C master.
+* [ ] test rosetta image on rpi zero.

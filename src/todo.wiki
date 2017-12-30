@@ -1,17 +1,10 @@
 == ToDo Directory ==
 
 a) [[HOTLIST]] -- Only for references to other directories
-b) [[simpletasks|Simple Tasks]]
-c) [[PalmKeyboardIF]]
-d) [[Nokia5110]]
-e) [[dow]]
-f) [[devflow|development flow upgrade]]
-g) [[Touch]]
-h) [[Tokra]] -- A symbiotic 6502 emulator for MCUs.
-i) [[drivers|Linux and drivers]]
-j) [[Knowyourlinux|Linux Distributions]]
-k) [[Pythia]]
-l) [[curious|Curiosities]]
-m) [[Securebox]]
-n) [[nodemcu|nodeMCU]]
-o) [[rpi|Raspberry Pi]]
+b) [[dev-curr|Current Projects]]
+c) [[dev-arch|Archived Projects]]
+
+d) [[simpletasks|Simple Tasks]]
+e) [[devflow|development flow upgrade]]
+f) [[Knowyourlinux|Linux Distributions]]
+g) [[curious|Curiosities]]

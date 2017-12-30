@@ -1,3 +1,2 @@
 == Linux & drivers ==
 
-* [ ] try simple driver w/rpi.

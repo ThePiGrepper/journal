@@ -1,3 +1,4 @@
 == Raspberry Pi Development ==
 
 * [ ] Rpi + bluetooth AP
+* [ ] try simple driver w/rpi.
