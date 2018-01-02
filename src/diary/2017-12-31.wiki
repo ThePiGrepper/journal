@@ -1,0 +1,76 @@
+
+
+
+
+
+TODO:
+- nodemcu + pn532 NFC module
+- securebox: fix gps coordinate parsing bug
+- securebox: add gprs 'smart' message parsing
+- securebox: add new scheduler features
+- securebox: compile component shopping list [OK]
+- rosetta_stm: write & send quote
+- rosetta_stm: port sensus komm protocol to stm.
+  - rosetta_stm: understand I2C slave example.
+  - rosetta_stm: write/modify quick I2C slave.
+  - rosetta_stm: test I2C slave example with nodeMCU as I2C master.
+- rosetta_stm: test with rosetta-rpi build.
+- pressure_mon: build prototype
+- pressure_mon: sensor eagle part inverted. fixup needed. also join split pads.
+- pressure_mon: adapt eagle part to second model.
+- pressure_mon: design and build amplification stage board.
+- pressure_mon: test regular ADC for both inputs and compare to differential.
+- pressure_mon: test Virtual_COM_Port_Loopback example on NucleoF3.
+- pressure_mon: create System clock setup monitor test. expands [[2017-12-17#2|here]]
+- pressure_mon: find/write and test python/c# app to receive serial data and plot it realtime.
+- pressure_mon: design and build breakout board for opamp filter/amplifier.
+
+- install Kodi on PC stick(MeegoPad)
+- install/test github alternatives on server.
+- compile/install kernel on XPS13. test dkms for virtualbox.
+- test power comsumption of ESP8266.
+- check frequency and backup power issue on rtc custom module.
+- test both led panels with nodeMCU.
+- test power comsumption of led panels.
+
+Previous in Thread: [[2017-12-23]]
+
+== Test/Install Haiku ==
+- Download image(either RAW image or 'anyboot' installer) from site.
+- Copy RAW to partition.
+* to convert from anyboot to RAW:
+	> dd if=haiku-anyboot.image of=haiku.raw bs=1M skip=$(expr $(od -j 454 -N4 -i -A n haiku-anyboot.image) / 2048)
+	> dd if=/dev/zero of=haiku.raw bs=1 seek=506 count=4 conv=notrunc
+> dd if=haiku.raw of=/dev/sdaX bs=1M conv=notrunc
+- To update grub2 menu, add menu entry to grub.cfg and update with grub-install.
+  menuentry "haiku" {
+  set root=(hd0,3)
+  chainloader +1
+  }
+* grub2 has support for Haiku, so a simple 'grub-mkconfig' should work as well.
+- Use makebootabletiny to make the Haiku partition bootable.
+>>>> From the official site: [[https://www.haiku-os.org/guides/booting/|link]]
+	makebootable is a low-level Haiku tool to enable x86 MBR (legacy bios) systems to boot from the active Haiku partition.
+	Makebootable is not needed when…
+			Haiku’s EFI bootloader is in use
+			dd’ing to an entire disk device and not a partition
+			using Haiku’s Installer program, as it is done automatically
+			using the build system to install directly to a partition from source, as it is done automatically
+	Makebootable is needed when…
+			x86 legacy BIOS booting is used
+			dd’ing to a partition
+			manually installing using Tracker
+			installing using BeOS/Zeta’s Installer program
+<<<<
+- Download the sourcecode(one file), and compile it locally with gcc.
+> ./makebootabletiny /dev/sdaX
+Current Issues:
+- After installing it on netbook:
+  - it does NOT detect wifi. already tried installing wifi firmware, but nothing changed.
+  - sound is not functioning.
+  - couldn't download/install vim, had to use nano(the HORROR!). package manager does NOT know vim package.
+  - apparently, there's an external repo to install things like vim, but the script that installs it(supposedly) isn't found by the system.
+- After installing it on the VM(VirtualBox):
+  - wifi wasn't tested(because VM).
+  - sound was not tested yet, however I assume it will work.
+  - ethernet works well, as long as you change the network virtual adapter on settings.
