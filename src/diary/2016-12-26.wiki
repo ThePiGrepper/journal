@@ -25,11 +25,33 @@
   - enable and start daemon:
     > systemctl enable sshd.socket
     > systemctl start sshd.socket
+  * enable and start daemon (on debian):
+    - install package: apt install openssh-client openssh-server
+    > systemctl enable ssh.socket
+    > systemctl start ssh.socket
+    > systemctl enable sshd.service
+    > systemctl start sshd.service
   - to configure ssh server open /etc/ssh/sshd_config . Important options are:
     - AllowUsers user1 user2
     - AllowGroups group1 group2
     - PermitRootLogin no|yes|without-password
     - Port 22
+- VirtualBox - add a host-only adapter to connect to LAN -
+  - first create a host-only interface(this will in fact create a new interface on the host machine with IP 192.168.56.1/24, to which the VMs will connect to):
+    > VBoxManage hostonlyif create //the default IF name is vboxnet0
+  - add new network card to VM:
+    - Go to the VM Settings->Network->Adapter 2 : Enable Network Adapter.
+    - Configure 'Attached to:' to "Host-only Adapter".
+    - Name:"vboxnet0". Save the changes. Now the VM has two network interfaces, the default NATted one and the virtual one.
+  - Confirm that a new interface is detected: > ip link //(apparently it uses the name enp0s8, by default).
+  - To enable it, create a new interface config file (tested on debian):
+    - edit /etc/network/interfaces.d/<name> //name suggestion: 'host-only'
+      # My Host-only network
+			allow-hotplug enp0s8
+			iface enp0s8 inet dhcp
+    - startup new interface:
+      > ifup enp0s8 //or the new device name. probably will work for su only.
+    - the ip is set up by dhcp, starting always from 192.168.56.101. If another VM exists on the network, it will get the next IP.
 == GRUB ==
 - Modify grub: change bg image, timeout,etc.
   - edit file: /etc/default/grub (or use grub-customizer)
