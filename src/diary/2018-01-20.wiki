@@ -1,0 +1,36 @@
+
+
+
+
+
+TODO:
+- nodemcu + pn532 NFC module
+- securebox: fix gps coordinate parsing bug
+- securebox: add gprs 'smart' message parsing
+- securebox: add new scheduler features
+- rosetta_stm: write & send quote
+- rosetta_stm: port sensus komm protocol to stm.
+  - rosetta_stm: write a simple I2C 'back and forth' example between Rpi and STM32. [NEW]
+  - rosetta_stm: understand I2C slave example.
+  - rosetta_stm: write/modify quick I2C slave.
+  - rosetta_stm: test I2C slave example with nodeMCU as I2C master.
+- rosetta_stm: test with rosetta-rpi build.
+- pressure_mon: build prototype
+- pressure_mon: sensor eagle part inverted. fixup needed. also join split pads.
+- pressure_mon: adapt eagle part to second model.
+- pressure_mon: design and build amplification stage board.
+- pressure_mon: test regular ADC for both inputs and compare to differential.
+- pressure_mon: test Virtual_COM_Port_Loopback example on NucleoF3.
+- pressure_mon: create System clock setup monitor test. expands [[2017-12-17#2|here]]
+- pressure_mon: find/write and test python/c# app to receive serial data and plot it realtime.
+- pressure_mon: design and build breakout board for opamp filter/amplifier.
+
+- install Kodi on PC stick(MeegoPad)
+- install/test github alternatives on server.
+- compile/install kernel on XPS13. test dkms for virtualbox.
+- test power comsumption of ESP8266.
+- check frequency and backup power issue on rtc custom module.
+- test both led panels with nodeMCU.
+- test power comsumption of led panels.
+
+Previous in Thread: [[2017-12-31]]
