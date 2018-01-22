@@ -1,0 +1,3 @@
+== Cool Quotes ==
+
+- "Use the Source, Luke, use the Source. Be one with the code." Linus Torvalds, regarding kernel debuggers.
