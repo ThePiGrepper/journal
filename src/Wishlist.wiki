@@ -27,7 +27,12 @@ Suggested Total: ~$1572 (Max)
                  ~$972  (w/o HDDs and 16GB RAM)
 Actual Total (Up to now): $744 (expected : ~$850)
 
+== New Netbook ==
+- Fujitsu LifeBook T580. [[https://www.notebookcheck.net/Review-Fujitsu-LifeBook-T580-Convertible.43102.0.html|link]]
+
+
 == Single Board Computers ==
 * [ ] [[http://www.friendlyarm.com/index.php?route=product/product&product_id=197|NanopiDuo]]
 * [ ] [[http://www.friendlyarm.com/index.php?route=product/product&product_id=132|NanopiNeo]]
 * [ ] [[http://beagleboard.org/pocket|beaglePocket]]
+* [ ] [[https://www.wandboard.org/products/wandpi-8m/|Wandi-8m]]
