@@ -6,3 +6,9 @@
 - If success == true, use logic analizer to inspect the i2c frame.
 - If needed, try to reimplement i2c module on nodemcu.
 
+- some random info:
+  - HID iCLASS support is needed.
+  - HID is a branch, iCLASS is the product family.
+  - iclass is also called PicoPass/PicoPass 2KS(??).
+  - iclass supports ISO 14443A,14443B and 15963 protocols.
+  - PN5180 apparently does NOT support HID iCLASS DH.(BUSY time is too long to fin HID iCLASS DH specification)
