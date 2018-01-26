@@ -68,3 +68,7 @@
       - http://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them
     * [ ] take a look into apt-get, dpkg and aptitude.
     * [ ] Read about Comparison of major Linux package management systems.
+* [ ] file managers:
+  * [ ] ranger:
+    * [ ] how to set file association. https://codeyarns.com/2015/03/12/how-to-set-file-association-in-ranger/
+    * [ ] user guide: https://codeyarns.com/2015/03/12/how-to-set-file-association-in-ranger/
