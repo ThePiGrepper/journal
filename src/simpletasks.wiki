@@ -60,4 +60,6 @@
   * [ ] make a quick project using the language. A simple game sounds like a good idea. let's do tennis for 2.
 * [ ] use dual display with lightdm-webkit2-greeter. (ref: [[diary/2017-07-12]])
 * [ ] Learn Unity framework:
-  * [ ] write simple game with Unity2D (ie: snake)
+  * [ ] write simple game with Unity2D (ie: snake,battlecity(tank game for NES)
+* [ ] learn about dkms.
+* [ ] learn about CIs (continuous integration) tools. (look at firefox/bookmarks/tags:CI)
