@@ -44,3 +44,10 @@
 
 * [ ] Add new features:
   * [ ] add new scheduler features.
+    * [ ] Change 'ghost' extra buffer space: currently is 'BUFIN_SZ',
+      recommended: 'MAX_SIZE', driver* [ ]dependent.
+    * [ ] dynamic throughput: when input buffer is over X% full, change
+      output granularity(1/1 to 1/2, for example), this means
+      basically, __downsampling__ the output. This, until buffer
+      'fullness' is down again below threshold.
+    * [ ] Change position to integer interpretation.(what's this??)
