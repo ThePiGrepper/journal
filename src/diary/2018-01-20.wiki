@@ -34,3 +34,63 @@ TODO:
 - test power comsumption of led panels.
 
 Previous in Thread: [[2017-12-31]]
+
+== rosetta_stm: write a simple I2C 'back and forth' example between Rpi and STM32 ==
+- testing rpi I2C functionality with ds1307 [[2018-01-20#RTC|RTC]]. it worked just fine.
+
+== Setup ds1307 *RTC* on rasperry Pi ==
+* tested with Raspbian.
+  == Install I2C support on Rpi ==
+  - install i2c tools:
+    # apt install python-smbus i2c-tools
+  - install kernel support:
+    - Using raspi-config:
+      # raspi-config
+      - Go to Interfacing Options->I2C: Enable.
+    - Or edit Manually:
+      - edit /etc/modules, add:
+        i2c-bcm2708 //(or correct cpu, depending rpi version)
+        i2c-dev
+        i2c-bcm2835
+      - edit /etc/modprobe.d/raspi-blacklist.conf, if it exists:
+        - if the above modules are blacklisted as seen below, comment(#) or delete it:
+          blacklist i2c-bcm2708 //or similar
+      - edit /boot/config.txt (only for kernel > 3.18):
+        dtaparam=i2c1=on
+        dtaparam=i2c_arm=on
+    - reboot and test connected i2c devices with:
+      # i2cdetect -y 1
+    * for the raspberry Pi B(256MB) only:
+      # i2cdetect -y 0
+  == Enable RTC driver support ==
+    - enable i2c-rtc and ds1307 devicetree overlay:
+      - edit /boot/config.txt:
+        dtoverlay=i2c-rtc,ds1307 //this means, run dtoverlay i2c-rtc with device ds1307(parameter).
+    - To confirm that it works, reboot and test with i2cdetect again.
+    - Instead of the I2C address(0x68 for ds1307), it will show 'UU'.
+  == Replace software/network RTC source with Real/HW RTC source ==
+    - To use the newly added HW RTC, remove 'false RTC' package.(only for raspbian)
+      > # apt remove fake-hwclock
+      > # update-rc.d -f fake-hwclock remove //remove link to /etc/init.d/<script> at /etc/rc0.d.
+    - edit /lib/udev/hwclock-set and comment out the following:
+      #if [ -e /run/systemd/system ] ;then
+      #exit 0
+      #fi
+    - read the rtc clock (it hasn't been sync yet):
+      # hwclock -D -r //-r:read, -D:debug mode
+    - check that current date/time is correct by using: $ date, fix it otherwise.
+    - write system time to RTC:
+      # hwclock -w
+    - confirm by reading it again:
+      # hwclock -r
+    * To re-enable it, do:
+      - edit /lib/udev/hwclock-set and comment back in the commented section.
+      # apt install fake-hwclock
+      # update-rc.d fake-hwclock defaults
+
+== debian tips to search for files in packages ==
+- to see all files from .deb package:
+  $ dpkg -L
+- to show which package contains a file: apt-file //first, install apt-file
+  # apt-file update //to refresh the package database
+  $ apt-file search <pattern> //search package which contains <pattern>
