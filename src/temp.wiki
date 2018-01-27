@@ -1,0 +1,3 @@
+== Temporal Guides ==
+
+a) [[t_xfwm|xfwm + workspace detection]]

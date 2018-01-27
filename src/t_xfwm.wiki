@@ -1,0 +1,45 @@
+xfwm + workspace identification
+
+- installed wmctrl.
+- use wmctrl -d to show all virtual desktops, show active one,resolution.
+
+make thumbnails work
+* tested on Arch.
+- install following packages: tumbler ffmpegthumbnailer poppler-glib  libopenraw freetype2
+  //optdeps support, resptively: video,pdf,RAW?,font?(last two have unknown(to me) use case)
+- thumbnails generated get stores at ~/.cache/thumbnails/
+- after installation, to update without reboot(this might not work), do:
+  > $ thunar -q //close any running instance of thunar
+  > # update-mime-database /usr/share/mime
+
+open zathura full-screen
+- apparently there's no way to define fullsize, besides hardcoding values.
+- use 'man zathurarc' command to check configuration option for config file.
+- edit config file: ~/.config/zathura/zathurarc
+  set window-height 600
+  set window-width 1024
+
+st mod
+- download and applied alpha patch.
+- modify alpha value on source directly(st.c instead of config.h).
+- change default font color from white to black, changing 'defaultfg' value in config.h.
+- build pacman package with the current mods, install.
+- add a desktop entry for st at ~/.local/share/applications/
+* here you can set features like, font type,size and window dimensions.
+  # simple-terminal.desktop
+	[Desktop Entry]
+	Name=Simple Terminal
+	GenericName=Terminal
+	Comment=standard terminal emulator for the X window system
+	Exec=st -t "Suckless Terminal" -f "Source Code Pro:style=Semibold:size=12" -g "80x24"
+  #or Exec=st -t "Suckless Terminal" -f "Monospace:style=Regular:size=12" -g "80x24"
+	Terminal=false
+	Type=Application
+	Encoding=UTF-8
+	Icon=terminal
+	Categories=System;TerminalEmulator;
+	Keywords=shell;prompt;command;commandline;cmd
+- To use the above font 'Source Code Pro', install package: adobe-source-code-pro-fonts
+- To check for all the fonts install, go to /usr/share/fonts/ or ~/.local/share/fonts/
+- to add drop-down: try using tdrop utility. downloaded from AUR. it works fine.
+- tdrop can be used as shortcut, however I would still like to remove the status bar.
