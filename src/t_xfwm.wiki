@@ -1,4 +1,4 @@
-xfwm + workspace identification
+== xfwm + workspace identification ==
 
 - installed wmctrl.
 - use wmctrl -d to show all virtual desktops, show active one,resolution.

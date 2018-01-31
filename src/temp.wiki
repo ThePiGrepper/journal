@@ -1,3 +1,4 @@
 == Temporal Guides ==
 
 a) [[t_xfwm|xfwm + workspace detection]]
+b) [[t_elinux|embedded linux notes]]

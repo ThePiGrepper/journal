@@ -1,0 +1,22 @@
+== Embedded Linux notes ==
+- sabotage: linux distro w/busybox - https://github.com/sabotage-linux
+- kdump, utility to capture kernel crashes.
+- VFS(Virtual File System) abstraction. Part of the kernel which interacts with the different
+  File Systems using a common API.
+- journaled flash FSs. ie: JFFS2, YAFFS2, LogFS.
+- applications use libraries to interact with the kernel: ie: GNU C Library, glibc,musl.
+- daemons,system processes, offer services to applications. ie: udev,device filesystem manager.
+- applications usually are linked dynamically to libraries.
+  == System Startup ==
+  - bootloader, kernel and init process:
+    - bootloader: highly dependent on hardware. initializes hardware, then jumps to kernel
+      startup code.
+      - early startup code is architecture-dependent. once done, start_kernel() is called.
+      - start_kernel() does the following:
+        - initializes high-level functionality.
+        - mounts the root FS.
+        - start the init process.
+      - Setups used to bootstrap system:
+        - solid-state storage setup.(all in flash)
+        - disk setup.
+        - network setup.(kernel(TFTP), rootFS(NFS), or kernel(disk/flash),rootFS(NFS))
