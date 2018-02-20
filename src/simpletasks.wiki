@@ -63,3 +63,6 @@
   * [ ] write simple game with Unity2D (ie: snake,battlecity(tank game for NES)
 * [ ] learn about dkms.
 * [ ] learn about CIs (continuous integration) tools. (look at firefox/bookmarks/tags:CI)
+* [ ] read about difference between linux header files installed by 'linux-api-headers'(Arch),
+      and the ones available at include/ installed using 'make headers_install' in the kernel.
+      [[diary/2018-01-31#better]]

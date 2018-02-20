@@ -1,0 +1,48 @@
+
+
+
+
+
+TODO:
+- nodemcu + pn532 NFC module
+- securebox: fix gps coordinate parsing bug
+- securebox: add gprs 'smart' message parsing
+- securebox: add new scheduler features
+- rosetta_stm: write & send quote
+- rosetta_stm: port sensus komm protocol to stm.
+  - rosetta_stm: write a simple I2C 'back and forth' example between Rpi and STM32.
+  - rosetta_stm: understand I2C slave example.
+  - rosetta_stm: write/modify quick I2C slave.
+  - rosetta_stm: test I2C slave example with nodeMCU as I2C master.
+- rosetta_stm: test with rosetta-rpi build.
+- pressure_mon: build prototype
+- pressure_mon: sensor eagle part inverted. fixup needed. also join split pads.
+- pressure_mon: adapt eagle part to second model.
+- pressure_mon: design and build amplification stage board.
+- pressure_mon: test regular ADC for both inputs and compare to differential.
+- pressure_mon: test Virtual_COM_Port_Loopback example on NucleoF3.
+- pressure_mon: create System clock setup monitor test. expands [[2017-12-17#2|here]]
+- pressure_mon: find/write and test python/c# app to receive serial data and plot it realtime.
+- pressure_mon: design and build breakout board for opamp filter/amplifier.
+
+- install Kodi on PC stick(MeegoPad)
+- install/test github alternatives on server.
+- compile/install kernel on XPS13. test dkms for virtualbox.
+- test power comsumption of ESP8266.
+- check frequency and backup power issue on rtc custom module.
+- test both led panels with nodeMCU.
+- test power comsumption of led panels.
+
+Previous in Thread: [[2018-01-20]]
+
+== rosetta_stm: write a simple I2C 'back and forth' example between Rpi and STM32 ==
+- One interesting way to learn about I2C application level code is by studying i2cdetect tool.
+- i2cdetect is part of the i2c-tools package. Download the source with 'asp'.
+- After that, the code was small and ready to be read and studied.
+- There're as well python bindings available. They probably(*for sure) use this C code, so
+  understanding the C library has more value, besides being much faster.
+* Apparently, (and unrelated to this) the header found at /usr/include/linux are different than
+  the one available at the kernel, at include/. The contain mostly the same filenames, but the
+  content seems a 'sanitized'(word used by the 'linux-api-headers' Arch package description which
+  contains this file) version of the kernel one. Also, it's possible to create an include folder
+  by using 'make headers_install'. I'll try to understand this *better*.
