@@ -1,0 +1,35 @@
+
+
+
+
+
+== use openocd from a raspberry pi to debug an ARM MCU ==
+- get latest openocd version (0.10.0 at the moment).
+  - raspbian Stretch comes with 0.9.0.
+  - compile openocd instead:
+    - get the build tools required:
+      > #apt install git autoconf libtool make pkg-config libusb-1.0-0 libusb-1.0-0-dev
+    - download openocd source code from: https://github.com/ntfreak/openocd
+    - execute the following commands:
+      > ./bootstrap
+      > ./configure --enable-sysfsgpio --enable-bcm2835gpio
+      * sysfsgpio is a generic interface, should work with most non-Pi boards, albeit slower.
+      * --enable-bcm2835gpio works for any raspberry, not only Pi 0,1.
+      > make
+    - if everything is OK, install:
+      > # make install
+- connect the following pins to the SW pins of the SMT32 (or other ARM MCU):
+  - SWDIO to Rpi #24
+  - SWCLK to Rpi #25
+  - Reset to Rpi #18 (may not be required)
+  - GND and 3v3.
+- edit or copy the interface script:raspberrypi-native.cfg(0,1) or raspberrypi2-native.cfg(pi2,3)
+* The files are at /usr/[local]/share/openocd/scripts/interface/
+- change the gpio pins for swclk and swdio. or use the default.
+- It didn't need the reset line(in my current case (STM32F103C8), so it remained commented out.
+- run openocd with the following configuration:
+  > # openocd -f <path/to>/raspberrypi-native.cfg -c "transport select swd" -f /usr/local/share/openocd/scripts/target/stm32f1x.cfg
+  * the additional -c option was added to select the swd interface, instead of the jtag one.
+
+References:
+- https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi/wiring-and-test
