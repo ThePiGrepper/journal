@@ -12,3 +12,29 @@
   - iclass is also called PicoPass/PicoPass 2KS(??).
   - iclass supports ISO 14443A,14443B and 15963 protocols.
   - PN5180 apparently does NOT support HID iCLASS DH.(BUSY time is too long to fin HID iCLASS DH specification)
+
+- [ ] test power comsumption of ESP8266.
+- [ ] Check different toolchain version/OS causing divergence in builds and breakage.
+
+== Led Box ==
+- testing led controllers with nodeMCU: *1*
+  - two different led controller ICs: TM1640 and HT16K33.
+  - HT16K33 is easier to interface(standard I2C) than TM1640(SPI-like i/f with start/stop).
+  - more code available for the HT16K33. TM1640 chosen for development.
+  - I assumed that it'd be easier because there were more units at hand.
+  - A nodeMCU module for TM1640 is NOT available. Need to write one.
+  - Tried using lua functions. Did NOT work. Probably too slow. Let's try making Lua C module.
+  - Times were reduced between 2 and 13 times. Did not work.
+  - Next plan is to add a simpler function, using only bit-banging.
+- Flashing bug ocurring in similar builds:
+  - After compiling nodemcu-firmware @commit 5073c199c01d4d7bbbcd0ae1f761ecc4687f7217, on
+    Arch system x86(HP Mini)(to get the used tools, you'd need to use the pacman.log file to
+    retrieve the tools version used on this day(02/21/18), with a new lua C module, it didn't
+    work.
+  - Actual behavior: instead of outputting the prompt, it just threw garbage at the serial port, at any baud rate.
+  - After removing the new module and recompiling, the error persisted.
+  - Tried compiling it again, this time on a VM with Ubuntu 16.10 (check version of software used if needed). It worked without issues.
+  - It compiled and run OK in both cases, with and without the new module.
+  - Why is this? both builds are based on the same commit with the same configuration and modules.
+  - Check this issue later. When new builder_ubuntu gets deployed(18.04).
+- test power comsumption of led panels.

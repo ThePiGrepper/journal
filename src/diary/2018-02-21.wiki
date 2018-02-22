@@ -1,0 +1,16 @@
+
+
+
+
+
+== esp8266: led panel + nodemcu ==
+- testing led controllers with nodeMCU. (see [[../nodemcu#1]])
+
+== esp8266: flashing hack/trick ==
+- Tried flashing it and after done, it returned continually this output:
+	Fatal exception (28):
+	epc1=0x4000228b, epc2=0x00000000, epc3=0x00000000, excvaddr=0x000000b5, depc=0x00000000
+- Fix: flash it again, this time with '-fm dout':
+	> $ esptool.py --port /dev/ttyUSB0 write_flash -fm dout 0x00000 bin/0x00000.bin 0x10000 bin/0x10000.bin
+* If it does NOT work, try 'erase_flash' first, and then flash it.
+- This works on a wemos mini board. The reason is unknown.
