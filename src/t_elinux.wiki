@@ -20,3 +20,26 @@
         - solid-state storage setup.(all in flash)
         - disk setup.
         - network setup.(kernel(TFTP), rootFS(NFS), or kernel(disk/flash),rootFS(NFS))
+          - using BOOTP/DHCP would help automating the server location.
+      - for production, solid-state or disk are good, for development network is optimal.
+        Criteria:
+          - flash memory use
+          - RAM use
+          - ease of upgrading
+          - bootup time
+      - boot storage(flash,disk,etc) is initially programmed using a device programmer.
+      - ie: jtag,BDM.
+      - after being programmed, it can be reprogrammed by the bootloader(if it has such feature).
+      - or by Linux MTD(memory technology device) subsystem.(ie:ROM,NOR/NAND flash)(more at Ch.7)
+  - System Memory layout:
+    - It's important to understand the physical memory layout before starting with development.
+Chapter 4(Yaghmour) - Development Tools
+  - http://denx.de/wiki/DULG/ELDK - demx software engineering Embedded Linux Development Kit.
+  - debuggers,profilers,bound checkers - chapter 11(Debugging Tools)
+  - to cross-compile the kernel: make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- menuconfig
+    * all usual steps have to contain 'ARCH=arm CROSS_COMPILE=<toolchain-prefix>".
+== final project ==
+- interesting files:
+  - arch/arm/boot/dts/vf610m4-cosmic.dts
+  - arch/arm/boot/dts/vf610-cosmic.dts
+  - Documentation/devicetree/bindings/arm/fsl.txt
