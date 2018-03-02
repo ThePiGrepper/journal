@@ -28,3 +28,25 @@ interface eth0
 static ip_address=192.168.1.114/24
 static routers=192.168.1.1
 static domain_name_servers=192.168.1.1 8.8.8.8 8.8.4.4
+
+== Configure static ip/subnet/default gateway depending on SSID ==
+* tested on raspbian stretch (for previous versions, use different method with /etc/network/interfaces and wpa_supplicant.conf id_str field)
+- add wifi network configuration to /etc/wpa_supplicant/wpa_supplicant.conf:
+	network={
+		ssid="SKYNET"
+		psk="MYPASS"
+		key_mgmt=WPA-PSK
+		id_str="home" <---this is optional, only used for 'old' method.
+    priority=90 <--- useful if multiple configured SSIDs available. higher number==higher priority.
+	}
+- add static info for the selected SSID at /etc/dhcpcd.conf:
+  ssid SKYNET
+  static ip_address=192.168.1.114/24
+  static routers=192.168.1.1
+  static domain_name_servers=192.168.1.1 8.8.8.8 8.8.4.4
+* I still dont know how does dhcp behaves when there's conflicting configurations, ie: there's a device 'wlan0' and an SSID 'NET', both
+  with static IPs configurations defined, what would happen if such a device access a network with such SSID? is the first configuration
+  getting priority? or the last one? is there a rule or is it undefined behavior?
+* Is there a way to do like an AND condition like: if(SSID==NET && DEV=wlan0)?? how would this be?
+* also, during testing of this feature, tried configuring the network at /etc/dhcpcd.conf indirectly using 'profile', it didn't work; apparently,
+  it can only be used with 'fallback'.
