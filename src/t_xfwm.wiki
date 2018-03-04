@@ -45,3 +45,26 @@ st mod
 - To check for all the fonts install, go to /usr/share/fonts/ or ~/.local/share/fonts/
 - to add drop-down: try using tdrop utility. downloaded from AUR. it works fine.
 - tdrop can be used as shortcut, however I would still like to remove the status bar.
+
+
+== ARRANGE THIS! ==
+libvirt
+qemu: juniper, esxi,
+Vagrant
+qemu/kvm
+
+$ cat ~/.mpv/config
+# Write your default config options here!
+
+audio-channels=2.1
+hwdec=vaapi
+vo=vaapi
+#vo=opengl:interpolation
+#video-sync=display-resample
+no-cache-pause
+cache-default=7500
+cache-backbuffer=7500
+cache-secs=60
+
+running/installing steam inside a chrooted system
+

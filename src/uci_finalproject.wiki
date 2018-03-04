@@ -1,0 +1,5 @@
+== UCI Final Project ==
+
+== Project: Linux System setup on Vybrid Board ==
+Board Name/model: Cosmic Board+ (POB-001)
+SoC Model: NXP VF6xx Family (A5 + M4)

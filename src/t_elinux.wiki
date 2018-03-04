@@ -38,6 +38,11 @@ Chapter 4(Yaghmour) - Development Tools
   - debuggers,profilers,bound checkers - chapter 11(Debugging Tools)
   - to cross-compile the kernel: make ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- menuconfig
     * all usual steps have to contain 'ARCH=arm CROSS_COMPILE=<toolchain-prefix>".
+
+- find buildroot
+- find  http://leaf.sourceforge.net
+- gdb,dmalloc,valgrind,syslog trace.
+- board bring-up, kernel development or application development specialists
 == final project ==
 - interesting files:
   - arch/arm/boot/dts/vf610m4-cosmic.dts

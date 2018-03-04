@@ -2,3 +2,4 @@
 
 a) [[t_xfwm|xfwm + workspace detection]]
 b) [[t_elinux|embedded linux notes]]
+c) [[uci_finalproject|UCI Final Project]]
