@@ -1,0 +1,68 @@
+
+
+
+
+
+== docker: first steps ==
+image: executable package that includes everything needed to run an application(code,runtime,libraries,env variables,conf files).
+container: runtime instance of an image. It's what the image becones in memory when executed(a user process basically).
+
+docker ps [--all] : list running containers
+
+Difference with VMs: A container is basically a process for the host system. This means that a container shares the kernel of
+the host machine with other containers. A VM runs a full 'guest' OS through the hypervisor. For most applications, it offers
+more resources that needed.
+
+Installation:
+*On Arch
+- Install package 'docker'
+- enable/start service: # systemctl enable/start docker.service
+- Add user to group 'docker' to avoid having to use sudo.
+  # usermod -aG docker <username>
+- test that the service is on with: $ docker info
+- pull image: $ docker pull hello-world
+- run (and pull if not found locally) image: docker run hello-world
+
+Change Images location:
+- Add a drop-in snippet to the docker service(systemd only):
+  - edit manually a file at /etc/systemd/system/docker.service.d/<nameoffile>.conf
+  - or run: > # systemctl edit docker.service //this will open a file in the same folder named override.conf
+  - add the following:
+    [Service]
+    ExecStart=
+    ExecStart=/usr/bin/dockerd --data-root=/path/to/new/location -H fd://
+
+Other commands:
+docker image ls - list images
+docker container ls - list containers (--all to list even inactive ones)
+
+Create a Dockerfile:
+A Dockerfile defines what goes in the environment inside the container:
+Example:
+	# Use an official Python runtime as a parent image
+	FROM python:2.7-slim
+
+	# Set the working directory to /app
+	WORKDIR /app
+
+	# Copy the current directory contents into the container at /app
+	ADD . /app
+
+	# Install any needed packages specified in requirements.txt
+	RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+	# Make port 80 available to the world outside this container
+	EXPOSE 80
+
+	# Define environment variable
+	ENV NAME World
+
+	# Run app.py when the container launches
+	CMD ["python", "app.py"]
+
+This selects an image to run, sets a working directory, copies files at the host FS into the container,
+Run commands(in this case pip to install requirements), set ENV vars, expose port to the outside world.
+* What's the difference between RUN and CMD?
+
+To build the app:
+> $ docker build -t <newimagename> .

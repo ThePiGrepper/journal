@@ -50,7 +50,7 @@ st mod
 == ARRANGE THIS! ==
 libvirt
 qemu: juniper, esxi,
-Vagrant
+Valgrant
 qemu/kvm
 
 $ cat ~/.mpv/config

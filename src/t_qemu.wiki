@@ -1,0 +1,38 @@
+== QEMU ==
+(tested with Arch)
+- install packages for ARM emulation: qemu qemu-arch-extra
+* if debian/ubuntu: qemu qemu-kvm-extras
+== running u-boot for raspberry using QEMU ==
+- First, tried to compile and run u-boot for another machine:
+  $ make vexpress_ca9x4_defconfig CROSS_COMPILE=arm-none-eabi-
+  $ make all CROSS_COMPILE=arm-none-eabi-
+  $ qemu-system-arm -machine vexpress-a9 -nographic -no-reboot -kernel u-boot
+
+- It booted successfully:
+    pulseaudio: set_sink_input_volume() failed
+    pulseaudio: Reason: Invalid argument
+    pulseaudio: set_sink_input_mute() failed
+    pulseaudio: Reason: Invalid argument
+
+
+    U-Boot 2018.03-rc4-00022-g6d7403bf72 (Mar 12 2018 - 10:35:10 -0500)
+
+    DRAM:  128 MiB
+    WARNING: Caches not enabled
+    Flash: 128 MiB
+    MMC:   MMC: 0
+    *** Warning - bad CRC, using default environment
+
+    In:    serial
+    Out:   serial
+    Err:   serial
+    Net:   smc911x-0
+    Hit any key to stop autoboot:  0
+    =>
+
+== booting a raspbian image w/QEMU ==
+It works fine using the following line:
+  $ qemu-system-arm -kernel <path/to/QEMU/kernel> -cpu arm1176 -m 256 -M versatilepb -serial stdio -append "root=/dev/sda2 -panic 1 rootfstype=ext4 rw" -hda <path/to/raspbian/image>
+  *The QEMU kernel for the raspberry pi was downloaded from https://github.com/dhruvvyas90/qemu-rpi-kernel.git .
+  ** It would be useful to know how to compile it from source.
+
