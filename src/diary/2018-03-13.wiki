@@ -1,0 +1,24 @@
+
+
+
+
+
+== Extract/Merge Subtitles and MKVs ==
+- tested with Arch.
+- download the package: mkvtoolnix-cli
+- to extract the subtitle, first identify the track number of the subtitle.
+ > $ mkvmerge -i <filename>
+- it will return something like:
+
+	File 'name of file.mkv': container: Matroska
+	Track ID 0: video (MPEG-4p10/AVC/h.264)
+	Track ID 1: audio (AAC)
+	Track ID 2: subtitles (SubStationAlpha)
+	Attachment ID 1: type 'application/x-truetype-font', size 221328 bytes, file name 'OpenSans-Semibold.ttf'
+
+- The TRACK ID for the subtitles is 2, so to extract it use:
+	> mkvextract tracks <name of the MKV source file> <TRACK ID>:<name of the subtitle>
+	ie: mkvextract tracks video.mkv 2:subtitle.srt
+
+- to merge a subtitle with a MKV file, use the following:
+	mkvmerge -o <output.mkv> <input.mkv> <subtitle.srt> //I dont know if an srt is needed. It might not be.
