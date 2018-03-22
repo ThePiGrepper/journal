@@ -1,0 +1,110 @@
+== LAMP,Wordpress, Webmin ==
+
+== Install LAMP ==
+- tested with ubuntu 16.04
+	== Install Apache ==
+	- Install apache: apache2
+	- To check Apache configuration for syntax errors: # apachectl configtest
+	- Edit: /etc/apache2/apache2.conf, and add the following line at the bottom:
+		ServerName <Domain or IP>
+	* This avoids a warning from the last command.
+		== Move Apache Web Root to another location ==
+		- edit /etc/apache2/apache2.conf:
+		<Directory /var/www/> //<<that is the default directory, change it to new location
+			Options Indexes FollowSymLinks
+			AllowOverride None
+			Require all granted
+		</Directory>
+		- edit /etc/apache2/sites-available/000-default.conf or copy it and edit the new document (ie: 001-test.conf)
+		- Replace the previous location at 'DocumentRoot' with the new one.
+    * If the config file is new (a copy), you need to enable it: # a2ensite 001-test.conf, and disable the default one: # a2dissite 000-default.conf
+    - A third file to configred is the ssl configuration file (if you're not enabling SSL, it's not required though).
+      - edit /etc/apache2/sites-available/default-ssl.conf:
+        - Change 'DocumentRoot' to the new location.
+	== Install MySQL ==
+	- Install MySQL: mysql-server
+	- run the following security script to remove some dangerous defaults:
+		$ mysql_secure_installation //respond accordingly
+	== Install PHP ==
+	- install packages: php libapache2-mod-php php-mcrypt php-mysql
+	- Change priority for 'index.php', edit /etc/apache2/mods-enabled/dir.conf, it should look like this:
+		DirectoryIndex index.php ... <the other ones>
+
+	- After each file modification, to see the changes, restart the service: # systemctl restart apache2.service
+
+	== TroubleShooting ==
+	- To check the status of an apache module (ie: php), use the following command: $ a2query -m php7.0
+	- To enable an apache module: # a2enmod php7.0, or disable: # a2dismod php7.0
+
+  == Installing Wordpress ==
+  - Enter to mysql prompt as root:
+    > $ mysql -u root -p
+  - Create a database for handling wordpress (db and user per wordpress instance is recommendable).
+    mysql> CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci
+  - Give all privileges of the database to the new user(and create such user in the same command, if it didnt exist).
+    mysql> GRANT ALL ON wordpress.* TO 'wordpressuser'@'localhost' IDENTIFIED BY 'password'
+  - Update changes. and exit.
+    mysql> FLUSH PRIVILEGES
+    mysql> EXIT;
+  - Install PHP modules needed by Wordpress. php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc
+  - Allow the use of .htaccess files. (Wordpress uses it). Edit /etc/apache2/apache2.conf
+		<Directory /var/www/html/>   //instead of /var/www/html, it should be the current root directory.
+			AllowOverride All
+		</Directory>
+  - Enable the Apache Rewrite module, to allow Wordpress permalink feature.
+    > # a2enmod rewrite
+  - Check if everything is OK with the syntax: # apache2ctl configtest
+  - Restart Apache. # systemctl restart apache2.service
+  - Download Wordpress: cd /tmp && curl -O https://wordpress.org/latest.tar.gz && tar xzvf latest.tar.gz
+  - Prepare some files before moving it under Apache root directory:
+    - create a dummy .htaccess and set permission so that Wordpress can modify it.
+    > $ touch /tmp/wordpress/.htaccess
+    > $ chmod 660 /tmp/wordpress/.htaccess
+    - edit template config file
+    > $ cp /tmp/wordpress/wp-config-sample.php /tmp/wordpress/wp-config.php
+    - create the 'upgrade' directory, it's better than to leave Wordpress to do it later.
+    > $ mkdir /tmp/wordpress/wp-content/upgrade
+    - copy wordpress directory to Apache root directory
+    > # cp -a /tmp/wordpress/. /var/www/html
+  - Configuring Wordpress:
+      - Adjusting Ownership and Permissions
+      > # chown -R <UNIX user>:www-data /var/www/html //www-data is group created by apache
+      - set the setgid bit on each directory under the wordpress directory. directories inherit its parent group.
+      > # find /var/www/html -type d -exec chmod g+s {} ;
+      - give write access to 'wp-content'
+      > # chmod g+w /var/www/html/wp-content
+      - Also give write access to all the content under following directories
+      > # chmod -R g+w /var/www/html/wp-content/themes
+      > # chmod -R g+w /var/www/html/wp-content/plugins
+      - Secure salt for KEYs:
+        > $ curl -s https://api.wordpress.org/secret-key/1.1/salt/
+        - edit ./wp-config.php and replace the previous values into the respective lines.
+      - edit ./wp-config.php and add DB_NAME, DB_USER and DB_PASSWORD values.
+  - enter to the site and finish the configuration there.
+  == updating Wordpress ==
+  - the previous configuration is too restrictive to allow updating through the interface, so:
+    - enable modification of the whole file for anyone on the group 'www-data'
+    > # chown -R www-data /var/www/html
+    - after updating using the interface, lock the permission again
+    > # chown -R <UNIX user> /var/www/html
+  - Reference: https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lamp-on-ubuntu-16-04
+
+  == Migrating Wordpress using Duplicator plugin ==
+  - Create a directory to place all backup files (zip package and php installer).
+  - additional php modules are needed to extract files: php-zip
+  - you need to give write permissions to the directory containing both files.
+  - the installer is straightforward. one issue which can end up in wordpress not working is incompatible plugins. disable them during installation(not all necessarily).
+  - restart apache for it to take effect.
+  - Reference: https://www.wpkube.com/move-backup-website-wordpress-duplicator-plugin/
+
+- Additional Info related to Apache configuration:
+  - https://www.digitalocean.com/community/tutorials/how-to-configure-the-apache-web-server-on-an-ubuntu-or-debian-vps
+  - https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-centos-6 Setting up virtual hosts
+  - https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-16-04 -- How to set up TLS/SSL certificate from Let's Encrypt.
+
+TODO:
+- Redirect subdomain to directories:
+  - https://www.digitalocean.com/community/questions/how-do-i-add-sub-domain-and-make-it-point-to-a-certain-directory
+  - https://serverfault.com/questions/245860/how-to-make-a-directory-in-site-root-a-subdomain
+  - https://stackoverflow.com/questions/11523258/apache-map-single-subdomain-to-folder
+  - https://muffinresearch.co.uk/redirecting-subdomains-to-directories-in-apache/
