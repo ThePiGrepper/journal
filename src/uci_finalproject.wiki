@@ -126,6 +126,15 @@ also: u-boot/include/configs/pcm052.h)
   - grep -ri vybrid /usr/share/openocd/scripts
   - there are a few scripts for the the CPU and for different boards. maybe it works...
   - OpenSDA. it uses a MK20DX128VLF5 CM4-based MCU as a debug/usb interface.(ie: stlink w/stm32f103)
+- buildroot
+  - configuration:
+    $ make menuconfig
+    = System configuration =
+    - [ ] differences between:
+      - static using device table
+      - dynamic using devtmpfs only
+      - dynamic using devtmpfs only + mdev
+      - dynamic using devtmpfs only + eudev
 
 - Extract zImage from uImage:(??? untested)
 Thanks for your reply, I have successfully extract the uImage to a piggy file. Following is the procedure:
