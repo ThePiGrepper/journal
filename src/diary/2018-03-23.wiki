@@ -1,0 +1,59 @@
+
+
+
+
+
+== Compile input file as stdin, language as C, with gcc ==
+- the only addition is the '-x' option to define the language as C:
+  ie: flex -t lexer.l | gcc -o lexer.o -xc -
+
+== Embedded Linux ==
+Let's think this through:
+Where are we?
+  - Kernel is not being booted successfully by u-boot.
+  - U-boot apparently works OK, it needs to be modified in some ways for it to work seamlessly:
+    - modify autoboot for SD cards, instead of using NAND by default.
+    - after running 'make pcm052_defconfig', run 'make menuconfig' to customize the build.
+    - any command needed to boot successfully the kernel need to be added(these are TBD).
+  - So, tasks would be:
+    - [ ] Test u-boot modifications using QEMU. Build u-boot for a QEMU-supported board.
+    - [ ] Apply all the modifications stated previously to u-boot and test on board.
+  - Find out why the boot process is not working. Way of finding this out?
+    - [ ] Add QEMU supported board to Linux kernel and try booting it directly using QEMU.
+Current Status:
+  - Trying to modify kernel at ext/vybrid/OS/linux so that it's possible to emulate using QEMU.
+    - There's a base config for reference at ext/vybrid/buildroot/configs/kernel.
+    - Diff it to the one currently at ext/vybrid/OS/linux.
+  - the idea is to run it using something like 'qemu-system-arm -kernel zImage -cpu arm1176 -m 256 -M versatilepb -serial stdio -append "root=/dev/sda2 -panic 1 rootfstype=ext4 rw" -hda ~/work/rpi/raspbian/tmp.img', but without the raspbian image ofc, maybe using the rootfs built with buildroot.
+  - An ongoing experiment regarding linking with stm32:
+    - Currently reading 'info ld' at 'Output Section LMA'.
+    - using ./simple_test/ project. a modified copy of linker file is on linker_scripts. modify build.ninja.
+    - understand how the init code at startup_stm32fxxxx.s works (how data is copied to RAM).
+    - using: arm-none-eabi-objdump -x sample_project.elf |less , we search for differences in the elf file.
+
+- Some points regarding linker scripts:
+  - [X] ENTRY keyword is not really needed for MCU programming. vector table is already at the beginning of the memory region.
+    - this seems true. Especially because the elf file is not actually being loaded into the MCU flash, what is happening is:
+      - everything is being loaded as their LMAs dictate. the vector table is at the start of the ROM region. the first address is stack address,then Reset_Handler and so.
+      - if the program had been loaded by an OS, or a kind of loader which can handle elf files, in that case the ENTRY command would have been needed.
+      - the initialization routine (what's in Reset_Handler() on the startup_stm32fxxxx.s files) copies all .data to RAM. and then continues with clocks and stuff.
+  - [ ] Boot a second application from a primary 'mini bootloader' might be simpler than originally thought:
+    - Apparently you would need to:
+      - compile a program which LMA is BASE_ADDR(0x08000000)+APP_OFFSET(0x00001000), instead of BASE_ADDR.
+      * Optionally RAM's VMA could be offset too, to avoid conflict with bootloader.
+      * flash such a program at the offset address.
+      * flash the bootloader at the base address.
+      - Bootloader should do basically two things:
+        - Move vector table to BASE_ADDR+APP_OFFSET.
+        - And then jump to (BASE_ADDR+APP_OFFSET)+1 (Thumb instruction)
+  - [X] objdump is useful to disassemble directly from an zImage:
+    - arm-none-eabi-objdump -EL -b binary -D -m armv5t zImage
+    - reference:
+      - https://www.embeddedrelated.com/showarticle/900.php - elf files/binutils.
+      - https://medium.com/@MrJamesFisher/understanding-the-elf-4bd60daac571 - elf format
+    - Difference between LMA and VMA in linker scripts:
+      - LMA is the address where the image/program is going to be loaded.
+      - VMA is the address where the image/program is going to be executed.
+      - The difference occurs mainly when the data section is loaded into ROM(flash), and then
+        copied into RAM when the program starts up. In this case, ROM address(LMA),RAM address(VMA).
+      - One way to inspect this is by: readelf -l <elf_file>
