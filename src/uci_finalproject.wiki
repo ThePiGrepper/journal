@@ -3,3 +3,161 @@
 == Project: Linux System setup on Vybrid Board ==
 Board Name/model: Cosmic Board+ (POB-001)
 SoC Model: NXP VF6xx Family (A5 + M4)
+
+Model: PHYTEC Cosmic+ Board
+POB-052-CP
+BSP Ver. Linux PD13.1.0
+SOM PCB 1395.0
+CB(Cosmic Board) PCB 1393.1
+
+Cosmic Board Vybrid (PCL-052)
+* PCL and PCM are basically the same, but are NOT exactly the same board. PCL refers to PHYCore, and PCM refers to CosmicBoard.
+* The difference is mainly in the PCB connector. Apparently there aren't visible diffirences, so the configuration options should work on both.
+
+Product No: PCM-052/PCM-952
+Specs:
+- 256MB DDR3
+- 512MB NAND
+
+- 32MB SPI**
+
+== Questions: ==
+- [X] How to boot the board?
+  - The board can boot from NAND flash and from the micro SD, depending on the boot pins configuration.
+  * Apparently, the board can boot from other devices(SPI-flash,UART/USB0), but it's limited by the 'Carrier board' to just the two.
+- [X] How to use u-boot with this board?
+  - Because one of the main goals is to boot everything with up-to-date software. I downloaded the u-boot git repository from https://github.com/u-boot/u-boot.git .
+  - The old sourcecode apparently had a u-boot fork, because it wasn't supported in mainline at the time. Fortunately, now it is.
+  - After grepping for anything in the u-boot source with the word 'vybrid'(the processor family), I came out with several mentions of 'pcm052',
+    which is the name of the main board product number. Grepping for that, I found a config file!!!
+  - The I run the appropiate commands:
+    $ export CROSS_COMPILE=arm-none-eabi-
+    $ make pcm052_defconfig
+    $ make u-boot.imx
+  - To test if this worked with the board. I used a clean microSD, and copied the u-boot.imx file at 0x400.
+    # dd if=u-boot.imx of=/dev/<sd-card> bs=1k seek=1
+  - I connected the board's Serial port to my usb2serial adapter, accessed picocom and presto.
+
+      U-Boot 2018.03-00090-g735f397c14 (Mar 16 2018 - 14:01:46 -0500)
+
+      CPU: Freescale Vybrid VF610 at 396 MHz
+      Reset cause: EXTERNAL RESET
+      Model: Phytec phyCORE-Vybrid
+      Board: PCM-052
+      I2C:   ready
+      DRAM:  256 MiB
+      NAND:  512 MiB
+      MMC:   FSL_SDHC: 0
+      Loading Environment from NAND... *** Warning - bad CRC, using default environment
+
+      Failed (-5)
+      In:    serial@40028000
+      Out:   serial@40028000
+      Err:   serial@40028000
+      Net:   CPU Net Initialization Failed
+      No ethernet found.
+      Hit any key to stop autoboot:  0
+      =>
+
+  - Apparently there are some issues with NAND, and ethernet.., but everything else is just fine.
+  - The CPU information matches the info of my board. I dont know if this info is all hardcoded, or
+    at least the amount of memory and peripherals is polled at runtime. I'll need to take a look at that.
+    - [ ] What's the difference between u-boot.imx and u-boot.bin?
+    - [ ] Why is the following warning showing during boot? "Loading Environment from NAND... *** Warning - bad CRC, using default environment"
+
+
+**remember BitBake
+
+  - Started building kernel and rootfs, using buildroot:
+    - there was a compilation error during rootfs build:
+
+  - compiling the kernel without buildroot was relatively easy:
+    $ export CROSS_COMPILE=arm-none-eabi-
+    $ export ARCH=arm
+    $ make imx_v6_v7_defconfig
+    $ make zImage
+  - then, I had to compile the device tree files(.dts):
+    $ make dtbs
+  - this last command compiles ALL device tree files, which is probably the wrong way of doing it, since I only need 2 files for testing right now. vf610m4-cosmic.dts and vf610-cosmic.dts.
+  - Now, with this two files. I just need to copy them to the recently created FAT partition (partition1).
+  - Now let's test if u-boot actually reads this two files, when I changed their names to the ones u-boot expects to find in the partition.
+
+* the other config candidate is arch/arm/configs/multi_v7_defconfig
+
+Boot Process for Vybrid Processors:
+SD Boot: (Reference: VFXXXRM.pdf:Chapter 7.5.5.5.3)
+  0x00000000 ----> Reserved for MBR(optional)
+  0x00000200 ----> Reserved for secondary image table
+  0x00000400 ----> Program image(starting from IVT)
+Other Image Vector Table Offsets per boot device:
+  NOR     4kb   - 0x00001000
+  NAND    1kb   - 0x00000400
+  SD      1kb   - 0x00000400
+  I2C/SPI 1kb   - 0x00000400
+  QSPI    1kb   - 0x00000400
+
+Memory Map for Vybrid Processors:
+SDRAM:0x80000000
+Reference:
+VFXXXRM.pdf:page 976 (7.5.6.2.1)
+also: u-boot/include/configs/pcm052.h)
+
+
+== Unrelated(for now) ==
+- To check tools compatibility with the kernel, go to Documentation/Changes
+- interesting files:
+  - arch/arm/boot/dts/vf610m4-cosmic.dts (apparently this one is for booting on the M4 core.)
+  - arch/arm/boot/dts/vf610-cosmic.dts
+  - vf610m4.dtsi
+  - vf610.dtsi
+  - arch/arm/configs/vf610m4_defconfig
+
+  - Documentation/devicetree/bindings/arm/fsl.txt
+- board-specific kernel topics:
+  - pinctrl: https://cateee.net/lkddb/web-lkddb/PINCTRL_VF610.html
+    - look at:  Documentation/devicetree/bindings/pinctrl/fsl,imx-pinctrl.txt
+                Documentation/devicetree/bindings/pinctrl/fsl,vf610-pinctrl.txt
+
+- at u-boot/board/phytec/pcm052/imximage.cfg: *this is important!! there's an available u-boot config!
+  - For im.x and similar boards(freescale), the boot offset for either flash or SD is 0x400.
+* more relevant information at doc/README.imximage
+
+- Debugging using openocd:
+  - grep -ri vybrid /usr/share/openocd/scripts
+  - there are a few scripts for the the CPU and for different boards. maybe it works...
+  - OpenSDA. it uses a MK20DX128VLF5 CM4-based MCU as a debug/usb interface.(ie: stlink w/stm32f103)
+
+- Extract zImage from uImage:(??? untested)
+Thanks for your reply, I have successfully extract the uImage to a piggy file. Following is the procedure:
+	1. Use the script (http://buffalo.nas-central.org/wiki/How_to_Extract_an_uImage), which will extract uImage to zImage;
+	2. Use following command:arm_v5t_le-objdump -EL -b binary -D -m armv5t zImage | grep 8b1f, this will find the offset of real kernel code in zImage, e.g. skip the self decompress code.
+	3. Use dd if=zImage of=piggy.gz bs=1 skip="offset found in setp 2" | gunzip piggy.gz. After this command, we will get a piggy file, which contains pure kernel code, but this is only a binary format, not a ELF format, so IDA can not diassemble it
+
+
+ Read:
+	- Documentation/arm/Booting
+	- Documentation/arm/README
+
+== Interesting links ==
+  - https://community.nxp.com/thread/308546 - regarding enabling/using other UARTs besides default one. Not possible by build from manufacturer.
+  - https://www.timesys.com/activate-linuxlink-vybrid/ - Timesys saying that there's no longer any support for VFxxx processors.
+  == Phytec Links ==
+    - https://wiki.phytec.com/display/public/PRODUCTINFO/Software+BSPs
+    - https://wiki.phytec.com/display/public/PRODUCTINFO/Cosmic+Board-Vybrid+Quickstart+QS1.0
+    - https://wiki.phytec.com/display/public/PRODUCTINFO/PhyCORE-Vybrid+Linux+Quickstart+PD13.0.x
+    - https://wiki.phytec.com/display/public/PRODUCTINFO/PhyCORE-Vybrid+Quickstart+QS1.0
+    - https://freescale.github.io/doc/release-notes/1.6/index.html
+  - https://falstaff.agner.ch/2015/05/17/u-boot-command-to-boot-vybrids-cortex-m4-core/ - An awesome project/blog about booting Linux on the M4 Core of the Vybrid!!
+    - https://lwn.net/Articles/624242/
+  == Using openOCD with board ==
+  - https://antmicro.com/blog/2015/06/openocd-vybrid/
+  - https://www.toradex.com/community/questions/21094/help-in-debugging-the-cortex-m4-core-on-the-vybrid.html
+  - https://community.nxp.com/thread/309972
+  - https://github.com/ndreys/zodiac-openocd/wiki/Executing-custom-ELF-file-on-Vybrid-with-OpenOCD-GDB
+
+  == Tools ==
+  - https://github.com/labgrid-project/labgrid - labgrid
+  - https://www.barebox.org/ - barebox
+  - https://github.com/rauc/rauc - RAUC
+  - https://busybox.net/ - busybox
+  - https://t2sde.org/ - t2s embedded linux distro
