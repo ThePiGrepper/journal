@@ -8,6 +8,7 @@
 - create a folder for the project.
 - create a virtual environment to install django et al.
   > virtualenv <env_folder>
+- to access the virtual environment: $ source <env_folder>/bin/activate
 - install django and djangorestframework.
   > pip install django djangorestframework , or
   > pip install -r requirements.txt , in which the packages are listed.
@@ -25,3 +26,4 @@
   > python manage.py migrate
 - to run the server, do:
   > python manage.py runserver
+- to exit the virtual environment: $ deactivate
