@@ -30,3 +30,6 @@ Idea Pool:
   - But data going outwards to the remote machine from gtkterm worked in a weird way. I had to send twice the same package because first try always failed.
   - I dont know if that's a networking issue, maybe the first message/packet was packaged in a different way and it never got sent out.
   - Wireshark confirms it. the first package was NOT sent out at all, only the second one. I dont know what's happening, I'll fix this later(I think).
+
+  - To pipe two pts back-to-back, and create symlinks for them, use:
+    > # socat pty,raw,echo=0,link=/dev/ttyS20 pty,raw,echo=0,link=/dev/ttyS21
