@@ -5,7 +5,7 @@
 
 == docker: first steps ==
 image: executable package that includes everything needed to run an application(code,runtime,libraries,env variables,conf files).
-container: runtime instance of an image. It's what the image becones in memory when executed(a user process basically).
+container: runtime instance of an image. It's what the image becomes in memory when executed(a user process basically).
 
 docker ps [--all] : list running containers
 
