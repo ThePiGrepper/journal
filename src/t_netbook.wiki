@@ -1,0 +1,294 @@
+
+
+
+
+
+== HP Mini 210-4000 Mod ==
+* Enabling WWAN mini PCIe slot:
+  - The idea is to create a mini-Pcie board connected to the laptop via USB:
+    - Main issue with this is that the laptop BIOS wont allow any USB device not in the Whitelist:
+      - Known whitelisted devices are:
+        - hs2350 HSPA+(668969-001)
+        - hs2340 HSPA+(632155-001)
+          - Hardware ID: USB:VID_03f0 & PID_3A1D
+        - Ic2010 HSPA (612600-001)
+        - Ic2000 HSPA (612599-001)
+      - Probably whitelisted devices:
+        - hs2320
+          - Hardware ID: USB\VID_03f0&PID_261D
+        - hs2330
+          - Hardware ID: USB\VID_03f0&PID_271d
+      - The 'obvious' way around this is to pretend to be one of these devices:
+    - Windows driver: https://www.wireless-driver.com/hp-hs2320-hs2330-hs2340-windows-xp-vista-win7-drivers-utility/
+      - http://ftp.hp.com/pub/softpaq/sp66501-67000/sp66584.exe
+    - Kernel module needed: cdc-wdm  // https://lwn.net/Articles/216767/
+                            cdc_ncm //maybe
+    - USB IDs list: http://www.linux-usb.org/usb.ids
+    - Dump from device (external source):
+    - https://forums.opensuse.org/showthread.php/462549-HP-hs2340-HSPA-MobileBroadband-modem-with-openSUSE-11-4
+    - https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=629950
+    - https://bugs.launchpad.net/ubuntu/+source/modemmanager/+bug/792301
+      - Output from dmesg:
+        [    2.575429] usb 1-1.2: New USB device found, idVendor=03f0, idProduct=3a1d
+        [    2.575439] usb 1-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+        [    2.575451] usb 1-1.2: Product: HP hs2340 HSPA+ MobileBroadband
+        [    2.575452] usb 1-1.2: Manufacturer: HP
+        [    2.575453] usb 1-1.2: SerialNumber: 21B934309B30DA70
+
+      - Output from lsusb -vs 001:004 | grep -P '\:|Class|Vendor|Product|Interface|Protocol' (otherwise the post is too long)
+          Bus 001 Device 004: ID 03f0:3a1d Hewlett-Packard
+          Device Descriptor:
+            bDeviceClass            2 Communications
+            bDeviceSubClass         0
+            bDeviceProtocol         0
+            idVendor           0x03f0 Hewlett-Packard
+            idProduct          0x3a1d
+            iProduct                2 HP hs2340 HSPA+ MobileBroadband
+            Configuration Descriptor:
+              bNumInterfaces         11
+              Interface Descriptor:
+                bInterfaceNumber        0
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass      8 Wireless Handset Control
+                bInterfaceProtocol      0
+                iInterface              5 HP hs2340 HSPA+ Mobile Broadband USB Device
+                CDC Header:
+                CDC WHCM:
+                CDC Union:
+                  bMasterInterface        0
+                  bSlaveInterface         1 2 3 4 5 6 7 8 9 10
+              Interface Descriptor:
+                bInterfaceNumber        1
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass      2 Abstract (modem)
+                bInterfaceProtocol      1 AT-commands (v.25ter)
+                iInterface              6 HP hs2340 HSPA+ Mobile Broadband Modem
+                CDC Header:
+                CDC Union:
+                  bMasterInterface        1
+                  bSlaveInterface         2
+                CDC Call Management:
+                    use DataInterface
+                  bDataInterface          2
+                CDC ACM:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        2
+                bInterfaceClass        10 CDC Data
+                bInterfaceSubClass      0 Unused
+                bInterfaceProtocol      0
+                iInterface              7 HP hs2340 HSPA+ Mobile Broadband Modem
+                Endpoint Descriptor:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        3
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass      2 Abstract (modem)
+                bInterfaceProtocol      1 AT-commands (v.25ter)
+                iInterface              8 HP hs2340 HSPA+ Mobile Broadband Data Modem
+                CDC Header:
+                CDC Union:
+                  bMasterInterface        3
+                  bSlaveInterface         4
+                CDC Call Management:
+                    use DataInterface
+                  bDataInterface          4
+                CDC ACM:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        4
+                bInterfaceClass        10 CDC Data
+                bInterfaceSubClass      0 Unused
+                bInterfaceProtocol      0
+                iInterface              9 HP hs2340 HSPA+ Mobile Broadband Data Modem
+                Endpoint Descriptor:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        5
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass      9 Device Management
+                bInterfaceProtocol      1
+                iInterface             10 HP hs2340 HSPA+ Mobile Broadband Device Management
+                CDC Header:
+                CDC Device Management:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        6
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass     13
+                bInterfaceProtocol      0
+                iInterface             11 HP hs2340 HSPA+ Mobile Broadband Network Adapter
+                CDC Header:
+                CDC Union:
+                  bMasterInterface        6
+                  bSlaveInterface         7
+                CDC Ethernet:
+                UNRECOGNIZED CDC:  06 24 1a 00 01 1b
+                UNRECOGNIZED CDC:  16 24 16 00 01 0d 2e 23 bb ae c1 88 11 df bc dc d9 c6 df d7 20 85
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        7
+                bInterfaceClass        10 CDC Data
+                bInterfaceSubClass      0 Unused
+                bInterfaceProtocol      0
+                iInterface             14 HP hs2340 HSPA+ Mobile Broadband Network Adapter
+              Interface Descriptor:
+                bInterfaceNumber        7
+                bInterfaceClass        10 CDC Data
+                bInterfaceSubClass      0 Unused
+                bInterfaceProtocol      1
+                iInterface             15 HP hs2340 HSPA+ Mobile Broadband Network Adapter
+                Endpoint Descriptor:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        8
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass      9 Device Management
+                bInterfaceProtocol      1
+                iInterface             16 HP hs2340 HSPA+ Mobile Broadband USIM
+                CDC Header:
+                CDC Device Management:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        9
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass      2 Abstract (modem)
+                bInterfaceProtocol      1 AT-commands (v.25ter)
+                iInterface             17 HP hs2340 HSPA+ Mobile Broadband NMEA
+                CDC Header:
+                CDC Union:
+                  bMasterInterface        9
+                  bSlaveInterface         10
+                CDC Call Management:
+                    use DataInterface
+                  bDataInterface          10
+                CDC ACM:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber       10
+                bInterfaceClass        10 CDC Data
+                bInterfaceSubClass      0 Unused
+                bInterfaceProtocol      0
+                iInterface             18 HP hs2340 HSPA+ Mobile Broadband NMEA
+                Endpoint Descriptor:
+                Endpoint Descriptor:
+            Configuration Descriptor:
+              bNumInterfaces          9
+              Interface Descriptor:
+                bInterfaceNumber        0
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass      8 Wireless Handset Control
+                bInterfaceProtocol      0
+                iInterface              5 HP hs2340 HSPA+ Mobile Broadband USB Device
+                CDC Header:
+                CDC WHCM:
+                CDC Union:
+                  bMasterInterface        0
+                  bSlaveInterface         1 2 3 4 5 6 7 8
+              Interface Descriptor:
+                bInterfaceNumber        1
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass      2 Abstract (modem)
+                bInterfaceProtocol      1 AT-commands (v.25ter)
+                iInterface              6 HP hs2340 HSPA+ Mobile Broadband Modem
+                CDC Header:
+                CDC Union:
+                  bMasterInterface        1
+                  bSlaveInterface         2
+                CDC Call Management:
+                    use DataInterface
+                  bDataInterface          2
+                CDC ACM:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        2
+                bInterfaceClass        10 CDC Data
+                bInterfaceSubClass      0 Unused
+                bInterfaceProtocol      0
+                iInterface              7 HP hs2340 HSPA+ Mobile Broadband Modem
+                Endpoint Descriptor:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        3
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass      2 Abstract (modem)
+                bInterfaceProtocol      1 AT-commands (v.25ter)
+                iInterface              8 HP hs2340 HSPA+ Mobile Broadband Data Modem
+                CDC Header:
+                CDC Union:
+                  bMasterInterface        3
+                  bSlaveInterface         4
+                CDC Call Management:
+                    use DataInterface
+                  bDataInterface          4
+                CDC ACM:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        4
+                bInterfaceClass        10 CDC Data
+                bInterfaceSubClass      0 Unused
+                bInterfaceProtocol      0
+                iInterface              9 HP hs2340 HSPA+ Mobile Broadband Data Modem
+                Endpoint Descriptor:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        5
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass      9 Device Management
+                bInterfaceProtocol      1
+                iInterface             10 HP hs2340 HSPA+ Mobile Broadband Device Management
+                CDC Header:
+                CDC Device Management:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        6
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass     13
+                bInterfaceProtocol      0
+                iInterface             11 HP hs2340 HSPA+ Mobile Broadband Network Adapter
+                CDC Header:
+                CDC Union:
+                  bMasterInterface        6
+                  bSlaveInterface         7
+                CDC Ethernet:
+                UNRECOGNIZED CDC:  06 24 1a 00 01 1b
+                UNRECOGNIZED CDC:  16 24 16 00 01 0d 2e 23 bb ae c1 88 11 df bc dc d9 c6 df d7 20 85
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        7
+                bInterfaceClass        10 CDC Data
+                bInterfaceSubClass      0 Unused
+                bInterfaceProtocol      0
+                iInterface             14 HP hs2340 HSPA+ Mobile Broadband Network Adapter
+              Interface Descriptor:
+                bInterfaceNumber        7
+                bInterfaceClass        10 CDC Data
+                bInterfaceSubClass      0 Unused
+                bInterfaceProtocol      1
+                iInterface             15 HP hs2340 HSPA+ Mobile Broadband Network Adapter
+                Endpoint Descriptor:
+                Endpoint Descriptor:
+              Interface Descriptor:
+                bInterfaceNumber        8
+                bInterfaceClass         2 Communications
+                bInterfaceSubClass      9 Device Management
+                bInterfaceProtocol      1
+                iInterface             16 HP hs2340 HSPA+ Mobile Broadband USIM
+                CDC Header:
+                CDC Device Management:
+                Endpoint Descriptor:
+            Configuration Descriptor:
+              bNumInterfaces          1
+              Interface Descriptor:
+                bInterfaceNumber        0
+                bInterfaceClass         8 Mass Storage
+                bInterfaceSubClass      6 SCSI
+                bInterfaceProtocol     80 Bulk (Zip)
+                iInterface             21 ST-Ericsson CD-ROM
+                Endpoint Descriptor:
+                Endpoint Descriptor:
+          Device Qualifier (for other device speed):
+            bDeviceClass            2 Communications
+            bDeviceSubClass         0
+            bDeviceProtocol         0
+          Device Status:     0x0000
