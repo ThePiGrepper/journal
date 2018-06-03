@@ -1,0 +1,8 @@
+
+
+
+
+
+== Project Frankenstein ==
+- Parts:
+  - Keyboard Connector: ABA-FPC-014-130-K (FPC, Pitch 1.0, Height 2.55mm, 30 Pin, 10u'' Gold, Lead Free)
