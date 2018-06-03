@@ -1,0 +1,125 @@
+
+
+
+activos = pasivos + patrimonio
+
+activos corrientes: todos los activos q se tienen q cobrar en corto plazo(<1 ano).
+activo no corriente/fijo:
+pasivo a corto plazo: deudas (tributos,etc)
+pasviso no corriente/no circulante/largo plazo:
+
+patrimonio: objetivo de la empresa. sale del estado de resultados.
+
+
+bono: se compra en el mercado de capitales.
+
+*todos los activos se deprecian, excepto el terreno.
+depreciacion anual: metodo lineal. (=valor en libros relativo fijo* tasa anual(%)) //tasa anual es dado por SUNAT.
+
+Reserva Legal:
+
+Estado de resultados: ventas menos gastos de ventas
+
+principio del devengado - registrar las cosas cuando se emite la transaccion(factura), no cuando se recibe/entrega el dinero "realmente".
+
+
+- una transaccion economica SIEMPRE afecta al estado financiero(activo,pasivo,patrimonio), sin embargo, una transaccion financiera no necesariamente afecta el estado economico(estado de resultados).
+
+
+
+liquidez: capacidad de pagar a acreedores.(dinero en banco??)
+solvencia: capacidad de recibir un prestamo
+
+
+--------------------------------------
+Gestion de Proyectos:
+Proceso de Gestion de la integracion:
+
+control de $(curso 2), sobre:
+Sobre PMBOK
+- integracion
+- alcance
+- tiempo (exposicion proxima semana)
+
+--------------------------------------
+Metodologia: dice *como* hacer la tarea.
+ISO: dice *que* hacer (etapas y procesos).
+
+
+
+scrum:
+- se divide en sprints.
+- dentro de cada sprint, SCRUM gestiona la evolucion del proyecto, mediante reuniones de seguimiento.
+- Projct Charter: acta de constitucion del proyecto.
+- Artifacts:
+  - Product Backlog (Pila del producto) - lista de deseos sobre las funcionalidades del producto.
+  - Ejemplo:
+    | ID | Name of requirement | Description | priority | sprint # | module description |
+  - Story:
+    - As a <type of user>, I want <some goal> so that <some reason>. (Como <rol>, quiero <functionalidad> para <proposito>)
+
+
+- gestion de proyectos:
+  - presentacion sobre 'gestion de las adquisiciones del proyecto' de PMBOK
+
+
+
+
+- el curso del domingo(nombre pendiente)
+  - modelo CAPM
+
+
+  - td = tlr + beta(tm-tlr)
+    * (tm - tlr): prima de riesgo del mercado
+  - td: tasa de descuento que se usa para actualizar los flujos futuros del proyecto a evaluar.
+    - tm: rentabilidad del mercado. (S&P500: Standard & Poor's 500)
+    - tlr: tasas libre de riesgo:rentabilidad de los bonos del tesoro americano a 10y
+    - Beta: Riesgo del sector con respecto al mercado(www.damodaran.com)
+    - link: http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/Betas.html
+
+  - Beta_apalancada = Beta_desapalancada(1+(1-T)*D/E)
+    - Beta_apalancada: traido al Peru
+    - Beta_desapalancada: www.damodaran.com
+    - T: Impuesto a la renta(29.5%)
+    - D: Deuda
+    - E: capital propio
+
+- Ejemplo:
+  - TIR = 14%
+  - Beta = 0.6
+  - ter = 4%
+  - tm = 14%
+  1) td = 4% + 0.6(14%+4%) = 10%
+    Como la TIR(14%) es mayor que td(10%), el proyecto se aprueba.
+  2) formulas relevantes:
+  * Tasa de descuento(td) = tasa de rentabilidad esperada por el accionista
+  Para flujos Perpetuos:
+    P = VF/CoK (CoK: costo de oportunidad)
+    VPN= -Io + VF/CoK
+     Para flujos diferentes con periodo de tiempo:
+       VP = F1/(1+i) + F2/(1+i)^2 + ... + Fn/(1+i)^n
+       VPN = -Io + F1/(1+i) + F2/(1+i)^2 + ... + Fn/(1+i)^n
+
+  a) Flujo Perpetuo = $10000
+     Beta = 0.4
+     tlr = 4%
+     tm = 12%
+     CoK = td = 4% + 0.4(12% - 4%) = 7.2%
+     VP = 10000/7.2% = $138889
+  b) Beta = 0.6
+     CoK = 4% + 0.6(12%-4%) = 8.8%
+     VP = 10000/8.8% = $113636
+    Delta: $138889 - $113536 = $25253(disminucion del valor presente, consecuencia del incremento del beta(indicador de riesgo)
+
+  1) tlr = 6%
+     tm = 14%
+     beta = 1.25
+     rentabilidad estimada = 16%
+
+     Cok = 6% + 1.25(14% - 6%) = 16% -> estuvo estimado correctamente
+
+  2) inversion(t0: 50000)
+  3) VPN = -50 + 15[((1+0.152)^5 -1)/((1+0.152)^5*0.152)] = 0.06 >
+
+
+  rentabilidad_real_accion = (Pf - Po + d)/Po
