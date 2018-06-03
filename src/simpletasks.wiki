@@ -68,3 +68,4 @@
       [[diary/2018-01-31#better]]
 * [ ] create temperature monitor add-on for tmux:
   * [ ] check 'sensors' command from 'lm_sensors' package.
+* [ ] test gtypist
